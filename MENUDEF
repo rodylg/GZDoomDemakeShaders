@@ -1,0 +1,25 @@
+AddOptionMenu "OptionsMenu"
+{
+	StaticText " "
+	SubMenu "Demake Shaders Options", "DemakeShadersOptionsMenu"
+}
+
+OptionValue "DemakeShadersPalette"
+{
+	0, "None"
+	1, "Monochrome"
+	2, "2-bit Greyscale"
+	3, "4-bit Greyscale"
+	4, "8-bit Greyscale"
+}
+
+OptionMenu "DemakeShadersOptionsMenu"
+{
+	Title "Demake Shaders Options"
+	StaticText " "
+	StaticText "Palette", "Gold"
+	StaticText " "
+	Option "Palette", "gl_demakeshaders_palette", "DemakeShadersPalette"
+	Slider "Dithering", "gl_demakeshaders_paldither", 0, 1, 0.0078125, 3
+	SafeCommand "Reset Dither Value to Default", "event resetdemakeshadersvars 0"
+}

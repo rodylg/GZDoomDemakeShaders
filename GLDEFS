@@ -1,0 +1,189 @@
+// Generic Color Spaces
+
+	//
+
+
+HardwareShader postprocess screen
+{
+	Name "Monochrome_palette"
+	Shader "shaders/glsl/mfx_palette_mod.fp" 330
+	Texture PalLUTTexture "textures/MonoCrom.png"
+	Uniform float paldither
+}
+
+HardwareShader postprocess screen
+{
+	Name "2bitGrayscale_palette"
+	Shader "shaders/glsl/mfx_palette_mod.fp" 330
+	Texture PalLUTTexture "textures/Gray2bit.png"
+	Uniform float paldither
+}
+
+HardwareShader postprocess screen
+{
+	Name "4bitGrayscale_palette"
+	Shader "shaders/glsl/mfx_palette_mod.fp" 330
+	Texture PalLUTTexture "textures/Gray4bit.png"
+	Uniform float paldither
+}
+
+HardwareShader postprocess screen
+{
+	Name "8bitGrayscale_palette"
+	Shader "shaders/glsl/mfx_palette_mod.fp" 330
+	Texture PalLUTTexture "textures/Gray8bit.png"
+	Uniform float paldither
+}
+
+HardwareShader postprocess screen
+{
+	Name "_palette"
+	Shader "shaders/glsl/mfx_palette_mod.fp" 330
+	Texture PalLUTTexture "textures/-.png"
+	Uniform float paldither
+}
+
+HardwareShader postprocess screen
+{
+	Name "_palette"
+	Shader "shaders/glsl/mfx_palette_mod.fp" 330
+	Texture PalLUTTexture "textures/-.png"
+	Uniform float paldither
+}
+
+HardwareShader postprocess screen
+{
+	Name "_palette"
+	Shader "shaders/glsl/mfx_palette_mod.fp" 330
+	Texture PalLUTTexture "textures/-.png"
+	Uniform float paldither
+}
+
+HardwareShader postprocess screen
+{
+	Name "_palette"
+	Shader "shaders/glsl/mfx_palette_mod.fp" 330
+	Texture PalLUTTexture "textures/-.png"
+	Uniform float paldither
+}
+
+HardwareShader postprocess screen
+{
+	Name "_palette"
+	Shader "shaders/glsl/mfx_palette_mod.fp" 330
+	Texture PalLUTTexture "textures/-.png"
+	Uniform float paldither
+}
+
+HardwareShader postprocess screen
+{
+	Name "_palette"
+	Shader "shaders/glsl/mfx_palette_mod.fp" 330
+	Texture PalLUTTexture "textures/-.png"
+	Uniform float paldither
+}
+
+HardwareShader postprocess screen
+{
+	Name "_palette"
+	Shader "shaders/glsl/mfx_palette_mod.fp" 330
+	Texture PalLUTTexture "textures/-.png"
+	Uniform float paldither
+}
+
+HardwareShader postprocess screen
+{
+	Name "_palette"
+	Shader "shaders/glsl/mfx_palette_mod.fp" 330
+	Texture PalLUTTexture "textures/-.png"
+	Uniform float paldither
+}
+
+HardwareShader postprocess screen
+{
+	Name "_palette"
+	Shader "shaders/glsl/mfx_palette_mod.fp" 330
+	Texture PalLUTTexture "textures/-.png"
+	Uniform float paldither
+}
+
+HardwareShader postprocess screen
+{
+	Name "_palette"
+	Shader "shaders/glsl/mfx_palette_mod.fp" 330
+	Texture PalLUTTexture "textures/-.png"
+	Uniform float paldither
+}
+
+HardwareShader postprocess screen
+{
+	Name "_palette"
+	Shader "shaders/glsl/mfx_palette_mod.fp" 330
+	Texture PalLUTTexture "textures/-.png"
+	Uniform float paldither
+}
+
+HardwareShader postprocess screen
+{
+	Name "_palette"
+	Shader "shaders/glsl/mfx_palette_mod.fp" 330
+	Texture PalLUTTexture "textures/-.png"
+	Uniform float paldither
+}
+
+HardwareShader postprocess screen
+{
+	Name "_palette"
+	Shader "shaders/glsl/mfx_palette_mod.fp" 330
+	Texture PalLUTTexture "textures/-.png"
+	Uniform float paldither
+}
+
+HardwareShader postprocess screen
+{
+	Name "_palette"
+	Shader "shaders/glsl/mfx_palette_mod.fp" 330
+	Texture PalLUTTexture "textures/-.png"
+	Uniform float paldither
+}
+
+HardwareShader postprocess screen
+{
+	Name "_palette"
+	Shader "shaders/glsl/mfx_palette_mod.fp" 330
+	Texture PalLUTTexture "textures/-.png"
+	Uniform float paldither
+}
+
+HardwareShader postprocess screen
+{
+	Name "_palette"
+	Shader "shaders/glsl/mfx_palette_mod.fp" 330
+	Texture PalLUTTexture "textures/-.png"
+	Uniform float paldither
+}
+
+HardwareShader postprocess screen
+{
+	Name "_palette"
+	Shader "shaders/glsl/mfx_palette_mod.fp" 330
+	Texture PalLUTTexture "textures/-.png"
+	Uniform float paldither
+}
+
+HardwareShader postprocess screen
+{
+	Name "_palette"
+	Shader "shaders/glsl/mfx_palette_mod.fp" 330
+	Texture PalLUTTexture "textures/-.png"
+	Uniform float paldither
+}
+
+HardwareShader postprocess screen
+{
+	Name "_palette"
+	Shader "shaders/glsl/mfx_palette_mod.fp" 330
+	Texture PalLUTTexture "textures/-.png"
+	Uniform float paldither
+}
+

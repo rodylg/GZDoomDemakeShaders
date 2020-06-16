@@ -1,0 +1,2 @@
+user int gl_demakeshaders_palette = 0;
+user float gl_demakeshaders_paldither = 0.0625;

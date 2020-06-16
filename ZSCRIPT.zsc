@@ -1,0 +1,63 @@
+version "3.3"
+
+Class DemakeShadersHandler : StaticEventHandler
+{
+	transient ui CVar	gl_demakeshaders_palette,
+						gl_demakeshaders_paldither;
+	override void RenderOverlay( RenderEvent e )
+	{
+		PlayerInfo p = players[consoleplayer];
+		if ( !gl_demakeshaders_paldither ) gl_demakeshaders_paldither = CVar.FindCVar('gl_demakeshaders_paldither');
+		if ( !gl_demakeshaders_palette ) gl_demakeshaders_palette = CVar.FindCVar('gl_demakeshaders_palette');
+		CVar palette = CVar.FindCVar('gl_demakeshaders_palette');
+		if ( palette )
+		{
+			switch ( palette.GetInt() )
+			{
+			case 1:
+				Shader.SetEnabled(p,"Monochrome_palette",true);
+				Shader.SetUniform1f(p,"Monochrome_palette","paldither",gl_demakeshaders_paldither.GetFloat());
+				Shader.SetEnabled(p,"8bitGrayscale_palette",false);
+				Shader.SetEnabled(p,"2bitGrayscale_palette",false);
+				break;
+			case 2:
+				Shader.SetEnabled(p,"2bitGrayscale_palette",true);
+				Shader.SetUniform1f(p,"2bitGrayscale_palette","paldither",gl_demakeshaders_paldither.GetFloat());
+				Shader.SetEnabled(p,"Monochrome_palette",false);
+				Shader.SetEnabled(p,"4bitGrayscale_palette",false);
+				break;
+			case 3:
+				Shader.SetEnabled(p,"4bitGrayscale_palette",true);
+				Shader.SetUniform1f(p,"4bitGrayscale_palette","paldither",gl_demakeshaders_paldither.GetFloat());
+				Shader.SetEnabled(p,"2bitGrayscale_palette",false);
+				Shader.SetEnabled(p,"8bitGrayscale_palette",false);
+				break;
+			case 4:
+				Shader.SetEnabled(p,"8bitGrayscale_palette",true);
+				Shader.SetUniform1f(p,"8bitGrayscale_palette","paldither",gl_demakeshaders_paldither.GetFloat());
+				Shader.SetEnabled(p,"4bitGrayscale_palette",false);
+				Shader.SetEnabled(p,"Monochrome_palette",false);
+				break;
+			default:
+				Shader.SetEnabled(p,"Monochrome_palette",false);
+				Shader.SetEnabled(p,"8bitGrayscale_palette",false);
+			}
+		}
+	}
+
+	override void ConsoleProcess( ConsoleEvent e )
+	{
+		PlayerInfo p = players[consoleplayer];
+		if ( e.Name ~== "resetdemakeshadersvars" )
+		{
+			switch( e.args[0] )
+			{
+			case 0:
+				if ( !gl_demakeshaders_palette ) gl_demakeshaders_palette = CVar.FindCVar('gl_demakeshaders_palette');
+				if ( !gl_demakeshaders_paldither ) gl_demakeshaders_paldither = CVar.FindCVar('gl_demakeshaders_paldither');
+				gl_demakeshaders_paldither.ResetToDefault();
+				break;
+			}
+		}
+	}
+}
