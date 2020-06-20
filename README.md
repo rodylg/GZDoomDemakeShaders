@@ -14,6 +14,11 @@ Doom has been ported to countless devices, most of which have enough processing 
 - [ ] **NTSC TV-output Color grading**
 
 ## Version History
+**0.0.2" (2020-06-19)**
+* Added NES, Sega Master System, Apple II, Atari Series and WS-Teletext palettes.
+* Optimizations to the Palette shader. (Precalculated dithering index matrix, new CLUT format)
+* Changed the default value for dithering.
+
 **0.0.1 (2020-06-16)**
 * Implemented the modified MariFX's Palette Reduction w/ Dither GLSL shader.
 * Added Greyscale and monochrome palettes to test this prototype.
