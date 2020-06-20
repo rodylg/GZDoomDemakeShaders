@@ -4,46 +4,191 @@ Class DemakeShadersHandler : StaticEventHandler
 {
 	transient ui CVar	gl_demakeshaders_palette,
 						gl_demakeshaders_paldither;
+	transient ui int	palette;
+
 	override void RenderOverlay( RenderEvent e )
 	{
 		PlayerInfo p = players[consoleplayer];
 		if ( !gl_demakeshaders_paldither ) gl_demakeshaders_paldither = CVar.FindCVar('gl_demakeshaders_paldither');
 		if ( !gl_demakeshaders_palette ) gl_demakeshaders_palette = CVar.FindCVar('gl_demakeshaders_palette');
-		CVar palette = CVar.FindCVar('gl_demakeshaders_palette');
-		if ( palette )
+		palette = gl_demakeshaders_palette.GetInt();
+		switch ( palette )
 		{
-			switch ( palette.GetInt() )
-			{
-			case 1:
-				Shader.SetEnabled(p,"Monochrome_palette",true);
-				Shader.SetUniform1f(p,"Monochrome_palette","paldither",gl_demakeshaders_paldither.GetFloat());
-				Shader.SetEnabled(p,"8bitGrayscale_palette",false);
-				Shader.SetEnabled(p,"2bitGrayscale_palette",false);
-				break;
-			case 2:
-				Shader.SetEnabled(p,"2bitGrayscale_palette",true);
-				Shader.SetUniform1f(p,"2bitGrayscale_palette","paldither",gl_demakeshaders_paldither.GetFloat());
-				Shader.SetEnabled(p,"Monochrome_palette",false);
-				Shader.SetEnabled(p,"4bitGrayscale_palette",false);
-				break;
-			case 3:
-				Shader.SetEnabled(p,"4bitGrayscale_palette",true);
-				Shader.SetUniform1f(p,"4bitGrayscale_palette","paldither",gl_demakeshaders_paldither.GetFloat());
-				Shader.SetEnabled(p,"2bitGrayscale_palette",false);
-				Shader.SetEnabled(p,"8bitGrayscale_palette",false);
-				break;
-			case 4:
-				Shader.SetEnabled(p,"8bitGrayscale_palette",true);
-				Shader.SetUniform1f(p,"8bitGrayscale_palette","paldither",gl_demakeshaders_paldither.GetFloat());
-				Shader.SetEnabled(p,"4bitGrayscale_palette",false);
-				Shader.SetEnabled(p,"Monochrome_palette",false);
-				break;
-			default:
-				Shader.SetEnabled(p,"Monochrome_palette",false);
-				Shader.SetEnabled(p,"8bitGrayscale_palette",false);
-			}
+		case 1:
+			Shader.SetEnabled(p,"NES_palette",true);
+			Shader.SetUniform1f(p,"NES_palette","paldither",gl_demakeshaders_paldither.GetFloat());
+			DisablePalette(15);
+			DisablePalette(palette+1);
+			break;
+		case 2:
+			Shader.SetEnabled(p,"NESNTSC_palette",true);
+			Shader.SetUniform1f(p,"NESNTSC_palette","paldither",gl_demakeshaders_paldither.GetFloat());
+			DisablePalette(palette-1);
+			DisablePalette(palette+1);
+			break;
+		case 3:
+			Shader.SetEnabled(p,"NESFull_palette",true);
+			Shader.SetUniform1f(p,"NESFull_palette","paldither",gl_demakeshaders_paldither.GetFloat());
+			DisablePalette(palette-1);
+			DisablePalette(palette+1);
+			break;
+		case 4:
+			Shader.SetEnabled(p,"SegaMaster_palette",true);
+			Shader.SetUniform1f(p,"SegaMaster_palette","paldither",gl_demakeshaders_paldither.GetFloat());
+			DisablePalette(palette-1);
+			DisablePalette(palette+1);
+			break;
+		case 5:
+			Shader.SetEnabled(p,"AppleIIhires_palette",true);
+			Shader.SetUniform1f(p,"AppleIIhires_palette","paldither",gl_demakeshaders_paldither.GetFloat());
+			DisablePalette(palette-1);
+			DisablePalette(palette+1);
+			break;
+		case 6:
+			Shader.SetEnabled(p,"AppleIIlowres_palette",true);
+			Shader.SetUniform1f(p,"AppleIIlowres_palette","paldither",gl_demakeshaders_paldither.GetFloat());
+			DisablePalette(palette-1);
+			DisablePalette(palette+1);
+			break;
+		case 7:
+			Shader.SetEnabled(p,"TIANTSC_palette",true);
+			Shader.SetUniform1f(p,"TIANTSC_palette","paldither",gl_demakeshaders_paldither.GetFloat());
+			DisablePalette(palette-1);
+			DisablePalette(palette+1);
+			break;
+		case 8:
+			Shader.SetEnabled(p,"TIAPAL_palette",true);
+			Shader.SetUniform1f(p,"TIAPAL_palette","paldither",gl_demakeshaders_paldither.GetFloat());
+			DisablePalette(palette-1);
+			DisablePalette(palette+1);
+			break;
+		case 9:
+			Shader.SetEnabled(p,"TIASECAM_palette",true);
+			Shader.SetUniform1f(p,"TIASECAM_palette","paldither",gl_demakeshaders_paldither.GetFloat());
+			DisablePalette(palette-1);
+			DisablePalette(palette+1);
+			break;
+		case 10:
+			Shader.SetEnabled(p,"CTIA_palette",true);
+			Shader.SetUniform1f(p,"CTIA_palette","paldither",gl_demakeshaders_paldither.GetFloat());
+			DisablePalette(palette-1);
+			DisablePalette(palette+1);
+			break;
+		case 11:
+			Shader.SetEnabled(p,"GTIA_palette",true);
+			Shader.SetUniform1f(p,"GTIA_palette","paldither",gl_demakeshaders_paldither.GetFloat());
+			DisablePalette(palette-1);
+			DisablePalette(palette+1);
+			break;
+		case 12:
+			Shader.SetEnabled(p,"Teletext_palette",true);
+			Shader.SetUniform1f(p,"Teletext_palette","paldither",gl_demakeshaders_paldither.GetFloat());
+			DisablePalette(palette-1);
+			DisablePalette(palette+1);
+			break;
+		case 13:
+			Shader.SetEnabled(p,"Monochrome_palette",true);
+			Shader.SetUniform1f(p,"Monochrome_palette","paldither",gl_demakeshaders_paldither.GetFloat());
+			DisablePalette(palette-1);
+			DisablePalette(palette+1);
+			break;
+		case 14:
+			Shader.SetEnabled(p,"2bitGrayscale_palette",true);
+			Shader.SetUniform1f(p,"2bitGrayscale_palette","paldither",gl_demakeshaders_paldither.GetFloat());
+			DisablePalette(palette-1);
+			DisablePalette(palette+1);
+			break;
+		case 15:
+			Shader.SetEnabled(p,"4bitGrayscale_palette",true);
+			Shader.SetUniform1f(p,"4bitGrayscale_palette","paldither",gl_demakeshaders_paldither.GetFloat());
+			DisablePalette(palette-1);
+			DisablePalette(palette+1);
+			break;
+		case 16:
+			Shader.SetEnabled(p,"8bitGrayscale_palette",true);
+			Shader.SetUniform1f(p,"8bitGrayscale_palette","paldither",gl_demakeshaders_paldither.GetFloat());
+			DisablePalette(palette-1);
+			DisablePalette(1);
+			break;
+		default:
+			DisablePalette(0);
 		}
 	}
+
+
+	ui void DisablePalette(int pal)
+	{
+		PlayerInfo p = players[consoleplayer];
+		switch (pal)
+		{
+		case 1:
+			Shader.SetEnabled(p,"NES_palette",false);
+			break;
+		case 2:
+			Shader.SetEnabled(p,"NESNTSC_palette",false);
+			break;
+		case 3:
+			Shader.SetEnabled(p,"NESFull_palette",false);
+			break;
+		case 4:
+			Shader.SetEnabled(p,"SegaMaster_palette",false);
+			break;
+		case 5:
+			Shader.SetEnabled(p,"AppleIIhires_palette",false);
+			break;
+		case 6:
+			Shader.SetEnabled(p,"AppleIIlowres_palette",false);
+			break;
+		case 7:
+			Shader.SetEnabled(p,"TIANTSC_palette",false);
+			break;
+		case 8:
+			Shader.SetEnabled(p,"TIAPAL_palette",false);
+			break;
+		case 9:
+			Shader.SetEnabled(p,"TIASECAM_palette",false);
+			break;
+		case 10:
+			Shader.SetEnabled(p,"CTIA_palette",false);
+			break;
+		case 11:
+			Shader.SetEnabled(p,"GTIA_palette",false);
+			break;
+		case 12:
+			Shader.SetEnabled(p,"Teletext_palette",false);
+			break;
+		case 13:
+			Shader.SetEnabled(p,"Monochrome_palette",false);
+			break;
+		case 14:
+			Shader.SetEnabled(p,"2bitGrayscale_palette",false);
+			break;
+		case 15:
+			Shader.SetEnabled(p,"4bitGrayscale_palette",false);
+			break;
+		case 16:
+			Shader.SetEnabled(p,"8bitGrayscale_palette",false);
+			break;
+		Default:
+			Shader.SetEnabled(p,"NES_palette",false);
+			Shader.SetEnabled(p,"NESNTSC_palette",false);
+			Shader.SetEnabled(p,"NESFull_palette",false);
+			Shader.SetEnabled(p,"SegaMaster_palette",false);
+			Shader.SetEnabled(p,"AppleIIhires_palette",false);
+			Shader.SetEnabled(p,"AppleIIlowres_palette",false);
+			Shader.SetEnabled(p,"TIANTSC_palette",false);
+			Shader.SetEnabled(p,"TIAPAL_palette",false);
+			Shader.SetEnabled(p,"TIASECAM_palette",false);
+			Shader.SetEnabled(p,"CTIA_palette",false);
+			Shader.SetEnabled(p,"GTIA_palette",false);
+			Shader.SetEnabled(p,"Teletext_palette",false);
+			Shader.SetEnabled(p,"Monochrome_palette",false);
+			Shader.SetEnabled(p,"2bitGrayscale_palette",false);
+			Shader.SetEnabled(p,"4bitGrayscale_palette",false);
+			Shader.SetEnabled(p,"8bitGrayscale_palette",false);
+		}
+	}
+
 
 	override void ConsoleProcess( ConsoleEvent e )
 	{

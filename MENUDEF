@@ -7,10 +7,22 @@ AddOptionMenu "OptionsMenu"
 OptionValue "DemakeShadersPalette"
 {
 	0, "None"
-	1, "Monochrome"
-	2, "2-bit Greyscale"
-	3, "4-bit Greyscale"
-	4, "8-bit Greyscale"
+	1, "Nintendo Entertainment System (YIQ)"			//NES_palette
+	2, "Nintendo Entertainment System (NTSC)"			//NESNTSC_palette
+	3, "Nintendo Entertainment System (Full Palette)"	//NESFull_palette
+	4, "Sega Master System"								//SegaMaster_palette
+	5, "Apple II series (Hi-res Mode)"					//AppleIIhires_palette
+	6, "Apple II series (Low-res Mode)"					//AppleIIlowres_palette
+	7, "Atari 2600 (TIA NTSC)"							//TIANTSC_palette
+	8, "Atari 2600 (TIA PAL)"							//TIAPAL_palette
+	9, "Atari 2600 (TIA SECAM)"							//TIASECAM_palette
+	10, "Atari 400/800/XL/XE (CTIA)"					//CTIA_palette
+	11, "Atari 5200 (GTIA)"								//GTIA_palette
+	12, "World System Teletext Level 1"					//Teletext_palette
+	13, "Monochrome"									//Monochrome_palette
+	14, "2-bit Greyscale"								//2bitGrayscale_palette
+	15, "4-bit Greyscale"								//4bitGrayscale_palette
+	16, "8-bit Greyscale"								//8bitGrayscale_palette
 }
 
 OptionMenu "DemakeShadersOptionsMenu"
@@ -20,6 +32,6 @@ OptionMenu "DemakeShadersOptionsMenu"
 	StaticText "Palette", "Gold"
 	StaticText " "
 	Option "Palette", "gl_demakeshaders_palette", "DemakeShadersPalette"
-	Slider "Dithering", "gl_demakeshaders_paldither", 0, 1, 0.0078125, 3
+	Slider "Dithering", "gl_demakeshaders_paldither", 0, 1, 0.00390625, 3
 	SafeCommand "Reset Dither Value to Default", "event resetdemakeshadersvars 0"
 }

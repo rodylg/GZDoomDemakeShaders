@@ -1,8 +1,97 @@
+// Video game console palettes
+	// Nintendo
+HardwareShader postprocess screen
+{
+	Name "NES_palette" //Nintendo Entertainment System (YIQ)
+	Shader "shaders/glsl/mfx_palette_mod.fp" 330
+	Texture PalLUTTexture "textures/NES.png"
+	Uniform float paldither
+}
+HardwareShader postprocess screen
+{
+	Name "NESNTSC_palette" //Nintendo Entertainment System (NTSC)
+	Shader "shaders/glsl/mfx_palette_mod.fp" 330
+	Texture PalLUTTexture "textures/NESNTSC.png"
+	Uniform float paldither
+}
+HardwareShader postprocess screen
+{
+	Name "NESFull_palette" //Nintendo Entertainment System (Full Palette)
+	Shader "shaders/glsl/mfx_palette_mod.fp" 330
+	Texture PalLUTTexture "textures/NESFullP.png"
+	Uniform float paldither
+}
+	// Sega
+HardwareShader postprocess screen
+{
+	Name "SegaMaster_palette" //Sega Master System
+	Shader "shaders/glsl/mfx_palette_mod.fp" 330
+	Texture PalLUTTexture "textures/SegaMstr.png"
+	Uniform float paldither
+}
+	// Atari
+HardwareShader postprocess screen
+{
+	Name "TIANTSC_palette" //Atari 2600 (TIA NTSC)
+	Shader "shaders/glsl/mfx_palette_mod.fp" 330
+	Texture PalLUTTexture "textures/TIANTSC.png"
+	Uniform float paldither
+}
+HardwareShader postprocess screen
+{
+	Name "TIAPAL_palette" //Atari 2600 (TIA PAL)
+	Shader "shaders/glsl/mfx_palette_mod.fp" 330
+	Texture PalLUTTexture "textures/TIAPAL.png"
+	Uniform float paldither
+}
+HardwareShader postprocess screen
+{
+	Name "TIASECAM_palette" //Atari 2600 (TIA SECAM)
+	Shader "shaders/glsl/mfx_palette_mod.fp" 330
+	Texture PalLUTTexture "textures/TIASECAM.png"
+	Uniform float paldither
+}
+HardwareShader postprocess screen
+{
+	Name "GTIA_palette" //Atari 5200 (GTIA)
+	Shader "shaders/glsl/mfx_palette_mod.fp" 330
+	Texture PalLUTTexture "textures/AtriGTIA.png"
+	Uniform float paldither
+}
+// 8-bit computer hardware graphics
+	//Teletext
+HardwareShader postprocess screen
+{
+	Name "Teletext_palette" //World System Teletext Level 1
+	Shader "shaders/glsl/mfx_palette_mod.fp" 330
+	Texture PalLUTTexture "textures/Teletext.png"
+	Uniform float paldither
+}
+	//Apple
+HardwareShader postprocess screen
+{
+	Name "AppleIIhires_palette"  //Apple II series (Hi-res Mode)
+	Shader "shaders/glsl/mfx_palette_mod.fp" 330
+	Texture PalLUTTexture "textures/Apple2Hi.png"
+	Uniform float paldither
+}
+HardwareShader postprocess screen
+{
+	Name "AppleIIlowres_palette" //Apple II series (Low-res Mode)
+	Shader "shaders/glsl/mfx_palette_mod.fp" 330
+	Texture PalLUTTexture "textures/Apple2Lo.png"
+	Uniform float paldither
+}
+	//Atari
+HardwareShader postprocess screen
+{
+	Name "CTIA_palette" //Atari 400/800/XL/XE (CTIA)
+	Shader "shaders/glsl/mfx_palette_mod.fp" 330
+	Texture PalLUTTexture "textures/AtriCTIA.png"
+	Uniform float paldither
+}
 // Generic Color Spaces
-
-	//
-
-
+	// Monochrome
 HardwareShader postprocess screen
 {
 	Name "Monochrome_palette"
@@ -10,7 +99,7 @@ HardwareShader postprocess screen
 	Texture PalLUTTexture "textures/MonoCrom.png"
 	Uniform float paldither
 }
-
+	// Grayscale
 HardwareShader postprocess screen
 {
 	Name "2bitGrayscale_palette"
@@ -18,7 +107,6 @@ HardwareShader postprocess screen
 	Texture PalLUTTexture "textures/Gray2bit.png"
 	Uniform float paldither
 }
-
 HardwareShader postprocess screen
 {
 	Name "4bitGrayscale_palette"
@@ -26,7 +114,6 @@ HardwareShader postprocess screen
 	Texture PalLUTTexture "textures/Gray4bit.png"
 	Uniform float paldither
 }
-
 HardwareShader postprocess screen
 {
 	Name "8bitGrayscale_palette"
@@ -34,156 +121,3 @@ HardwareShader postprocess screen
 	Texture PalLUTTexture "textures/Gray8bit.png"
 	Uniform float paldither
 }
-
-HardwareShader postprocess screen
-{
-	Name "_palette"
-	Shader "shaders/glsl/mfx_palette_mod.fp" 330
-	Texture PalLUTTexture "textures/-.png"
-	Uniform float paldither
-}
-
-HardwareShader postprocess screen
-{
-	Name "_palette"
-	Shader "shaders/glsl/mfx_palette_mod.fp" 330
-	Texture PalLUTTexture "textures/-.png"
-	Uniform float paldither
-}
-
-HardwareShader postprocess screen
-{
-	Name "_palette"
-	Shader "shaders/glsl/mfx_palette_mod.fp" 330
-	Texture PalLUTTexture "textures/-.png"
-	Uniform float paldither
-}
-
-HardwareShader postprocess screen
-{
-	Name "_palette"
-	Shader "shaders/glsl/mfx_palette_mod.fp" 330
-	Texture PalLUTTexture "textures/-.png"
-	Uniform float paldither
-}
-
-HardwareShader postprocess screen
-{
-	Name "_palette"
-	Shader "shaders/glsl/mfx_palette_mod.fp" 330
-	Texture PalLUTTexture "textures/-.png"
-	Uniform float paldither
-}
-
-HardwareShader postprocess screen
-{
-	Name "_palette"
-	Shader "shaders/glsl/mfx_palette_mod.fp" 330
-	Texture PalLUTTexture "textures/-.png"
-	Uniform float paldither
-}
-
-HardwareShader postprocess screen
-{
-	Name "_palette"
-	Shader "shaders/glsl/mfx_palette_mod.fp" 330
-	Texture PalLUTTexture "textures/-.png"
-	Uniform float paldither
-}
-
-HardwareShader postprocess screen
-{
-	Name "_palette"
-	Shader "shaders/glsl/mfx_palette_mod.fp" 330
-	Texture PalLUTTexture "textures/-.png"
-	Uniform float paldither
-}
-
-HardwareShader postprocess screen
-{
-	Name "_palette"
-	Shader "shaders/glsl/mfx_palette_mod.fp" 330
-	Texture PalLUTTexture "textures/-.png"
-	Uniform float paldither
-}
-
-HardwareShader postprocess screen
-{
-	Name "_palette"
-	Shader "shaders/glsl/mfx_palette_mod.fp" 330
-	Texture PalLUTTexture "textures/-.png"
-	Uniform float paldither
-}
-
-HardwareShader postprocess screen
-{
-	Name "_palette"
-	Shader "shaders/glsl/mfx_palette_mod.fp" 330
-	Texture PalLUTTexture "textures/-.png"
-	Uniform float paldither
-}
-
-HardwareShader postprocess screen
-{
-	Name "_palette"
-	Shader "shaders/glsl/mfx_palette_mod.fp" 330
-	Texture PalLUTTexture "textures/-.png"
-	Uniform float paldither
-}
-
-HardwareShader postprocess screen
-{
-	Name "_palette"
-	Shader "shaders/glsl/mfx_palette_mod.fp" 330
-	Texture PalLUTTexture "textures/-.png"
-	Uniform float paldither
-}
-
-HardwareShader postprocess screen
-{
-	Name "_palette"
-	Shader "shaders/glsl/mfx_palette_mod.fp" 330
-	Texture PalLUTTexture "textures/-.png"
-	Uniform float paldither
-}
-
-HardwareShader postprocess screen
-{
-	Name "_palette"
-	Shader "shaders/glsl/mfx_palette_mod.fp" 330
-	Texture PalLUTTexture "textures/-.png"
-	Uniform float paldither
-}
-
-HardwareShader postprocess screen
-{
-	Name "_palette"
-	Shader "shaders/glsl/mfx_palette_mod.fp" 330
-	Texture PalLUTTexture "textures/-.png"
-	Uniform float paldither
-}
-
-HardwareShader postprocess screen
-{
-	Name "_palette"
-	Shader "shaders/glsl/mfx_palette_mod.fp" 330
-	Texture PalLUTTexture "textures/-.png"
-	Uniform float paldither
-}
-
-HardwareShader postprocess screen
-{
-	Name "_palette"
-	Shader "shaders/glsl/mfx_palette_mod.fp" 330
-	Texture PalLUTTexture "textures/-.png"
-	Uniform float paldither
-}
-
-HardwareShader postprocess screen
-{
-	Name "_palette"
-	Shader "shaders/glsl/mfx_palette_mod.fp" 330
-	Texture PalLUTTexture "textures/-.png"
-	Uniform float paldither
-}
-
