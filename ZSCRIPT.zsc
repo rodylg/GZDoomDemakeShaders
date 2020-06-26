@@ -17,7 +17,7 @@ Class DemakeShadersHandler : StaticEventHandler
 		case 1:
 			Shader.SetEnabled(p,"NES_palette",true);
 			Shader.SetUniform1f(p,"NES_palette","paldither",gl_demakeshaders_paldither.GetFloat());
-			DisablePalette(15);
+			DisablePalette(30);
 			DisablePalette(palette+1);
 			break;
 		case 2:
@@ -39,72 +39,156 @@ Class DemakeShadersHandler : StaticEventHandler
 			DisablePalette(palette+1);
 			break;
 		case 5:
-			Shader.SetEnabled(p,"AppleIIhires_palette",true);
-			Shader.SetUniform1f(p,"AppleIIhires_palette","paldither",gl_demakeshaders_paldither.GetFloat());
-			DisablePalette(palette-1);
-			DisablePalette(palette+1);
-			break;
-		case 6:
-			Shader.SetEnabled(p,"AppleIIlowres_palette",true);
-			Shader.SetUniform1f(p,"AppleIIlowres_palette","paldither",gl_demakeshaders_paldither.GetFloat());
-			DisablePalette(palette-1);
-			DisablePalette(palette+1);
-			break;
-		case 7:
 			Shader.SetEnabled(p,"TIANTSC_palette",true);
 			Shader.SetUniform1f(p,"TIANTSC_palette","paldither",gl_demakeshaders_paldither.GetFloat());
 			DisablePalette(palette-1);
 			DisablePalette(palette+1);
 			break;
-		case 8:
+		case 6:
 			Shader.SetEnabled(p,"TIAPAL_palette",true);
 			Shader.SetUniform1f(p,"TIAPAL_palette","paldither",gl_demakeshaders_paldither.GetFloat());
 			DisablePalette(palette-1);
 			DisablePalette(palette+1);
 			break;
-		case 9:
-			Shader.SetEnabled(p,"TIASECAM_palette",true);
-			Shader.SetUniform1f(p,"TIASECAM_palette","paldither",gl_demakeshaders_paldither.GetFloat());
-			DisablePalette(palette-1);
-			DisablePalette(palette+1);
-			break;
-		case 10:
+		case 7:
 			Shader.SetEnabled(p,"CTIA_palette",true);
 			Shader.SetUniform1f(p,"CTIA_palette","paldither",gl_demakeshaders_paldither.GetFloat());
 			DisablePalette(palette-1);
 			DisablePalette(palette+1);
 			break;
-		case 11:
+		case 8:
 			Shader.SetEnabled(p,"GTIA_palette",true);
 			Shader.SetUniform1f(p,"GTIA_palette","paldither",gl_demakeshaders_paldither.GetFloat());
 			DisablePalette(palette-1);
 			DisablePalette(palette+1);
 			break;
+		case 9:
+			Shader.SetEnabled(p,"AppleIIhires_palette",true);
+			Shader.SetUniform1f(p,"AppleIIhires_palette","paldither",gl_demakeshaders_paldither.GetFloat());
+			DisablePalette(palette-1);
+			DisablePalette(palette+1);
+			break;
+		case 10:
+			Shader.SetEnabled(p,"AppleIIlowres_palette",true);
+			Shader.SetUniform1f(p,"AppleIIlowres_palette","paldither",gl_demakeshaders_paldither.GetFloat());
+			DisablePalette(palette-1);
+			DisablePalette(palette+1);
+			break;
+		case 11:
+			Shader.SetEnabled(p,"CommodoreVIC20Five_palette",true);
+			Shader.SetUniform1f(p,"CommodoreVIC20Five_palette","paldither",gl_demakeshaders_paldither.GetFloat());
+			DisablePalette(palette-1);
+			DisablePalette(palette+1);
+			break;
 		case 12:
-			Shader.SetEnabled(p,"Teletext_palette",true);
-			Shader.SetUniform1f(p,"Teletext_palette","paldither",gl_demakeshaders_paldither.GetFloat());
+			Shader.SetEnabled(p,"CommodoreVIC20Nine_palette",true);
+			Shader.SetUniform1f(p,"CommodoreVIC20Nine_palette","paldither",gl_demakeshaders_paldither.GetFloat());
 			DisablePalette(palette-1);
 			DisablePalette(palette+1);
 			break;
 		case 13:
+			Shader.SetEnabled(p,"Commodore64_palette",true);
+			Shader.SetUniform1f(p,"Commodore64_palette","paldither",gl_demakeshaders_paldither.GetFloat());
+			DisablePalette(palette-1);
+			DisablePalette(palette+1);
+			break;
+		case 14:
+			Shader.SetEnabled(p,"Commodore16Plus4_palette",true);
+			Shader.SetUniform1f(p,"Commodore16Plus4_palette","paldither",gl_demakeshaders_paldither.GetFloat());
+			DisablePalette(palette-1);
+			DisablePalette(palette+1);
+			break;
+		case 15:
+			Shader.SetEnabled(p,"TandyColorC3_palette",true);
+			Shader.SetUniform1f(p,"TandyColorC3_palette","paldither",gl_demakeshaders_paldither.GetFloat());
+			DisablePalette(palette-1);
+			DisablePalette(palette+1);
+			break;
+		case 16:
+			Shader.SetEnabled(p,"ZXSpectrum_palette",true);
+			Shader.SetUniform1f(p,"ZXSpectrum_palette","paldither",gl_demakeshaders_paldither.GetFloat());
+			DisablePalette(palette-1);
+			DisablePalette(palette+1);
+			break;
+		case 17:
+			Shader.SetEnabled(p,"MattelAquarius_palette",true);
+			Shader.SetUniform1f(p,"MattelAquarius_palette","paldither",gl_demakeshaders_paldither.GetFloat());
+			DisablePalette(palette-1);
+			DisablePalette(palette+1);
+			break;
+		case 18:
+			Shader.SetEnabled(p,"SAMCoupe_palette",true);
+			Shader.SetUniform1f(p,"SAMCoupe_palette","paldither",gl_demakeshaders_paldither.GetFloat());
+			DisablePalette(palette-1);
+			DisablePalette(palette+1);
+			break;
+		case 19:
+			Shader.SetEnabled(p,"MSX_palette",true);
+			Shader.SetUniform1f(p,"MSX_palette","paldither",gl_demakeshaders_paldither.GetFloat());
+			DisablePalette(palette-1);
+			DisablePalette(palette+1);
+			break;
+		case 20:
+			Shader.SetEnabled(p,"MSX2Mode6_palette",true);
+			Shader.SetUniform1f(p,"MSX2Mode6_palette","paldither",gl_demakeshaders_paldither.GetFloat());
+			DisablePalette(palette-1);
+			DisablePalette(palette+1);
+			break;
+		case 21:
+			Shader.SetEnabled(p,"MSX2Mode7_palette",true);
+			Shader.SetUniform1f(p,"MSX2Mode7_palette","paldither",gl_demakeshaders_paldither.GetFloat());
+			DisablePalette(palette-1);
+			DisablePalette(palette+1);
+			break;
+		case 22:
+			Shader.SetEnabled(p,"MSX2Mode8_palette",true);
+			Shader.SetUniform1f(p,"MSX2Mode8_palette","paldither",gl_demakeshaders_paldither.GetFloat());
+			DisablePalette(palette-1);
+			DisablePalette(palette+1);
+			break;
+		case 23:
+			Shader.SetEnabled(p,"ThomsonTO5_palette",true);
+			Shader.SetUniform1f(p,"ThomsonTO5_palette","paldither",gl_demakeshaders_paldither.GetFloat());
+			DisablePalette(palette-1);
+			DisablePalette(palette+1);
+			break;
+		case 24:
+			Shader.SetEnabled(p,"AmstradCPCGreen_palette",true);
+			Shader.SetUniform1f(p,"AmstradCPCGreen_palette","paldither",gl_demakeshaders_paldither.GetFloat());
+			DisablePalette(palette-1);
+			DisablePalette(palette+1);
+			break;
+		case 25:
+			Shader.SetEnabled(p,"AmstradCPCColor_palette",true);
+			Shader.SetUniform1f(p,"AmstradCPCColor_palette","paldither",gl_demakeshaders_paldither.GetFloat());
+			DisablePalette(palette-1);
+			DisablePalette(palette+1);
+			break;
+		case 26:
+			Shader.SetEnabled(p,"R1G1B1_palette",true);
+			Shader.SetUniform1f(p,"R1G1B1_palette","paldither",gl_demakeshaders_paldither.GetFloat());
+			DisablePalette(palette-1);
+			DisablePalette(palette+1);
+			break;
+		case 27:
 			Shader.SetEnabled(p,"Monochrome_palette",true);
 			Shader.SetUniform1f(p,"Monochrome_palette","paldither",gl_demakeshaders_paldither.GetFloat());
 			DisablePalette(palette-1);
 			DisablePalette(palette+1);
 			break;
-		case 14:
+		case 28:
 			Shader.SetEnabled(p,"2bitGrayscale_palette",true);
 			Shader.SetUniform1f(p,"2bitGrayscale_palette","paldither",gl_demakeshaders_paldither.GetFloat());
 			DisablePalette(palette-1);
 			DisablePalette(palette+1);
 			break;
-		case 15:
+		case 29:
 			Shader.SetEnabled(p,"4bitGrayscale_palette",true);
 			Shader.SetUniform1f(p,"4bitGrayscale_palette","paldither",gl_demakeshaders_paldither.GetFloat());
 			DisablePalette(palette-1);
 			DisablePalette(palette+1);
 			break;
-		case 16:
+		case 30:
 			Shader.SetEnabled(p,"8bitGrayscale_palette",true);
 			Shader.SetUniform1f(p,"8bitGrayscale_palette","paldither",gl_demakeshaders_paldither.GetFloat());
 			DisablePalette(palette-1);
@@ -134,39 +218,81 @@ Class DemakeShadersHandler : StaticEventHandler
 			Shader.SetEnabled(p,"SegaMaster_palette",false);
 			break;
 		case 5:
-			Shader.SetEnabled(p,"AppleIIhires_palette",false);
-			break;
-		case 6:
-			Shader.SetEnabled(p,"AppleIIlowres_palette",false);
-			break;
-		case 7:
 			Shader.SetEnabled(p,"TIANTSC_palette",false);
 			break;
-		case 8:
+		case 6:
 			Shader.SetEnabled(p,"TIAPAL_palette",false);
 			break;
-		case 9:
-			Shader.SetEnabled(p,"TIASECAM_palette",false);
-			break;
-		case 10:
+		case 7:
 			Shader.SetEnabled(p,"CTIA_palette",false);
 			break;
-		case 11:
+		case 8:
 			Shader.SetEnabled(p,"GTIA_palette",false);
 			break;
+		case 9:
+			Shader.SetEnabled(p,"AppleIIhires_palette",false);
+			break;
+		case 10:
+			Shader.SetEnabled(p,"AppleIIlowres_palette",false);
+			break;
+		case 11:
+			Shader.SetEnabled(p,"CommodoreVIC20Five_palette",false);
+			break;
 		case 12:
-			Shader.SetEnabled(p,"Teletext_palette",false);
+			Shader.SetEnabled(p,"CommodoreVIC20Nine_palette",false);
 			break;
 		case 13:
-			Shader.SetEnabled(p,"Monochrome_palette",false);
+			Shader.SetEnabled(p,"Commodore64_palette",false);
 			break;
 		case 14:
-			Shader.SetEnabled(p,"2bitGrayscale_palette",false);
+			Shader.SetEnabled(p,"Commodore16Plus4_palette",false);
 			break;
 		case 15:
-			Shader.SetEnabled(p,"4bitGrayscale_palette",false);
+			Shader.SetEnabled(p,"TandyColorC3_palette",false);
 			break;
 		case 16:
+			Shader.SetEnabled(p,"ZXSpectrum_palette",false);
+			break;
+		case 17:
+			Shader.SetEnabled(p,"MattelAquarius_palette",false);
+			break;
+		case 18:
+			Shader.SetEnabled(p,"SAMCoupe_palette",false);
+			break;
+		case 19:
+			Shader.SetEnabled(p,"MSX_palette",false);
+			break;
+		case 20:
+			Shader.SetEnabled(p,"MSX2Mode6_palette",false);
+			break;
+		case 21:
+			Shader.SetEnabled(p,"MSX2Mode7_palette",false);
+			break;
+		case 22:
+			Shader.SetEnabled(p,"MSX2Mode8_palette",false);
+			break;
+		case 23:
+			Shader.SetEnabled(p,"ThomsonTO5_palette",false);
+			break;
+		case 24:
+			Shader.SetEnabled(p,"AmstradCPCGreen_palette",false);
+			break;
+		case 25:
+			Shader.SetEnabled(p,"AmstradCPCColor_palette",false);
+			break;
+		case 26:
+			Shader.SetEnabled(p,"R1G1B1_palette",false);
+			break;
+		case 27:
+			Shader.SetEnabled(p,"Monochrome_palette",false);
+			break;
+		case 28:
+			Shader.SetEnabled(p,"2bitGrayscale_palette",false);
+			break;
+		case 29:
+			Shader.SetEnabled(p,"4bitGrayscale_palette",false);
+			break;
+		case 30:
 			Shader.SetEnabled(p,"8bitGrayscale_palette",false);
 			break;
 		Default:
@@ -174,14 +300,28 @@ Class DemakeShadersHandler : StaticEventHandler
 			Shader.SetEnabled(p,"NESNTSC_palette",false);
 			Shader.SetEnabled(p,"NESFull_palette",false);
 			Shader.SetEnabled(p,"SegaMaster_palette",false);
-			Shader.SetEnabled(p,"AppleIIhires_palette",false);
-			Shader.SetEnabled(p,"AppleIIlowres_palette",false);
 			Shader.SetEnabled(p,"TIANTSC_palette",false);
 			Shader.SetEnabled(p,"TIAPAL_palette",false);
-			Shader.SetEnabled(p,"TIASECAM_palette",false);
 			Shader.SetEnabled(p,"CTIA_palette",false);
 			Shader.SetEnabled(p,"GTIA_palette",false);
-			Shader.SetEnabled(p,"Teletext_palette",false);
+			Shader.SetEnabled(p,"AppleIIhires_palette",false);
+			Shader.SetEnabled(p,"AppleIIlowres_palette",false);
+			Shader.SetEnabled(p,"CommodoreVIC20Five_palette",false);
+			Shader.SetEnabled(p,"CommodoreVIC20Nine_palette",false);
+			Shader.SetEnabled(p,"Commodore64_palette",false);
+			Shader.SetEnabled(p,"Commodore16Plus4_palette",false);
+			Shader.SetEnabled(p,"TandyColorC3_palette",false);
+			Shader.SetEnabled(p,"ZXSpectrum_palette",false);
+			Shader.SetEnabled(p,"MattelAquarius_palette",false);
+			Shader.SetEnabled(p,"SAMCoupe_palette",false);
+			Shader.SetEnabled(p,"MSX_palette",false);
+			Shader.SetEnabled(p,"MSX2Mode6_palette",false);
+			Shader.SetEnabled(p,"MSX2Mode7_palette",false);
+			Shader.SetEnabled(p,"MSX2Mode8_palette",false);
+			Shader.SetEnabled(p,"ThomsonTO5_palette",false);
+			Shader.SetEnabled(p,"AmstradCPCGreen_palette",false);
+			Shader.SetEnabled(p,"AmstradCPCColor_palette",false);
+			Shader.SetEnabled(p,"R1G1B1_palette",false);
 			Shader.SetEnabled(p,"Monochrome_palette",false);
 			Shader.SetEnabled(p,"2bitGrayscale_palette",false);
 			Shader.SetEnabled(p,"4bitGrayscale_palette",false);

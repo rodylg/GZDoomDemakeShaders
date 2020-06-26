@@ -11,18 +11,60 @@ OptionValue "DemakeShadersPalette"
 	2, "Nintendo Entertainment System (NTSC)"			//NESNTSC_palette
 	3, "Nintendo Entertainment System (Full Palette)"	//NESFull_palette
 	4, "Sega Master System"								//SegaMaster_palette
-	5, "Apple II series (Hi-res Mode)"					//AppleIIhires_palette
-	6, "Apple II series (Low-res Mode)"					//AppleIIlowres_palette
-	7, "Atari 2600 (TIA NTSC)"							//TIANTSC_palette
-	8, "Atari 2600 (TIA PAL)"							//TIAPAL_palette
-	9, "Atari 2600 (TIA SECAM)"							//TIASECAM_palette
-	10, "Atari 400/800/XL/XE (CTIA)"					//CTIA_palette
-	11, "Atari 5200 (GTIA)"								//GTIA_palette
-	12, "World System Teletext Level 1"					//Teletext_palette
-	13, "Monochrome"									//Monochrome_palette
-	14, "2-bit Greyscale"								//2bitGrayscale_palette
-	15, "4-bit Greyscale"								//4bitGrayscale_palette
-	16, "8-bit Greyscale"								//8bitGrayscale_palette
+	5, "Atari 2600 (TIA NTSC)"							//TIANTSC_palette
+	6, "Atari 2600 (TIA PAL)"							//TIAPAL_palette
+	7, "Atari 400|800 (CTIA)"							//CTIA_palette
+	8, "Atari 5200|XL|XE (GTIA)"						//GTIA_palette
+	9, "Apple II series (Hi-res Mode)"					//AppleIIhires_palette
+	10, "Apple II series (Low-res Mode)"				//AppleIIlowres_palette
+	11, "Commodore VIC-20 (5 luminance levels)"			//CommodoreVIC20Five_palette
+	12, "Commodore VIC-20 (9 luminance levels)"			//CommodoreVIC20Nine_palette
+	13, "Commodore 64|128"								//Commodore64_palette
+	14, "Commodore 16|Plus/4"							//Commodore16Plus4_palette
+	15, "Tandy Color Computer 3"						//TandyColorC3_palette
+	16, "Sinclair ZX Spectrum"							//ZXSpectrum_palette
+	17, "Mattel Aquarius"								//MattelAquarius_palette
+	18, "SAM Coupé"										//SAMCoupe_palette
+	19, "MSX"											//MSX_palette
+	20, "MSX2 (Mode 6)"									//MSX2Mode6_palette
+	21, "MSX2 (Mode 7)"									//MSX2Mode7_palette
+	22, "MSX2 (Mode 8)"									//MSX2Mode8_palette
+	23, "Thomson TO7/70|TO5"							//ThomsonTO5_palette
+	24, "Amstrad CPC 464 (Green Scale)"					//AmstradCPCGreen_palette
+	25, "Amstrad CPC 664|6128"							//AmstradCPCColor_palette
+		//R1G1B1_palette
+	26, "R1G1B1 (Atari 2600 SECAM|Teletext 1|BBC Micro|Sinclair QL|Thomson TO7)"
+		//R3G3B2_palette?
+	27, "Monochrome"													//Monochrome_palette
+	28, "2-bit Greyscale"												//2bitGrayscale_palette
+	29, "4-bit Greyscale"												//4bitGrayscale_palette
+	30, "8-bit Greyscale"												//8bitGrayscale_palette
+}
+
+OptionValue "DemakeShadersFrameRate"
+{
+	5, "5 fps" //3DO full screen slow
+	6, "6 fps" //3DO windowed slow
+	7, "7 fps" //SNES slow
+	10, "10 fps" //Saturn slow
+	12, "12 fps" //GBA Slow
+	15, "15 fps" //Sega 32X Slow
+	20, "20 fps" //Jaguar Slow
+	24, "24 fps" //"The© Cinematic® Experience™"
+	25, "25 fps" //PAL PSX slow
+	30, "30 fps" //NTSC PSX slow
+	35, "35 fps" //Original speed
+	48, "48 fps"
+	50, "50 hz"
+	60, "60 hz"
+	70, "70 hz"
+	75, "75 hz"
+	100, "100 hz"
+	120, "120 hz"
+	144, "144 hz"
+	200, "200 hz" //GZDoom default value
+	240, "240 hz"
+	1000, "1000 hz" //Max waste of your CPU time...
 }
 
 OptionMenu "DemakeShadersOptionsMenu"
@@ -34,4 +76,10 @@ OptionMenu "DemakeShadersOptionsMenu"
 	Option "Palette", "gl_demakeshaders_palette", "DemakeShadersPalette"
 	Slider "Dithering", "gl_demakeshaders_paldither", 0, 1, 0.00390625, 3
 	SafeCommand "Reset Dither Value to Default", "event resetdemakeshadersvars 0"
+	StaticText " "
+	StaticText "Refresh Rate Limit", "Gold"
+	StaticText " "
+	Option "Max Frame Rate", "vid_maxfps", "DemakeShadersFrameRate"
+	Option "35 fps cap", "cl_capfps", "OnOff"
+	Option "Vertical sync", "vid_vsync", "OnOff"
 }
