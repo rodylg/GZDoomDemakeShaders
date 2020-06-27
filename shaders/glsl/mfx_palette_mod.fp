@@ -34,7 +34,7 @@ void main()
 	);
 	//#undef d //Deprecated by precalculating
 	vec2 coord = TexCoord;
-	vec2 sfact = textureSize(InputTexture,0);
+	ivec2 sfact = textureSize(InputTexture,0); //modified from vec2 sfact = textureSize(InputTexture,0);
 	vec4 res = texture(InputTexture,coord);
 	if ( res.r <= 0.0 ) res.r -= paldither;
 	if ( res.g <= 0.0 ) res.g -= paldither;
@@ -44,7 +44,7 @@ void main()
 	if ( res.b >= 1.0 ) res.b += paldither;
 	res.rgb += paldither*dither8[int(coord.x*sfact.x)%8+int(coord.y*sfact.y)%8*8]-0.5*paldither;
 	vec3 lc = clamp(floor(res.rgb*64),0,63);
-	ivec2 lcoord = ivec2(lc.b+lc.r*64,lc.g); //modified from ivec2(lc.r,lc.g+lc.b*64)
+	ivec2 lcoord = ivec2(int(lc.b+lc.r*64),int(lc.g)); //modified from ivec2(lc.r,lc.g+lc.b*64)
 	//lcoord.x += 64*palnum; //palnum deprecated
 	res.rgb = texelFetch(PalLUTTexture,lcoord,0).rgb;
 	FragColor = res;

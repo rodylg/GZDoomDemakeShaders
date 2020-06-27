@@ -15,6 +15,10 @@ Doom has been ported to countless devices, most of which have enough processing 
 - [ ] **NTSC TV-output Color grading**
 
 ## Version History
+**0.0.4 (2020-06-26)**
+* Added CGA, RISC, Windows, Macintosh, UNIX, Web-safe, Generic 4-bit RGBI, 3-level RGB, and 8-bit palettes.
+* Attempted fix for Delta Touch.
+
 **0.0.3 (2020-06-25)**
 * Added Commodore Systems, CoCo3, ZX Spectrum, Mattel Aquarius, SAM Coupé, MSX|MSX2, Thomson TO7/70|TO5 and Amstrad CPC palettes.
 * Collapsed Atari 2600 SECAM|Teletext 1|BBC Micro|Sinclair QL|Thomson TO7 into the R1G1B1 palette.

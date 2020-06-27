@@ -32,13 +32,46 @@ OptionValue "DemakeShadersPalette"
 	23, "Thomson TO7/70|TO5"							//ThomsonTO5_palette
 	24, "Amstrad CPC 464 (Green Scale)"					//AmstradCPCGreen_palette
 	25, "Amstrad CPC 664|6128"							//AmstradCPCColor_palette
+	26, "CGA (Simulated Grayscale)"						//CGASimGray_palette
+	27, "CGA (Mode 4, palette #1, high intensity)"		//CGA1High_palette
+	28, "CGA (Mode 4, palette #1, low intensity)"		//CGA1Low_palette
+	29, "CGA (Mode 4, palette #2, high intensity)"		//CGA2High_palette
+	30, "CGA (Mode 4, palette #2, low intensity)"		//CGA2Low_palette
+	31, "CGA (Mode 5, high intensity)"					//CGAMode5High_palette
+	32, "CGA (Mode 5, low intensity)"					//CGAMode5Low_palette
+	33, "CGA+ (PCjr)"									//CGAplusPCjr_palette
+	34, "CGA+ (Tandy)"									//CGAplusTandy_palette
+	35, "Acorn RISC OS"									//AcornRISCOS_palette
+	36, "16-Color Windows Palette"						//Windows16_palette
+	37, "20-Color Windows Palette"						//Windows20_palette
+	38, "256-Color Windows Palette"						//Windows256_palette
+	39, "16-Color Macintosh Palette"					//Macintosh16_palette
+	40, "256-Color Macintosh Palette"					//Macintosh256_palette
+	41, "256-Color UNIX Palette"						//UNIX_palette
+	42, "Web-safe Colors"								//Web_palette
+	43, "6-7-6 levels RGB"								//676levelsRGB_palette
+	44, "6-7-6 levels RGB + Grayscale"					//676levelsRGBplusGrays_palette
+	45, "6-8-5 levels RGB"								//685levelsRGB_palette
+	46, "6-8-5 levels RGB + Grayscale"					//685levelsRGBplusGrays_palette
+	47, "Adaptive"										//Adaptive_palette
+	48, "Selective"										//Selective_palette
+	49, "Perceptual"									//Perceptual_palette
+	50, "Commodore Amiga OCS|ECS (5-bit)"				//AmigaCS5_palette
+	51, "Commodore Amiga OCS|ECS (6-bit EHB)"			//AmigaCSEHB_palette
 		//R1G1B1_palette
-	26, "R1G1B1 (Atari 2600 SECAM|Teletext 1|BBC Micro|Sinclair QL|Thomson TO7)"
-		//R3G3B2_palette?
-	27, "Monochrome"													//Monochrome_palette
-	28, "2-bit Greyscale"												//2bitGrayscale_palette
-	29, "4-bit Greyscale"												//4bitGrayscale_palette
-	30, "8-bit Greyscale"												//8bitGrayscale_palette
+	52, "3-bit [R1G1B1] (Atari 2600 SECAM|Teletext 1|BBC Micro|Sinclair QL|Thomson TO7)"
+		//4bitRGBI_palette
+	53, "4-bit RGBI (Plantronics Colorplus|Sharp MZ-800)"
+	54, "3-level RGB (Toshiba Pasopia 7)"				//3levelRGB_palette
+		//R3G3B2_palette
+	55, "8-bit [R3G3B2] (MSX2+|IBM PGC Pal4|Digilent Inc.|Uzebox|SGI Indy)"
+	56, "8-bit [R3G2B3] (IBM PGC Pal3)"					//R3G2B3_palette
+	57, "8-bit [R2G3B3] (IBM PGC Pal2)"					//R2G3B3_palette
+	//00, "12-bit [R4G4B4] (Commodore Amiga OCS/ECS)"
+	58, "Monochrome"									//Monochrome_palette
+	59, "2-bit Greyscale"								//2bitGrayscale_palette
+	60, "4-bit Greyscale"								//4bitGrayscale_palette
+	61, "8-bit Greyscale"								//8bitGrayscale_palette
 }
 
 OptionValue "DemakeShadersFrameRate"
