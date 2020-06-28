@@ -7,71 +7,80 @@ AddOptionMenu "OptionsMenu"
 OptionValue "DemakeShadersPalette"
 {
 	0, "None"
-	1, "Nintendo Entertainment System (YIQ)"			//NES_palette
-	2, "Nintendo Entertainment System (NTSC)"			//NESNTSC_palette
-	3, "Nintendo Entertainment System (Full Palette)"	//NESFull_palette
-	4, "Sega Master System"								//SegaMaster_palette
-	5, "Atari 2600 (TIA NTSC)"							//TIANTSC_palette
-	6, "Atari 2600 (TIA PAL)"							//TIAPAL_palette
-	7, "Atari 400|800 (CTIA)"							//CTIA_palette
-	8, "Atari 5200|XL|XE (GTIA)"						//GTIA_palette
-	9, "Apple II series (Hi-res Mode)"					//AppleIIhires_palette
-	10, "Apple II series (Low-res Mode)"				//AppleIIlowres_palette
-	11, "Commodore VIC-20 (5 luminance levels)"			//CommodoreVIC20Five_palette
-	12, "Commodore VIC-20 (9 luminance levels)"			//CommodoreVIC20Nine_palette
-	13, "Commodore 64|128"								//Commodore64_palette
-	14, "Commodore 16|Plus/4"							//Commodore16Plus4_palette
-	15, "Tandy Color Computer 3"						//TandyColorC3_palette
-	16, "Sinclair ZX Spectrum"							//ZXSpectrum_palette
-	17, "Mattel Aquarius"								//MattelAquarius_palette
-	18, "SAM Coupé"										//SAMCoupe_palette
-	19, "MSX"											//MSX_palette
-	20, "MSX2 (Mode 6)"									//MSX2Mode6_palette
-	21, "MSX2 (Mode 7)"									//MSX2Mode7_palette
-	22, "MSX2 (Mode 8)"									//MSX2Mode8_palette
-	23, "Thomson TO7/70|TO5"							//ThomsonTO5_palette
-	24, "Amstrad CPC 464 (Green Scale)"					//AmstradCPCGreen_palette
-	25, "Amstrad CPC 664|6128"							//AmstradCPCColor_palette
-	26, "CGA (Simulated Grayscale)"						//CGASimGray_palette
-	27, "CGA (Mode 4, palette #1, high intensity)"		//CGA1High_palette
-	28, "CGA (Mode 4, palette #1, low intensity)"		//CGA1Low_palette
-	29, "CGA (Mode 4, palette #2, high intensity)"		//CGA2High_palette
-	30, "CGA (Mode 4, palette #2, low intensity)"		//CGA2Low_palette
-	31, "CGA (Mode 5, high intensity)"					//CGAMode5High_palette
-	32, "CGA (Mode 5, low intensity)"					//CGAMode5Low_palette
-	33, "CGA+ (PCjr)"									//CGAplusPCjr_palette
-	34, "CGA+ (Tandy)"									//CGAplusTandy_palette
-	35, "Acorn RISC OS"									//AcornRISCOS_palette
-	36, "16-Color Windows Palette"						//Windows16_palette
-	37, "20-Color Windows Palette"						//Windows20_palette
-	38, "256-Color Windows Palette"						//Windows256_palette
-	39, "16-Color Macintosh Palette"					//Macintosh16_palette
-	40, "256-Color Macintosh Palette"					//Macintosh256_palette
-	41, "256-Color UNIX Palette"						//UNIX_palette
-	42, "Web-safe Colors"								//Web_palette
-	43, "6-7-6 levels RGB"								//676levelsRGB_palette
-	44, "6-7-6 levels RGB + Grayscale"					//676levelsRGBplusGrays_palette
-	45, "6-8-5 levels RGB"								//685levelsRGB_palette
-	46, "6-8-5 levels RGB + Grayscale"					//685levelsRGBplusGrays_palette
-	47, "Adaptive"										//Adaptive_palette
-	48, "Selective"										//Selective_palette
-	49, "Perceptual"									//Perceptual_palette
-	50, "Commodore Amiga OCS|ECS (5-bit)"				//AmigaCS5_palette
-	51, "Commodore Amiga OCS|ECS (6-bit EHB)"			//AmigaCSEHB_palette
-		//R1G1B1_palette
-	52, "3-bit [R1G1B1] (Atari 2600 SECAM|Teletext 1|BBC Micro|Sinclair QL|Thomson TO7)"
-		//4bitRGBI_palette
-	53, "4-bit RGBI (Plantronics Colorplus|Sharp MZ-800)"
-	54, "3-level RGB (Toshiba Pasopia 7)"				//3levelRGB_palette
-		//R3G3B2_palette
-	55, "8-bit [R3G3B2] (MSX2+|IBM PGC Pal4|Digilent Inc.|Uzebox|SGI Indy)"
-	56, "8-bit [R3G2B3] (IBM PGC Pal3)"					//R3G2B3_palette
-	57, "8-bit [R2G3B3] (IBM PGC Pal2)"					//R2G3B3_palette
-	//00, "12-bit [R4G4B4] (Commodore Amiga OCS/ECS)"
-	58, "Monochrome"									//Monochrome_palette
-	59, "2-bit Greyscale"								//2bitGrayscale_palette
-	60, "4-bit Greyscale"								//4bitGrayscale_palette
-	61, "8-bit Greyscale"								//8bitGrayscale_palette
+	1, "Nintendo Entertainment System (YIQ)"									//NES_palette
+	2, "Nintendo Entertainment System (NTSC)"									//NESNTSC_palette
+	3, "Nintendo Entertainment System (Full Palette)"							//NESFull_palette
+	4, "Sega Master System (6-bit RGB)"											//SegaMaster_palette
+	5, "Atari 2600 (TIA NTSC)"													//TIANTSC_palette
+	6, "Atari 2600 (TIA PAL)"													//TIAPAL_palette
+	7, "Atari 400|800 (CTIA)"													//CTIA_palette
+	8, "Atari 5200|XL|XE (GTIA)"												//GTIA_palette
+	9, "Apple II series (Hi-res Mode)"											//AppleIIhires_palette
+	10, "Apple II series (Low-res Mode)"										//AppleIIlowres_palette
+	11, "Commodore VIC-20 (5 luminance levels)"									//CommodoreVIC20Five_palette
+	12, "Commodore VIC-20 (9 luminance levels)"									//CommodoreVIC20Nine_palette
+	13, "Commodore 64|128"														//Commodore64_palette
+	14, "Commodore 16|Plus/4"													//Commodore16Plus4_palette
+	15, "Tandy Color Computer 3"												//TandyColorC3_palette
+	16, "Sinclair ZX Spectrum"													//ZXSpectrum_palette
+	17, "Mattel Aquarius"														//MattelAquarius_palette
+	18, "SAM Coupé"																//SAMCoupe_palette
+	19, "MSX"																	//MSX_palette
+	20, "MSX2 (Mode 6)"															//MSX2Mode6_palette
+	21, "MSX2 (Mode 7)"															//MSX2Mode7_palette
+	22, "MSX2 (Mode 8)"															//MSX2Mode8_palette
+	23, "Thomson TO7/70|TO5"													//ThomsonTO5_palette
+	24, "Amstrad CPC 464 (Green Scale)"											//AmstradCPCGreen_palette
+	25, "Amstrad CPC 664|6128"													//AmstradCPCColor_palette
+	26, "CGA (Simulated Grayscale)"												//CGASimGray_palette
+	27, "CGA (Mode 4, palette #1, high intensity)"								//CGA1High_palette
+	28, "CGA (Mode 4, palette #1, low intensity)"								//CGA1Low_palette
+	29, "CGA (Mode 4, palette #2, high intensity)"								//CGA2High_palette
+	30, "CGA (Mode 4, palette #2, low intensity)"								//CGA2Low_palette
+	31, "CGA (Mode 5, high intensity)"											//CGAMode5High_palette
+	32, "CGA (Mode 5, low intensity)"											//CGAMode5Low_palette
+	33, "CGA+ (PCjr)"															//CGAplusPCjr_palette
+	34, "CGA+ (Tandy)"															//CGAplusTandy_palette
+	35, "Acorn RISC OS"															//AcornRISCOS_palette
+	36, "16-Color Windows Palette"												//Windows16_palette
+	37, "20-Color Windows Palette"												//Windows20_palette
+	38, "256-Color Windows Palette"												//Windows256_palette
+	39, "16-Color Macintosh Palette"											//Macintosh16_palette
+	40, "256-Color Macintosh Palette"											//Macintosh256_palette
+	41, "256-Color UNIX Palette"												//UNIX_palette
+	42, "Web-safe Colors"														//Web_palette
+	43, "6-7-6 levels RGB"														//676levelsRGB_palette
+	44, "6-7-6 levels RGB + Grayscale"											//676levelsRGBplusGrays_palette
+	45, "6-8-5 levels RGB"														//685levelsRGB_palette
+	46, "6-8-5 levels RGB + Grayscale"											//685levelsRGBplusGrays_palette
+	47, "Adaptive"																//Adaptive_palette
+	48, "Selective"																//Selective_palette
+	49, "Perceptual"															//Perceptual_palette
+	50, "Commodore Amiga OCS|ECS (5-bit)"										//AmigaCS5_palette
+	51, "Commodore Amiga OCS|ECS (6-bit EHB)"									//AmigaCSEHB_palette
+	52, "Apple IIgs (Super High-Res mode 640)"									//Apple2gs640_palette
+	53, "Apple IIgs (Super High-Res mode 320)"									//Apple2gs320_palette
+	54, "EGA"																	//EGA_palette
+	55, "VGA (mode 13h default palette)"										//VGA_palette
+	56, "3-bit [R1G1B1] (Atari 2600 SECAM|Teletext 1|BBC Micro|Sinclair QL|Thomson TO7)"
+																				//R1G1B1_palette
+	57, "4-bit RGBI (Plantronics Colorplus|Sharp MZ-800)"						//4bitRGBI_palette
+	58, "3-level RGB (Toshiba Pasopia 7)"										//3levelRGB_palette
+	59, "8-bit [R3G3B2] (MSX2+|IBM PGC Pal4|Digilent Inc.|Uzebox|SGI Indy)"		//R3G3B2_palette
+	60, "8-bit [R3G2B3] (IBM PGC Pal3)"											//R3G2B3_palette
+	61, "8-bit [R2G3B3] (IBM PGC Pal2)"											//R2G3B3_palette
+	62, "9-bit [R3G3B3] (Atari ST|Sega Genesis/Nomad|NEC PC/TurboGrafx-16)"		//R3G3B3_palette
+	63, "12-bit [R4G4B4] (NeXTstation|Fujitsu FM-77AV|Commodore Amiga OCS/ECS|Atari STe|Sega Game Gear|Neo Geo Pocket Color|Atari Lynx|WonderSwan Color)"
+																				//R4G4B4_palette
+	64, "15-bit [R5G5B5] (SVGA|SNES|Nintendo Game Boy Color/Advance|Neo Geo AES/Neo Geo CD|Sega 32X|PlayStation one)"
+																				//R5G5B5_palette
+	65, "16-bit [R5G5B5I1] (Neo Geo|Sharp X68000)"								//R5G5B5I1_palette
+	66, "16-bit [R5G6B5] (XGA|Atari Falcon Overlay)"							//R5G6B5_palette
+	67, "18-bit [R6G6B6] (VGA|MCGA|8514/A|Atari Falcon)"						//R6G6B6_palette
+	68, "Monochrome"															//Monochrome_palette
+	69, "2-bit Greyscale"														//2bitGrayscale_palette
+	70, "4-bit Greyscale"														//4bitGrayscale_palette
+	71, "8-bit Greyscale"														//8bitGrayscale_palette
 }
 
 OptionValue "DemakeShadersFrameRate"

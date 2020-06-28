@@ -17,7 +17,7 @@ Class DemakeShadersHandler : StaticEventHandler
 		case 1:
 			Shader.SetEnabled(p,"NES_palette",true);
 			Shader.SetUniform1f(p,"NES_palette","paldither",gl_demakeshaders_paldither.GetFloat());
-			DisablePalette(61);
+			DisablePalette(71);
 			DisablePalette(palette+1);
 			break;
 		case 2:
@@ -321,60 +321,120 @@ Class DemakeShadersHandler : StaticEventHandler
 			DisablePalette(palette+1);
 			break;
 		case 52:
+			Shader.SetEnabled(p,"Apple2gs640_palette",true);
+			Shader.SetUniform1f(p,"Apple2gs640_palette","paldither",gl_demakeshaders_paldither.GetFloat());
+			DisablePalette(palette-1);
+			DisablePalette(palette+1);
+			break;
+		case 53:
+			Shader.SetEnabled(p,"Apple2gs320_palette",true);
+			Shader.SetUniform1f(p,"Apple2gs320_palette","paldither",gl_demakeshaders_paldither.GetFloat());
+			DisablePalette(palette-1);
+			DisablePalette(palette+1);
+			break;
+		case 54:
+			Shader.SetEnabled(p,"EGA_palette",true);
+			Shader.SetUniform1f(p,"EGA_palette","paldither",gl_demakeshaders_paldither.GetFloat());
+			DisablePalette(palette-1);
+			DisablePalette(palette+1);
+			break;
+		case 55:
+			Shader.SetEnabled(p,"VGA_palette",true);
+			Shader.SetUniform1f(p,"VGA_palette","paldither",gl_demakeshaders_paldither.GetFloat());
+			DisablePalette(palette-1);
+			DisablePalette(palette+1);
+			break;
+		case 56:
 			Shader.SetEnabled(p,"R1G1B1_palette",true);
 			Shader.SetUniform1f(p,"R1G1B1_palette","paldither",gl_demakeshaders_paldither.GetFloat());
 			DisablePalette(palette-1);
 			DisablePalette(palette+1);
 			break;
-		case 53:
+		case 57:
 			Shader.SetEnabled(p,"4bitRGBI_palette",true);
 			Shader.SetUniform1f(p,"4bitRGBI_palette","paldither",gl_demakeshaders_paldither.GetFloat());
 			DisablePalette(palette-1);
 			DisablePalette(palette+1);
 			break;
-		case 54:
+		case 58:
 			Shader.SetEnabled(p,"3levelRGB_palette",true);
 			Shader.SetUniform1f(p,"3levelRGB_palette","paldither",gl_demakeshaders_paldither.GetFloat());
 			DisablePalette(palette-1);
 			DisablePalette(palette+1);
 			break;
-		case 55:
+		case 59:
 			Shader.SetEnabled(p,"R3G3B2_palette",true);
 			Shader.SetUniform1f(p,"R3G3B2_palette","paldither",gl_demakeshaders_paldither.GetFloat());
 			DisablePalette(palette-1);
 			DisablePalette(palette+1);
 			break;
-		case 56:
+		case 60:
 			Shader.SetEnabled(p,"R3G2B3_palette",true);
 			Shader.SetUniform1f(p,"R3G2B3_palette","paldither",gl_demakeshaders_paldither.GetFloat());
 			DisablePalette(palette-1);
 			DisablePalette(palette+1);
 			break;
-		case 57:
+		case 61:
 			Shader.SetEnabled(p,"R2G3B3_palette",true);
 			Shader.SetUniform1f(p,"R2G3B3_palette","paldither",gl_demakeshaders_paldither.GetFloat());
 			DisablePalette(palette-1);
 			DisablePalette(palette+1);
 			break;
-		case 58:
+		case 62:
+			Shader.SetEnabled(p,"R3G3B3_palette",true);
+			Shader.SetUniform1f(p,"R3G3B3_palette","paldither",gl_demakeshaders_paldither.GetFloat());
+			DisablePalette(palette-1);
+			DisablePalette(palette+1);
+			break;
+		case 63:
+			Shader.SetEnabled(p,"R4G4B4_palette",true);
+			Shader.SetUniform1f(p,"R4G4B4_palette","paldither",gl_demakeshaders_paldither.GetFloat());
+			DisablePalette(palette-1);
+			DisablePalette(palette+1);
+			break;
+		case 64:
+			Shader.SetEnabled(p,"R5G5B5_palette",true);
+			Shader.SetUniform1f(p,"R5G5B5_palette","paldither",gl_demakeshaders_paldither.GetFloat());
+			DisablePalette(palette-1);
+			DisablePalette(palette+1);
+			break;
+		case 65:
+			Shader.SetEnabled(p,"R5G5B5I1_palette",true);
+			Shader.SetUniform1f(p,"R5G5B5I1_palette","paldither",gl_demakeshaders_paldither.GetFloat());
+			DisablePalette(palette-1);
+			DisablePalette(palette+1);
+			break;
+		case 66:
+			Shader.SetEnabled(p,"R5G6B5_palette",true);
+			Shader.SetUniform1f(p,"R5G6B5_palette","paldither",gl_demakeshaders_paldither.GetFloat());
+			DisablePalette(palette-1);
+			DisablePalette(palette+1);
+			break;
+		case 67:
+			Shader.SetEnabled(p,"R6G6B6_palette",true);
+			Shader.SetUniform1f(p,"R6G6B6_palette","paldither",gl_demakeshaders_paldither.GetFloat());
+			DisablePalette(palette-1);
+			DisablePalette(palette+1);
+			break;
+		case 68:
 			Shader.SetEnabled(p,"Monochrome_palette",true);
 			Shader.SetUniform1f(p,"Monochrome_palette","paldither",gl_demakeshaders_paldither.GetFloat());
 			DisablePalette(palette-1);
 			DisablePalette(palette+1);
 			break;
-		case 59:
+		case 69:
 			Shader.SetEnabled(p,"2bitGrayscale_palette",true);
 			Shader.SetUniform1f(p,"2bitGrayscale_palette","paldither",gl_demakeshaders_paldither.GetFloat());
 			DisablePalette(palette-1);
 			DisablePalette(palette+1);
 			break;
-		case 60:
+		case 70:
 			Shader.SetEnabled(p,"4bitGrayscale_palette",true);
 			Shader.SetUniform1f(p,"4bitGrayscale_palette","paldither",gl_demakeshaders_paldither.GetFloat());
 			DisablePalette(palette-1);
 			DisablePalette(palette+1);
 			break;
-		case 61:
+		case 71:
 			Shader.SetEnabled(p,"8bitGrayscale_palette",true);
 			Shader.SetUniform1f(p,"8bitGrayscale_palette","paldither",gl_demakeshaders_paldither.GetFloat());
 			DisablePalette(palette-1);
@@ -545,33 +605,63 @@ Class DemakeShadersHandler : StaticEventHandler
 			Shader.SetEnabled(p,"AmigaCSEHB_palette",false);
 			break;
 		case 52:
-			Shader.SetEnabled(p,"R1G1B1_palette",false);
+			Shader.SetEnabled(p,"Apple2gs640_palette",false);
 			break;
 		case 53:
-			Shader.SetEnabled(p,"4bitRGBI_palette",false);
+			Shader.SetEnabled(p,"Apple2gs320_palette",false);
 			break;
 		case 54:
-			Shader.SetEnabled(p,"3levelRGB_palette",false);
+			Shader.SetEnabled(p,"EGA_palette",false);
 			break;
 		case 55:
-			Shader.SetEnabled(p,"R3G3B2_palette",false);
+			Shader.SetEnabled(p,"VGA_palette",false);
 			break;
 		case 56:
-			Shader.SetEnabled(p,"R3G2B3_palette",false);
+			Shader.SetEnabled(p,"R1G1B1_palette",false);
 			break;
 		case 57:
-			Shader.SetEnabled(p,"R2G3B3_palette",false);
+			Shader.SetEnabled(p,"4bitRGBI_palette",false);
 			break;
 		case 58:
-			Shader.SetEnabled(p,"Monochrome_palette",false);
+			Shader.SetEnabled(p,"3levelRGB_palette",false);
 			break;
 		case 59:
-			Shader.SetEnabled(p,"2bitGrayscale_palette",false);
+			Shader.SetEnabled(p,"R3G3B2_palette",false);
 			break;
 		case 60:
-			Shader.SetEnabled(p,"4bitGrayscale_palette",false);
+			Shader.SetEnabled(p,"R3G2B3_palette",false);
 			break;
 		case 61:
+			Shader.SetEnabled(p,"R2G3B3_palette",false);
+			break;
+		case 62:
+			Shader.SetEnabled(p,"R3G3B3_palette",false);
+			break;
+		case 63:
+			Shader.SetEnabled(p,"R4G4B4_palette",false);
+			break;
+		case 64:
+			Shader.SetEnabled(p,"R5G5B5_palette",false);
+			break;
+		case 65:
+			Shader.SetEnabled(p,"R5G5B5I1_palette",false);
+			break;
+		case 66:
+			Shader.SetEnabled(p,"R5G6B5_palette",false);
+			break;
+		case 67:
+			Shader.SetEnabled(p,"R6G6B6_palette",false);
+			break;
+		case 68:
+			Shader.SetEnabled(p,"Monochrome_palette",false);
+			break;
+		case 69:
+			Shader.SetEnabled(p,"2bitGrayscale_palette",false);
+			break;
+		case 70:
+			Shader.SetEnabled(p,"4bitGrayscale_palette",false);
+			break;
+		case 71:
 			Shader.SetEnabled(p,"8bitGrayscale_palette",false);
 			break;
 		Default:
@@ -626,12 +716,22 @@ Class DemakeShadersHandler : StaticEventHandler
 			Shader.SetEnabled(p,"Perceptual_palette",false);
 			Shader.SetEnabled(p,"AmigaCS5_palette",false);
 			Shader.SetEnabled(p,"AmigaCSEHB_palette",false);
+			Shader.SetEnabled(p,"Apple2gs640_palette",false);
+			Shader.SetEnabled(p,"Apple2gs320_palette",false);
+			Shader.SetEnabled(p,"EGA_palette",false);
+			Shader.SetEnabled(p,"VGA_palette",false);
 			Shader.SetEnabled(p,"R1G1B1_palette",false);
 			Shader.SetEnabled(p,"4bitRGBI_palette",false);
 			Shader.SetEnabled(p,"3levelRGB_palette",false);
 			Shader.SetEnabled(p,"R3G3B2_palette",false);
 			Shader.SetEnabled(p,"R3G2B3_palette",false);
 			Shader.SetEnabled(p,"R2G3B3_palette",false);
+			Shader.SetEnabled(p,"R3G3B3_palette",false);
+			Shader.SetEnabled(p,"R4G4B4_palette",false);
+			Shader.SetEnabled(p,"R5G5B5_palette",false);
+			Shader.SetEnabled(p,"R5G5B5I1_palette",false);
+			Shader.SetEnabled(p,"R5G6B5_palette",false);
+			Shader.SetEnabled(p,"R6G6B6_palette",false);
 			Shader.SetEnabled(p,"Monochrome_palette",false);
 			Shader.SetEnabled(p,"2bitGrayscale_palette",false);
 			Shader.SetEnabled(p,"4bitGrayscale_palette",false);

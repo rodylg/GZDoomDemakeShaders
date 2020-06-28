@@ -42,7 +42,7 @@ void main()
 	if ( res.r >= 1.0 ) res.r += paldither;
 	if ( res.g >= 1.0 ) res.g += paldither;
 	if ( res.b >= 1.0 ) res.b += paldither;
-	res.rgb += paldither*dither8[int(coord.x*sfact.x)%8+int(coord.y*sfact.y)%8*8]-0.5*paldither;
+	res.rgb += paldither*dither8[int(coord.x*float(sfact.x))%8+int(coord.y*float(sfact.y))%8*8]-0.5*paldither; //modified from res.rgb += paldither*dither8[int(coord.x*sfact.x)%8+int(coord.y*sfact.y)%8*8]-0.5*paldither;
 	vec3 lc = clamp(floor(res.rgb*64),0,63);
 	ivec2 lcoord = ivec2(int(lc.b+lc.r*64),int(lc.g)); //modified from ivec2(lc.r,lc.g+lc.b*64)
 	//lcoord.x += 64*palnum; //palnum deprecated

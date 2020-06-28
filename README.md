@@ -15,6 +15,11 @@ Doom has been ported to countless devices, most of which have enough processing 
 - [ ] **NTSC TV-output Color grading**
 
 ## Version History
+**0.0.5 (2020-06-27)**
+* Added Apple IIgs, EGA, VGA and 9/12/15/16/18 bits palettes.
+* Ammended Amiga OCS/ECS and MSX2 CLUTs.
+* Attempted fix for Delta Touch.
+
 **0.0.4 (2020-06-26)**
 * Added CGA, RISC, Windows, Macintosh, UNIX, Web-safe, Generic 4-bit RGBI, 3-level RGB, and 8-bit palettes.
 * Attempted fix for Delta Touch.

@@ -381,11 +381,41 @@ HardwareShader postprocess screen
 	Texture PalLUTTexture "textures/AmigaCS6.png"
 	Uniform float paldither
 }
+	//Apple
+HardwareShader postprocess screen
+{
+	Name "Apple2gs640_palette" //Apple IIgs (Super High-Res mode 640)
+	Shader "shaders/glsl/mfx_palette_mod.fp" 330
+	Texture PalLUTTexture "textures/A2gs128.png"
+	Uniform float paldither
+}
+HardwareShader postprocess screen
+{
+	Name "Apple2gs320_palette" //Apple IIgs (Super High-Res mode 320)
+	Shader "shaders/glsl/mfx_palette_mod.fp" 330
+	Texture PalLUTTexture "textures/A2gs256.png"
+	Uniform float paldither
+}
+	//IBM
+HardwareShader postprocess screen
+{
+	Name "EGA_palette" //EGA
+	Shader "shaders/glsl/mfx_palette_mod.fp" 330
+	Texture PalLUTTexture "textures/EGA.png"
+	Uniform float paldither
+}
+HardwareShader postprocess screen
+{
+	Name "VGA_palette" //VGA (mode 13h default palette)
+	Shader "shaders/glsl/mfx_palette_mod.fp" 330
+	Texture PalLUTTexture "textures/VGA.png"
+	Uniform float paldither
+}
 // Generic Color Spaces
 	// 3-bit RGB
 HardwareShader postprocess screen
 {
-	Name "R1G1B1_palette" //R1G1B1
+	Name "R1G1B1_palette" //R1G1B1 (Atari 2600 SECAM|Teletext 1|BBC Micro|Sinclair QL|Thomson TO7)
 	Shader "shaders/glsl/mfx_palette_mod.fp" 330
 	Texture PalLUTTexture "textures/R1G1B1.png"
 	Uniform float paldither
@@ -409,25 +439,73 @@ HardwareShader postprocess screen
 	// 8-bit RGB
 HardwareShader postprocess screen
 {
-	Name "R3G3B2_palette" //R3G3B2
+	Name "R3G3B2_palette" //R3G3B2 (MSX2+|IBM PGC Pal4|Digilent Inc.|Uzebox|SGI Indy)
 	Shader "shaders/glsl/mfx_palette_mod.fp" 330
 	Texture PalLUTTexture "textures/R3G3B2.png"
 	Uniform float paldither
 }
 HardwareShader postprocess screen
 {
-	Name "R3G2B3_palette" //R3G2B3
+	Name "R3G2B3_palette" //R3G2B3 (IBM PGC Pal3)
 	Shader "shaders/glsl/mfx_palette_mod.fp" 330
 	Texture PalLUTTexture "textures/R3G2B3.png"
 	Uniform float paldither
 }
 HardwareShader postprocess screen
 {
-	Name "R2G3B3_palette" //R2G3B3
+	Name "R2G3B3_palette" //R2G3B3 (IBM PGC Pal2)
 	Shader "shaders/glsl/mfx_palette_mod.fp" 330
 	Texture PalLUTTexture "textures/R2G3B3.png"
 	Uniform float paldither
 }
+	// 9-bit RGB
+HardwareShader postprocess screen
+{
+	Name "R3G3B3_palette" //R3G3B3 (Atari ST|Sega Genesis/Nomad|NEC PC/TurboGrafx-16)
+	Shader "shaders/glsl/mfx_palette_mod.fp" 330
+	Texture PalLUTTexture "textures/R3G3B3.png"
+	Uniform float paldither
+}
+	// 12-bit RGB
+HardwareShader postprocess screen
+{
+	Name "R4G4B4_palette" //R4G4B4 (NeXTstation|Fujitsu FM-77AV|Commodore Amiga OCS/ECS|Atari STe|Sega Game Gear|Neo Geo Pocket Color|Atari Lynx|WonderSwan Color)
+	Shader "shaders/glsl/mfx_palette_mod.fp" 330
+	Texture PalLUTTexture "textures/R4G4B4.png"
+	Uniform float paldither
+}
+	// 15-bit RGB
+HardwareShader postprocess screen
+{
+	Name "R5G5B5_palette" //R5G5B5 (SVGA|SNES|Nintendo Game Boy Color/Advance|Neo Geo AES/Neo Geo CD|Sega 32X|PlayStation one)
+	Shader "shaders/glsl/mfx_palette_mod.fp" 330
+	Texture PalLUTTexture "textures/R5G5B5.png"
+	Uniform float paldither
+}
+	// 16-bit RGB
+HardwareShader postprocess screen
+{
+	Name "R5G5B5I1_palette" //R5G5B5I1 (Neo Geo|Sharp X68000)
+	Shader "shaders/glsl/mfx_palette_mod.fp" 330
+	Texture PalLUTTexture "textures/R5G5B5I1.png"
+	Uniform float paldither
+}
+HardwareShader postprocess screen
+{
+	Name "R5G6B5_palette" //R5G6B5 (XGA|Atari Falcon Overlay)
+	Shader "shaders/glsl/mfx_palette_mod.fp" 330
+	Texture PalLUTTexture "textures/R5G6B5.png"
+	Uniform float paldither
+}
+	// 18-bit RGB
+HardwareShader postprocess screen
+{
+	Name "R6G6B6_palette" //R6G6B6 (VGA|MCGA|8514/A|Atari Falcon)
+	Shader "shaders/glsl/mfx_palette_mod.fp" 330
+	Texture PalLUTTexture "textures/R6G6B6.png"
+	Uniform float paldither
+}
+// Phosphors
 	// Monochrome
 HardwareShader postprocess screen
 {
