@@ -15,6 +15,11 @@ Doom has been ported to countless devices, most of which have enough processing 
 - [ ] **NTSC TV-output Color grading**
 
 ## Version History
+**0.0.6 (2020-06-29)**
+* The monochromatic update. Added a bunch of monochrome palettes for phosphor CRTs and LCDs.
+* Added some CLUTs to test the Game Boy palettes.
+* Yet another attempt at fixing Delta Touch.
+
 **0.0.5 (2020-06-27)**
 * Added Apple IIgs, EGA, VGA and 9/12/15/16/18 bits palettes.
 * Ammended Amiga OCS/ECS and MSX2 CLUTs.

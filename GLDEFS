@@ -506,20 +506,12 @@ HardwareShader postprocess screen
 	Uniform float paldither
 }
 // Phosphors
-	// Monochrome
-HardwareShader postprocess screen
-{
-	Name "Monochrome_palette"
-	Shader "shaders/glsl/mfx_palette_mod.fp" 330
-	Texture PalLUTTexture "textures/MonoCrom.png"
-	Uniform float paldither
-}
 	// Grayscale
 HardwareShader postprocess screen
 {
-	Name "2bitGrayscale_palette"
+	Name "8bitGrayscale_palette"
 	Shader "shaders/glsl/mfx_palette_mod.fp" 330
-	Texture PalLUTTexture "textures/Gray2bit.png"
+	Texture PalLUTTexture "textures/Gray8bit.png"
 	Uniform float paldither
 }
 HardwareShader postprocess screen
@@ -531,8 +523,109 @@ HardwareShader postprocess screen
 }
 HardwareShader postprocess screen
 {
-	Name "8bitGrayscale_palette"
+	Name "2bitGrayscale_palette"
 	Shader "shaders/glsl/mfx_palette_mod.fp" 330
-	Texture PalLUTTexture "textures/Gray8bit.png"
+	Texture PalLUTTexture "textures/Gray2bit.png"
+	Uniform float paldither
+}
+	// Monochrome
+HardwareShader postprocess screen
+{
+	Name "Monochrome_palette"
+	Shader "shaders/glsl/mfx_palette_mod.fp" 330
+	Texture PalLUTTexture "textures/MonoCrom.png"
+	Uniform float paldither
+}
+	// Green CRT
+HardwareShader postprocess screen
+{
+	Name "2bitGreenscale_palette"
+	Shader "shaders/glsl/mfx_palette_mod.fp" 330
+	Texture PalLUTTexture "textures/Grn2bit.png"
+	Uniform float paldither
+}
+HardwareShader postprocess screen
+{
+	Name "MonoGreen_palette"
+	Shader "shaders/glsl/mfx_palette_mod.fp" 330
+	Texture PalLUTTexture "textures/MonoGrn.png"
+	Uniform float paldither
+}
+	// Amber CRT
+HardwareShader postprocess screen
+{
+	Name "2bitAmberscale_palette"
+	Shader "shaders/glsl/mfx_palette_mod.fp" 330
+	Texture PalLUTTexture "textures/Ambr2bit.png"
+	Uniform float paldither
+}
+HardwareShader postprocess screen
+{
+	Name "MonoAmber_palette"
+	Shader "shaders/glsl/mfx_palette_mod.fp" 330
+	Texture PalLUTTexture "textures/MonoAmbr.png"
+	Uniform float paldither
+}
+	// "White" CRT
+HardwareShader postprocess screen
+{
+	Name "2bitWhiteCRT_palette"
+	Shader "shaders/glsl/mfx_palette_mod.fp" 330
+	Texture PalLUTTexture "textures/CRT2bit.png"
+	Uniform float paldither
+}
+HardwareShader postprocess screen
+{
+	Name "MonoWhiteCRT_palette"
+	Shader "shaders/glsl/mfx_palette_mod.fp" 330
+	Texture PalLUTTexture "textures/MonoCRT.png"
+	Uniform float paldither
+}
+	// "Plasma" CRT
+HardwareShader postprocess screen
+{
+	Name "2bitPlasma_palette"
+	Shader "shaders/glsl/mfx_palette_mod.fp" 330
+	Texture PalLUTTexture "textures/Plas2bit.png"
+	Uniform float paldither
+}
+HardwareShader postprocess screen
+{
+	Name "MonoPlasma_palette"
+	Shader "shaders/glsl/mfx_palette_mod.fp" 330
+	Texture PalLUTTexture "textures/MonoPlas.png"
+	Uniform float paldither
+}
+	// LCD
+HardwareShader postprocess screen
+{
+	Name "MonoLCD_palette"
+	Shader "shaders/glsl/mfx_palette_mod.fp" 330
+	Texture PalLUTTexture "textures/MonoLCD.png"
+	Uniform float paldither
+}
+// Nintendo Game Boy
+	//Pocket
+HardwareShader postprocess screen
+{
+	Name "GameBoyPocket_palette"
+	Shader "shaders/glsl/mfx_palette_mod.fp" 330
+	Texture PalLUTTexture "textures/GameBoyP.png"
+	Uniform float paldither
+}
+	//Super Game Boy
+	HardwareShader postprocess screen
+{
+	Name "SGB1A_palette"
+	Shader "shaders/glsl/mfx_palette_mod.fp" 330
+	Texture PalLUTTexture "textures/SGB-1A.png"
+	Uniform float paldither
+}
+	//Original
+HardwareShader postprocess screen
+{
+	Name "GameBoy_palette"
+	Shader "shaders/glsl/mfx_palette_mod.fp" 330
+	Texture PalLUTTexture "textures/GameBoy.png"
 	Uniform float paldither
 }

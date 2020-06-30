@@ -69,7 +69,7 @@ OptionValue "DemakeShadersPalette"
 	59, "8-bit [R3G3B2] (MSX2+|IBM PGC Pal4|Digilent Inc.|Uzebox|SGI Indy)"		//R3G3B2_palette
 	60, "8-bit [R3G2B3] (IBM PGC Pal3)"											//R3G2B3_palette
 	61, "8-bit [R2G3B3] (IBM PGC Pal2)"											//R2G3B3_palette
-	62, "9-bit [R3G3B3] (Atari ST|Sega Genesis/Nomad|NEC PC/TurboGrafx-16)"		//R3G3B3_palette
+	62, "9-bit [R3G3B3] (Sega Genesis/Nomad|NEC PC/TurboGrafx-16|Atari ST)"		//R3G3B3_palette
 	63, "12-bit [R4G4B4] (NeXTstation|Fujitsu FM-77AV|Commodore Amiga OCS/ECS|Atari STe|Sega Game Gear|Neo Geo Pocket Color|Atari Lynx|WonderSwan Color)"
 																				//R4G4B4_palette
 	64, "15-bit [R5G5B5] (SVGA|SNES|Nintendo Game Boy Color/Advance|Neo Geo AES/Neo Geo CD|Sega 32X|PlayStation one)"
@@ -77,10 +77,22 @@ OptionValue "DemakeShadersPalette"
 	65, "16-bit [R5G5B5I1] (Neo Geo|Sharp X68000)"								//R5G5B5I1_palette
 	66, "16-bit [R5G6B5] (XGA|Atari Falcon Overlay)"							//R5G6B5_palette
 	67, "18-bit [R6G6B6] (VGA|MCGA|8514/A|Atari Falcon)"						//R6G6B6_palette
-	68, "Monochrome"															//Monochrome_palette
-	69, "2-bit Greyscale"														//2bitGrayscale_palette
-	70, "4-bit Greyscale"														//4bitGrayscale_palette
-	71, "8-bit Greyscale"														//8bitGrayscale_palette
+	68, "8-bit Greyscale"														//8bitGrayscale_palette
+	69, "4-bit Greyscale"														//4bitGrayscale_palette
+	70, "2-bit Greyscale"														//2bitGrayscale_palette
+	71, "2-bit Greyscale (P1 CRT)"												//2bitGreenscale_palette
+	72, "2-bit Greyscale (P3 CRT)"												//2bitAmberscale_palette
+	73, "2-bit Greyscale (P4 CRT)"												//2bitWhiteCRT_palette
+	74, "2-bit Greyscale (Plasma)"												//2bitPlasma_palette
+	75, "Monochrome"															//Monochrome_palette
+	76, "Monochrome (P1 CRT)"													//MonoGreen_palette
+	77, "Monochrome (P3 CRT)"													//MonoAmber_palette
+	78, "Monochrome (P4 CRT)"													//MonoWhiteCRT_palette
+	79, "Monochrome (Plasma)"													//MonoPlasma_palette
+	80, "Monochrome (LCD)"														//MonoLCD_palette
+	81, "Game Boy Pocket"														//GameBoyPocket_palette
+	82, "Super Game Boy (Palette 1-A)"											//SGB1A_palette
+	83, "Game Boy"																//GameBoy_palette
 }
 
 OptionValue "DemakeShadersFrameRate"
