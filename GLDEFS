@@ -621,6 +621,223 @@ HardwareShader postprocess screen
 	Texture PalLUTTexture "textures/SGB-1A.png"
 	Uniform float paldither
 }
+	HardwareShader postprocess screen
+{
+	Name "SGB1B_palette"
+	Shader "shaders/glsl/mfx_palette_mod.fp" 330
+	Texture PalLUTTexture "textures/SGB-1B.png"
+	Uniform float paldither
+}
+	HardwareShader postprocess screen
+{
+	Name "SGB1C_palette"
+	Shader "shaders/glsl/mfx_palette_mod.fp" 330
+	Texture PalLUTTexture "textures/SGB-1C.png"
+	Uniform float paldither
+}
+	HardwareShader postprocess screen
+{
+	Name "SGB1D_palette"
+	Shader "shaders/glsl/mfx_palette_mod.fp" 330
+	Texture PalLUTTexture "textures/SGB-1D.png"
+	Uniform float paldither
+}
+	HardwareShader postprocess screen
+{
+	Name "SGB1E_palette"
+	Shader "shaders/glsl/mfx_palette_mod.fp" 330
+	Texture PalLUTTexture "textures/SGB-1E.png"
+	Uniform float paldither
+}
+	HardwareShader postprocess screen
+{
+	Name "SGB1F_palette"
+	Shader "shaders/glsl/mfx_palette_mod.fp" 330
+	Texture PalLUTTexture "textures/SGB-1F.png"
+	Uniform float paldither
+}
+	HardwareShader postprocess screen
+{
+	Name "SGB1G_palette"
+	Shader "shaders/glsl/mfx_palette_mod.fp" 330
+	Texture PalLUTTexture "textures/SGB-1G.png"
+	Uniform float paldither
+}
+	HardwareShader postprocess screen
+{
+	Name "SGB1H_palette"
+	Shader "shaders/glsl/mfx_palette_mod.fp" 330
+	Texture PalLUTTexture "textures/SGB-1H.png"
+	Uniform float paldither
+}
+	HardwareShader postprocess screen
+{
+	Name "SGB2A_palette"
+	Shader "shaders/glsl/mfx_palette_mod.fp" 330
+	Texture PalLUTTexture "textures/SGB-2A.png"
+	Uniform float paldither
+}
+	HardwareShader postprocess screen
+{
+	Name "SGB2B_palette"
+	Shader "shaders/glsl/mfx_palette_mod.fp" 330
+	Texture PalLUTTexture "textures/SGB-2B.png"
+	Uniform float paldither
+}
+	HardwareShader postprocess screen
+{
+	Name "SGB2C_palette"
+	Shader "shaders/glsl/mfx_palette_mod.fp" 330
+	Texture PalLUTTexture "textures/SGB-2C.png"
+	Uniform float paldither
+}
+	HardwareShader postprocess screen
+{
+	Name "SGB2D_palette"
+	Shader "shaders/glsl/mfx_palette_mod.fp" 330
+	Texture PalLUTTexture "textures/SGB-2D.png"
+	Uniform float paldither
+}
+	HardwareShader postprocess screen
+{
+	Name "SGB2E_palette"
+	Shader "shaders/glsl/mfx_palette_mod.fp" 330
+	Texture PalLUTTexture "textures/SGB-2E.png"
+	Uniform float paldither
+}
+	HardwareShader postprocess screen
+{
+	Name "SGB2F_palette"
+	Shader "shaders/glsl/mfx_palette_mod.fp" 330
+	Texture PalLUTTexture "textures/SGB-2F.png"
+	Uniform float paldither
+}
+	HardwareShader postprocess screen
+{
+	Name "SGB2G_palette"
+	Shader "shaders/glsl/mfx_palette_mod.fp" 330
+	Texture PalLUTTexture "textures/SGB-2G.png"
+	Uniform float paldither
+}
+	HardwareShader postprocess screen
+{
+	Name "SGB2H_palette"
+	Shader "shaders/glsl/mfx_palette_mod.fp" 330
+	Texture PalLUTTexture "textures/SGB-2H.png"
+	Uniform float paldither
+}
+	HardwareShader postprocess screen
+{
+	Name "SGB3A_palette"
+	Shader "shaders/glsl/mfx_palette_mod.fp" 330
+	Texture PalLUTTexture "textures/SGB-3A.png"
+	Uniform float paldither
+}
+	HardwareShader postprocess screen
+{
+	Name "SGB3B_palette"
+	Shader "shaders/glsl/mfx_palette_mod.fp" 330
+	Texture PalLUTTexture "textures/SGB-3B.png"
+	Uniform float paldither
+}
+	HardwareShader postprocess screen
+{
+	Name "SGB3C_palette"
+	Shader "shaders/glsl/mfx_palette_mod.fp" 330
+	Texture PalLUTTexture "textures/SGB-3C.png"
+	Uniform float paldither
+}
+	HardwareShader postprocess screen
+{
+	Name "SGB3D_palette"
+	Shader "shaders/glsl/mfx_palette_mod.fp" 330
+	Texture PalLUTTexture "textures/SGB-3D.png"
+	Uniform float paldither
+}
+	HardwareShader postprocess screen
+{
+	Name "SGB3E_palette"
+	Shader "shaders/glsl/mfx_palette_mod.fp" 330
+	Texture PalLUTTexture "textures/SGB-3E.png"
+	Uniform float paldither
+}
+	HardwareShader postprocess screen
+{
+	Name "SGB3F_palette"
+	Shader "shaders/glsl/mfx_palette_mod.fp" 330
+	Texture PalLUTTexture "textures/SGB-3F.png"
+	Uniform float paldither
+}
+	HardwareShader postprocess screen
+{
+	Name "SGB3G_palette"
+	Shader "shaders/glsl/mfx_palette_mod.fp" 330
+	Texture PalLUTTexture "textures/SGB-3G.png"
+	Uniform float paldither
+}
+	HardwareShader postprocess screen
+{
+	Name "SGB3H_palette"
+	Shader "shaders/glsl/mfx_palette_mod.fp" 330
+	Texture PalLUTTexture "textures/SGB-3H.png"
+	Uniform float paldither
+}
+	HardwareShader postprocess screen
+{
+	Name "SGB4A_palette"
+	Shader "shaders/glsl/mfx_palette_mod.fp" 330
+	Texture PalLUTTexture "textures/SGB-4A.png"
+	Uniform float paldither
+}
+	HardwareShader postprocess screen
+{
+	Name "SGB4B_palette"
+	Shader "shaders/glsl/mfx_palette_mod.fp" 330
+	Texture PalLUTTexture "textures/SGB-4B.png"
+	Uniform float paldither
+}
+	HardwareShader postprocess screen
+{
+	Name "SGB4C_palette"
+	Shader "shaders/glsl/mfx_palette_mod.fp" 330
+	Texture PalLUTTexture "textures/SGB-4C.png"
+	Uniform float paldither
+}
+	HardwareShader postprocess screen
+{
+	Name "SGB4D_palette"
+	Shader "shaders/glsl/mfx_palette_mod.fp" 330
+	Texture PalLUTTexture "textures/SGB-4D.png"
+	Uniform float paldither
+}
+	HardwareShader postprocess screen
+{
+	Name "SGB4E_palette"
+	Shader "shaders/glsl/mfx_palette_mod.fp" 330
+	Texture PalLUTTexture "textures/SGB-4E.png"
+	Uniform float paldither
+}
+	HardwareShader postprocess screen
+{
+	Name "SGB4F_palette"
+	Shader "shaders/glsl/mfx_palette_mod.fp" 330
+	Texture PalLUTTexture "textures/SGB-4F.png"
+	Uniform float paldither
+}
+	HardwareShader postprocess screen
+{
+	Name "SGB4G_palette"
+	Shader "shaders/glsl/mfx_palette_mod.fp" 330
+	Texture PalLUTTexture "textures/SGB-4G.png"
+	Uniform float paldither
+}
+	HardwareShader postprocess screen
+{
+	Name "SGB4H_palette"
+	Shader "shaders/glsl/mfx_palette_mod.fp" 330
+	Texture PalLUTTexture "textures/SGB-4H.png"
+	Uniform float paldither
+}
 	//Original
 HardwareShader postprocess screen
 {

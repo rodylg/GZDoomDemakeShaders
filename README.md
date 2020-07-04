@@ -15,6 +15,10 @@ Doom has been ported to countless devices, most of which have enough processing 
 - [ ] **NTSC TV-output Color grading**
 
 ## Version History
+**0.0.7 (2020-07-03)**
+* The Super Game Boy update. Added the SGB palettes.
+* Compatibility test code for Delta Touch.
+
 **0.0.6 (2020-06-29)**
 * The monochromatic update. Added a bunch of monochrome palettes for phosphor CRTs and LCDs.
 * Added some CLUTs to test the Game Boy palettes.
@@ -53,5 +57,6 @@ Doom has been ported to countless devices, most of which have enough processing 
 * [khronos.org](https://www.khronos.org/opengl/wiki/GLSL_Optimizations#Get_MAD): GLSL Optimizations and general documentation.
 * [Marisa Kirisame](https://github.com/OrdinaryMagician/marifx_m): Palette Reduction w/ Dither GLSL shader.
 * [Sigvatr](https://www.doomworld.com/forum/topic/55710-ega-doom-version-20/): EGA Doom.
+* [Super Mario Wiki](https://www.mariowiki.com/Super_Game_Boy#Color_palettes): Super Game Boy color palettes info.
 * [VCCE](https://github.com/VCCE/VCC): Tandy CoCo3 palette.
 * [Zdoom.org](https://zdoom.org/wiki/Main_Page): (G)ZDoom wiki.

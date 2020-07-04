@@ -92,7 +92,38 @@ OptionValue "DemakeShadersPalette"
 	80, "Monochrome (LCD)"														//MonoLCD_palette
 	81, "Game Boy Pocket"														//GameBoyPocket_palette
 	82, "Super Game Boy (Palette 1-A)"											//SGB1A_palette
-	83, "Game Boy"																//GameBoy_palette
+	83, "Super Game Boy (Palette 1-B)"											//SGB1B_palette
+	84, "Super Game Boy (Palette 1-C)"											//SGB1C_palette
+	85, "Super Game Boy (Palette 1-D)"											//SGB1D_palette
+	86, "Super Game Boy (Palette 1-E)"											//SGB1E_palette
+	87, "Super Game Boy (Palette 1-F)"											//SGB1F_palette
+	88, "Super Game Boy (Palette 1-G)"											//SGB1G_palette
+	89, "Super Game Boy (Palette 1-H)"											//SGB1H_palette
+	90, "Super Game Boy (Palette 2-A)"											//SGB2A_palette
+	91, "Super Game Boy (Palette 2-B)"											//SGB2B_palette
+	92, "Super Game Boy (Palette 2-C)"											//SGB2C_palette
+	93, "Super Game Boy (Palette 2-D)"											//SGB2D_palette
+	94, "Super Game Boy (Palette 2-E)"											//SGB2E_palette
+	95, "Super Game Boy (Palette 2-F)"											//SGB2F_palette
+	96, "Super Game Boy (Palette 2-G)"											//SGB2G_palette
+	97, "Super Game Boy (Palette 2-H)"											//SGB2H_palette
+	98, "Super Game Boy (Palette 3-A)"											//SGB3A_palette
+	99, "Super Game Boy (Palette 3-B)"											//SGB3B_palette
+	100, "Super Game Boy (Palette 3-C)"											//SGB3C_palette
+	101, "Super Game Boy (Palette 3-D)"											//SGB3D_palette
+	102, "Super Game Boy (Palette 3-E)"											//SGB3E_palette
+	103, "Super Game Boy (Palette 3-F)"											//SGB3F_palette
+	104, "Super Game Boy (Palette 3-G)"											//SGB3G_palette
+	105, "Super Game Boy (Palette 3-H)"											//SGB3H_palette
+	106, "Super Game Boy (Palette 4-A)"											//SGB4A_palette
+	107, "Super Game Boy (Palette 4-B)"											//SGB4B_palette
+	108, "Super Game Boy (Palette 4-C)"											//SGB4C_palette
+	109, "Super Game Boy (Palette 4-D)"											//SGB4D_palette
+	110, "Super Game Boy (Palette 4-E)"											//SGB4E_palette
+	111, "Super Game Boy (Palette 4-F)"											//SGB4F_palette
+	112, "Super Game Boy (Palette 4-G)"											//SGB4G_palette
+	113, "Super Game Boy (Palette 4-H)"											//SGB4H_palette
+	114, "Game Boy"																//GameBoy_palette
 }
 
 OptionValue "DemakeShadersFrameRate"

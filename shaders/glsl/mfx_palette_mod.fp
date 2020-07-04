@@ -5,6 +5,30 @@
    Modified on 2020-06-14 by Rusco Istar
    to optimize LUT texture video memory footprint
 */
+
+	// Global compatibility defines
+#if __VERSION__ >= 130
+	#define COMPAT_VARYING in
+	#define COMPAT_TEXTURE texture
+#else
+	#define COMPAT_VARYING varying
+	#define FragColor gl_FragColor
+	#define COMPAT_TEXTURE texture2D
+#endif
+
+#ifdef GL_ES
+	#ifdef GL_FRAGMENT_PRECISION_HIGH
+		precision highp float;
+	#else
+		precision mediump float;
+	#endif
+	#define COMPAT_PRECISION mediump
+	#define GET_LC COMPAT_PRECISION vec3 lc = vec3(clamp(floor(res.r*64.0),0.0,63.0),clamp(floor(res.g*64.0),0.0,63.0),clamp(floor(res.b*64.0),0.0,63.0))
+#else
+	#define COMPAT_PRECISION
+	#define GET_LC COMPAT_PRECISION vec3 lc = clamp(floor(res.rgb*64),0,63);
+#endif
+
 void main()
 {
 	//#define d(x) x/64.0 //Precalculate instead for speedup
@@ -21,7 +45,7 @@ void main()
 		d(42),d(26),d(38),d(22),d(41),d(25),d(37),d(21)
 	); */
 		//Replacing the preprocessed ordered dithering index matrix
-	float dither8[64] = float[]
+	COMPAT_PRECISION float dither8[64] = float[]
 	(
 		0.000000,0.750000,0.187500,0.937500,0.046875,0.796875,0.234375,0.984375,
 		0.500000,0.250000,0.687500,0.437500,0.546875,0.296875,0.734375,0.484375,
@@ -33,9 +57,9 @@ void main()
 		0.656250,0.406250,0.593750,0.343750,0.640625,0.390625,0.578125,0.328125
 	);
 	//#undef d //Deprecated by precalculating
-	vec2 coord = TexCoord;
+	COMPAT_PRECISION vec2 coord = TexCoord;
 	ivec2 sfact = textureSize(InputTexture,0); //modified from vec2 sfact = textureSize(InputTexture,0);
-	vec4 res = texture(InputTexture,coord);
+	COMPAT_PRECISION vec4 res = texture(InputTexture,coord);
 	if ( res.r <= 0.0 ) res.r -= paldither;
 	if ( res.g <= 0.0 ) res.g -= paldither;
 	if ( res.b <= 0.0 ) res.b -= paldither;
@@ -43,9 +67,9 @@ void main()
 	if ( res.g >= 1.0 ) res.g += paldither;
 	if ( res.b >= 1.0 ) res.b += paldither;
 	res.rgb += paldither*dither8[int(coord.x*float(sfact.x))%8+int(coord.y*float(sfact.y))%8*8]-0.5*paldither; //modified from res.rgb += paldither*dither8[int(coord.x*sfact.x)%8+int(coord.y*sfact.y)%8*8]-0.5*paldither;
-	vec3 lc = vec3(clamp(floor(res.rgb*64),0,63));
-	ivec2 lcoord = ivec2(int(lc.b+lc.r*64),int(lc.g)); //modified from ivec2(lc.r,lc.g+lc.b*64)
-	//lcoord.x += 64*palnum; //palnum deprecated
+	GET_LC; //See line 26|29
+	ivec2 lcoord = ivec2(int(lc.b+lc.r*64.0),int(lc.g)); //modified from ivec2(lc.r,lc.g+lc.b*64)
+	//lcoord.x += 64*palnum; //palnum deprecated in single CLUT mode
 	res.rgb = texelFetch(PalLUTTexture,lcoord,0).rgb;
 	FragColor = res;
 }

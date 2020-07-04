@@ -17,7 +17,7 @@ Class DemakeShadersHandler : StaticEventHandler
 		case 1:
 			Shader.SetEnabled(p,"NES_palette",true);
 			Shader.SetUniform1f(p,"NES_palette","paldither",gl_demakeshaders_paldither.GetFloat());
-			DisablePalette(83);
+			DisablePalette(114);
 			DisablePalette(palette+1);
 			break;
 		case 2:
@@ -507,6 +507,192 @@ Class DemakeShadersHandler : StaticEventHandler
 			DisablePalette(palette+1);
 			break;
 		case 83:
+			Shader.SetEnabled(p,"SGB1B_palette",true);
+			Shader.SetUniform1f(p,"SGB1B_palette","paldither",gl_demakeshaders_paldither.GetFloat());
+			DisablePalette(palette-1);
+			DisablePalette(palette+1);
+			break;
+		case 84:
+			Shader.SetEnabled(p,"SGB1C_palette",true);
+			Shader.SetUniform1f(p,"SGB1C_palette","paldither",gl_demakeshaders_paldither.GetFloat());
+			DisablePalette(palette-1);
+			DisablePalette(palette+1);
+			break;
+		case 85:
+			Shader.SetEnabled(p,"SGB1D_palette",true);
+			Shader.SetUniform1f(p,"SGB1D_palette","paldither",gl_demakeshaders_paldither.GetFloat());
+			DisablePalette(palette-1);
+			DisablePalette(palette+1);
+			break;
+		case 86:
+			Shader.SetEnabled(p,"SGB1E_palette",true);
+			Shader.SetUniform1f(p,"SGB1E_palette","paldither",gl_demakeshaders_paldither.GetFloat());
+			DisablePalette(palette-1);
+			DisablePalette(palette+1);
+			break;
+		case 87:
+			Shader.SetEnabled(p,"SGB1F_palette",true);
+			Shader.SetUniform1f(p,"SGB1F_palette","paldither",gl_demakeshaders_paldither.GetFloat());
+			DisablePalette(palette-1);
+			DisablePalette(palette+1);
+			break;
+		case 88:
+			Shader.SetEnabled(p,"SGB1G_palette",true);
+			Shader.SetUniform1f(p,"SGB1G_palette","paldither",gl_demakeshaders_paldither.GetFloat());
+			DisablePalette(palette-1);
+			DisablePalette(palette+1);
+			break;
+		case 89:
+			Shader.SetEnabled(p,"SGB1H_palette",true);
+			Shader.SetUniform1f(p,"SGB1H_palette","paldither",gl_demakeshaders_paldither.GetFloat());
+			DisablePalette(palette-1);
+			DisablePalette(palette+1);
+			break;
+		case 90:
+			Shader.SetEnabled(p,"SGB2A_palette",true);
+			Shader.SetUniform1f(p,"SGB2A_palette","paldither",gl_demakeshaders_paldither.GetFloat());
+			DisablePalette(palette-1);
+			DisablePalette(palette+1);
+			break;
+		case 91:
+			Shader.SetEnabled(p,"SGB2B_palette",true);
+			Shader.SetUniform1f(p,"SGB2B_palette","paldither",gl_demakeshaders_paldither.GetFloat());
+			DisablePalette(palette-1);
+			DisablePalette(palette+1);
+			break;
+		case 92:
+			Shader.SetEnabled(p,"SGB2C_palette",true);
+			Shader.SetUniform1f(p,"SGB2C_palette","paldither",gl_demakeshaders_paldither.GetFloat());
+			DisablePalette(palette-1);
+			DisablePalette(palette+1);
+			break;
+		case 93:
+			Shader.SetEnabled(p,"SGB2D_palette",true);
+			Shader.SetUniform1f(p,"SGB2D_palette","paldither",gl_demakeshaders_paldither.GetFloat());
+			DisablePalette(palette-1);
+			DisablePalette(palette+1);
+			break;
+		case 94:
+			Shader.SetEnabled(p,"SGB2E_palette",true);
+			Shader.SetUniform1f(p,"SGB2E_palette","paldither",gl_demakeshaders_paldither.GetFloat());
+			DisablePalette(palette-1);
+			DisablePalette(palette+1);
+			break;
+		case 95:
+			Shader.SetEnabled(p,"SGB2F_palette",true);
+			Shader.SetUniform1f(p,"SGB2F_palette","paldither",gl_demakeshaders_paldither.GetFloat());
+			DisablePalette(palette-1);
+			DisablePalette(palette+1);
+			break;
+		case 96:
+			Shader.SetEnabled(p,"SGB2G_palette",true);
+			Shader.SetUniform1f(p,"SGB2G_palette","paldither",gl_demakeshaders_paldither.GetFloat());
+			DisablePalette(palette-1);
+			DisablePalette(palette+1);
+			break;
+		case 97:
+			Shader.SetEnabled(p,"SGB2H_palette",true);
+			Shader.SetUniform1f(p,"SGB2H_palette","paldither",gl_demakeshaders_paldither.GetFloat());
+			DisablePalette(palette-1);
+			DisablePalette(palette+1);
+			break;
+		case 98:
+			Shader.SetEnabled(p,"SGB3A_palette",true);
+			Shader.SetUniform1f(p,"SGB3A_palette","paldither",gl_demakeshaders_paldither.GetFloat());
+			DisablePalette(palette-1);
+			DisablePalette(palette+1);
+			break;
+		case 99:
+			Shader.SetEnabled(p,"SGB3B_palette",true);
+			Shader.SetUniform1f(p,"SGB3B_palette","paldither",gl_demakeshaders_paldither.GetFloat());
+			DisablePalette(palette-1);
+			DisablePalette(palette+1);
+			break;
+		case 100:
+			Shader.SetEnabled(p,"SGB3C_palette",true);
+			Shader.SetUniform1f(p,"SGB3C_palette","paldither",gl_demakeshaders_paldither.GetFloat());
+			DisablePalette(palette-1);
+			DisablePalette(palette+1);
+			break;
+		case 101:
+			Shader.SetEnabled(p,"SGB3D_palette",true);
+			Shader.SetUniform1f(p,"SGB3D_palette","paldither",gl_demakeshaders_paldither.GetFloat());
+			DisablePalette(palette-1);
+			DisablePalette(palette+1);
+			break;
+		case 102:
+			Shader.SetEnabled(p,"SGB3E_palette",true);
+			Shader.SetUniform1f(p,"SGB3E_palette","paldither",gl_demakeshaders_paldither.GetFloat());
+			DisablePalette(palette-1);
+			DisablePalette(palette+1);
+			break;
+		case 103:
+			Shader.SetEnabled(p,"SGB3F_palette",true);
+			Shader.SetUniform1f(p,"SGB3F_palette","paldither",gl_demakeshaders_paldither.GetFloat());
+			DisablePalette(palette-1);
+			DisablePalette(palette+1);
+			break;
+		case 104:
+			Shader.SetEnabled(p,"SGB3G_palette",true);
+			Shader.SetUniform1f(p,"SGB3G_palette","paldither",gl_demakeshaders_paldither.GetFloat());
+			DisablePalette(palette-1);
+			DisablePalette(palette+1);
+			break;
+		case 105:
+			Shader.SetEnabled(p,"SGB3H_palette",true);
+			Shader.SetUniform1f(p,"SGB3H_palette","paldither",gl_demakeshaders_paldither.GetFloat());
+			DisablePalette(palette-1);
+			DisablePalette(palette+1);
+			break;
+		case 106:
+			Shader.SetEnabled(p,"SGB4A_palette",true);
+			Shader.SetUniform1f(p,"SGB4A_palette","paldither",gl_demakeshaders_paldither.GetFloat());
+			DisablePalette(palette-1);
+			DisablePalette(palette+1);
+			break;
+		case 107:
+			Shader.SetEnabled(p,"SGB4B_palette",true);
+			Shader.SetUniform1f(p,"SGB4B_palette","paldither",gl_demakeshaders_paldither.GetFloat());
+			DisablePalette(palette-1);
+			DisablePalette(palette+1);
+			break;
+		case 108:
+			Shader.SetEnabled(p,"SGB4C_palette",true);
+			Shader.SetUniform1f(p,"SGB4C_palette","paldither",gl_demakeshaders_paldither.GetFloat());
+			DisablePalette(palette-1);
+			DisablePalette(palette+1);
+			break;
+		case 109:
+			Shader.SetEnabled(p,"SGB4D_palette",true);
+			Shader.SetUniform1f(p,"SGB4D_palette","paldither",gl_demakeshaders_paldither.GetFloat());
+			DisablePalette(palette-1);
+			DisablePalette(palette+1);
+			break;
+		case 110:
+			Shader.SetEnabled(p,"SGB4E_palette",true);
+			Shader.SetUniform1f(p,"SGB4E_palette","paldither",gl_demakeshaders_paldither.GetFloat());
+			DisablePalette(palette-1);
+			DisablePalette(palette+1);
+			break;
+		case 111:
+			Shader.SetEnabled(p,"SGB4F_palette",true);
+			Shader.SetUniform1f(p,"SGB4F_palette","paldither",gl_demakeshaders_paldither.GetFloat());
+			DisablePalette(palette-1);
+			DisablePalette(palette+1);
+			break;
+		case 112:
+			Shader.SetEnabled(p,"SGB4G_palette",true);
+			Shader.SetUniform1f(p,"SGB4G_palette","paldither",gl_demakeshaders_paldither.GetFloat());
+			DisablePalette(palette-1);
+			DisablePalette(palette+1);
+			break;
+		case 113:
+			Shader.SetEnabled(p,"SGB4H_palette",true);
+			Shader.SetUniform1f(p,"SGB4H_palette","paldither",gl_demakeshaders_paldither.GetFloat());
+			DisablePalette(palette-1);
+			DisablePalette(palette+1);
+			break;
+		case 114:
 			Shader.SetEnabled(p,"GameBoy_palette",true);
 			Shader.SetUniform1f(p,"GameBoy_palette","paldither",gl_demakeshaders_paldither.GetFloat());
 			DisablePalette(palette-1);
@@ -770,6 +956,99 @@ Class DemakeShadersHandler : StaticEventHandler
 			Shader.SetEnabled(p,"SGB1A_palette",false);
 			break;
 		case 83:
+			Shader.SetEnabled(p,"SGB1B_palette",false);
+			break;
+		case 84:
+			Shader.SetEnabled(p,"SGB1C_palette",false);
+			break;
+		case 85:
+			Shader.SetEnabled(p,"SGB1D_palette",false);
+			break;
+		case 86:
+			Shader.SetEnabled(p,"SGB1E_palette",false);
+			break;
+		case 87:
+			Shader.SetEnabled(p,"SGB1F_palette",false);
+			break;
+		case 88:
+			Shader.SetEnabled(p,"SGB1G_palette",false);
+			break;
+		case 89:
+			Shader.SetEnabled(p,"SGB1H_palette",false);
+			break;
+		case 90:
+			Shader.SetEnabled(p,"SGB2A_palette",false);
+			break;
+		case 91:
+			Shader.SetEnabled(p,"SGB2B_palette",false);
+			break;
+		case 92:
+			Shader.SetEnabled(p,"SGB2C_palette",false);
+			break;
+		case 93:
+			Shader.SetEnabled(p,"SGB2D_palette",false);
+			break;
+		case 94:
+			Shader.SetEnabled(p,"SGB2E_palette",false);
+			break;
+		case 95:
+			Shader.SetEnabled(p,"SGB2F_palette",false);
+			break;
+		case 96:
+			Shader.SetEnabled(p,"SGB2G_palette",false);
+			break;
+		case 97:
+			Shader.SetEnabled(p,"SGB2H_palette",false);
+			break;
+		case 98:
+			Shader.SetEnabled(p,"SGB3A_palette",false);
+			break;
+		case 99:
+			Shader.SetEnabled(p,"SGB3B_palette",false);
+			break;
+		case 100:
+			Shader.SetEnabled(p,"SGB3C_palette",false);
+			break;
+		case 101:
+			Shader.SetEnabled(p,"SGB3D_palette",false);
+			break;
+		case 102:
+			Shader.SetEnabled(p,"SGB3E_palette",false);
+			break;
+		case 103:
+			Shader.SetEnabled(p,"SGB3F_palette",false);
+			break;
+		case 104:
+			Shader.SetEnabled(p,"SGB3G_palette",false);
+			break;
+		case 105:
+			Shader.SetEnabled(p,"SGB3H_palette",false);
+			break;
+		case 106:
+			Shader.SetEnabled(p,"SGB4A_palette",false);
+			break;
+		case 107:
+			Shader.SetEnabled(p,"SGB4B_palette",false);
+			break;
+		case 108:
+			Shader.SetEnabled(p,"SGB4C_palette",false);
+			break;
+		case 109:
+			Shader.SetEnabled(p,"SGB4D_palette",false);
+			break;
+		case 110:
+			Shader.SetEnabled(p,"SGB4E_palette",false);
+			break;
+		case 111:
+			Shader.SetEnabled(p,"SGB4F_palette",false);
+			break;
+		case 112:
+			Shader.SetEnabled(p,"SGB4G_palette",false);
+			break;
+		case 113:
+			Shader.SetEnabled(p,"SGB4H_palette",false);
+			break;
+		case 114:
 			Shader.SetEnabled(p,"GameBoy_palette",false);
 			break;
 		Default:
@@ -855,6 +1134,37 @@ Class DemakeShadersHandler : StaticEventHandler
 			Shader.SetEnabled(p,"MonoLCD_palette",false);
 			Shader.SetEnabled(p,"GameBoyPocket_palette",false);
 			Shader.SetEnabled(p,"SGB1A_palette",false);
+			Shader.SetEnabled(p,"SGB1B_palette",false);
+			Shader.SetEnabled(p,"SGB1C_palette",false);
+			Shader.SetEnabled(p,"SGB1D_palette",false);
+			Shader.SetEnabled(p,"SGB1E_palette",false);
+			Shader.SetEnabled(p,"SGB1F_palette",false);
+			Shader.SetEnabled(p,"SGB1G_palette",false);
+			Shader.SetEnabled(p,"SGB1H_palette",false);
+			Shader.SetEnabled(p,"SGB2A_palette",false);
+			Shader.SetEnabled(p,"SGB2B_palette",false);
+			Shader.SetEnabled(p,"SGB2C_palette",false);
+			Shader.SetEnabled(p,"SGB2D_palette",false);
+			Shader.SetEnabled(p,"SGB2E_palette",false);
+			Shader.SetEnabled(p,"SGB2F_palette",false);
+			Shader.SetEnabled(p,"SGB2G_palette",false);
+			Shader.SetEnabled(p,"SGB2H_palette",false);
+			Shader.SetEnabled(p,"SGB3A_palette",false);
+			Shader.SetEnabled(p,"SGB3B_palette",false);
+			Shader.SetEnabled(p,"SGB3C_palette",false);
+			Shader.SetEnabled(p,"SGB3D_palette",false);
+			Shader.SetEnabled(p,"SGB3E_palette",false);
+			Shader.SetEnabled(p,"SGB3F_palette",false);
+			Shader.SetEnabled(p,"SGB3G_palette",false);
+			Shader.SetEnabled(p,"SGB3H_palette",false);
+			Shader.SetEnabled(p,"SGB4A_palette",false);
+			Shader.SetEnabled(p,"SGB4B_palette",false);
+			Shader.SetEnabled(p,"SGB4C_palette",false);
+			Shader.SetEnabled(p,"SGB4D_palette",false);
+			Shader.SetEnabled(p,"SGB4E_palette",false);
+			Shader.SetEnabled(p,"SGB4F_palette",false);
+			Shader.SetEnabled(p,"SGB4G_palette",false);
+			Shader.SetEnabled(p,"SGB4H_palette",false);
 			Shader.SetEnabled(p,"GameBoy_palette",false);
 		}
 	}
