@@ -23,10 +23,10 @@
 		precision mediump float;
 	#endif
 	#define COMPAT_PRECISION mediump
-	#define GET_LC COMPAT_PRECISION vec3 lc = vec3(clamp(floor(res.r*64.0),0.0,63.0),clamp(floor(res.g*64.0),0.0,63.0),clamp(floor(res.b*64.0),0.0,63.0))
+	#define GET_LC vec3 lc = vec3(clamp(int(res.r*64.0),0,63),clamp(int(res.g*64.0),0,63),clamp(int(res.b*64.0),0,63))
 #else
 	#define COMPAT_PRECISION
-	#define GET_LC COMPAT_PRECISION vec3 lc = clamp(floor(res.rgb*64),0,63);
+	#define GET_LC vec3 lc = clamp(floor(res.rgb*64),0,63);
 #endif
 
 void main()
@@ -57,18 +57,18 @@ void main()
 		0.656250,0.406250,0.593750,0.343750,0.640625,0.390625,0.578125,0.328125
 	);
 	//#undef d //Deprecated by precalculating
-	COMPAT_PRECISION vec2 coord = TexCoord;
-	ivec2 sfact = textureSize(InputTexture,0); //modified from vec2 sfact = textureSize(InputTexture,0);
-	COMPAT_PRECISION vec4 res = texture(InputTexture,coord);
+	vec2 coord = TexCoord;
+	vec2 sfact = vec2(textureSize(InputTexture,0)); //modified from vec2 sfact = textureSize(InputTexture,0);
+	vec4 res = texture(InputTexture,coord);
 	if ( res.r <= 0.0 ) res.r -= paldither;
 	if ( res.g <= 0.0 ) res.g -= paldither;
 	if ( res.b <= 0.0 ) res.b -= paldither;
 	if ( res.r >= 1.0 ) res.r += paldither;
 	if ( res.g >= 1.0 ) res.g += paldither;
 	if ( res.b >= 1.0 ) res.b += paldither;
-	res.rgb += paldither*dither8[int(coord.x*float(sfact.x))%8+int(coord.y*float(sfact.y))%8*8]-0.5*paldither; //modified from res.rgb += paldither*dither8[int(coord.x*sfact.x)%8+int(coord.y*sfact.y)%8*8]-0.5*paldither;
+	res.rgb += paldither*dither8[int(coord.x*sfact.x)%8+int(coord.y*sfact.y)%8*8]-0.5*paldither;
 	GET_LC; //See line 26|29
-	ivec2 lcoord = ivec2(int(lc.b+lc.r*64.0),int(lc.g)); //modified from ivec2(lc.r,lc.g+lc.b*64)
+	ivec2 lcoord = ivec2(lc.b+lc.r*64.0,lc.g); //modified from ivec2(lc.r,lc.g+lc.b*64)
 	//lcoord.x += 64*palnum; //palnum deprecated in single CLUT mode
 	res.rgb = texelFetch(PalLUTTexture,lcoord,0).rgb;
 	FragColor = res;

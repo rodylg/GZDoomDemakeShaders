@@ -7,7 +7,7 @@ Doom has been ported to countless devices, most of which have enough processing 
 ## Roadmap of Features
 - [x] **Refresh Rate Limiter:** Control the max frame rate of the engine.
 - [x] **Palette Reduction w/ Ordered Dither:** Part of the [MariFX](https://github.com/OrdinaryMagician/marifx_m) Shaders for GZDoom, modified to accept more than 64 palettes and optimized to reduce it's video memory footprint.
-- [ ] **Multiple retro-systems palettes and color modes:** Videogame home consoles and portable systems, Vintage graphic systems, Monochrome, Grayscale and various RGB levels/bit-depths.
+- [x] **Multiple retro-systems palettes and color modes:** Videogame home consoles and portable systems, Vintage graphic systems, Monochrome, Grayscale and various RGB levels/bit-depths.
 - [ ] **Resolution scaler w/ Non-squared Pixel Aspect Ratios**
 - [ ] **"Low-Detail" mode (double-width pixels)**
 - [ ] **Customisable Scanlines**
@@ -15,6 +15,11 @@ Doom has been ported to countless devices, most of which have enough processing 
 - [ ] **NTSC TV-output Color grading**
 
 ## Version History
+**0.1.0-pre (2020-07-10)**
+* The Game Boy Color update. Added the GBC palettes.
+* Changed the namespace for the CLUT files to avoid collisions with other PWAD's textures.
+* Bugfixes for Delta Touch.
+
 **0.0.7 (2020-07-03)**
 * The Super Game Boy update. Added the SGB palettes.
 * Compatibility test code for Delta Touch.

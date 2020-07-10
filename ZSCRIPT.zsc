@@ -17,7 +17,7 @@ Class DemakeShadersHandler : StaticEventHandler
 		case 1:
 			Shader.SetEnabled(p,"NES_palette",true);
 			Shader.SetUniform1f(p,"NES_palette","paldither",gl_demakeshaders_paldither.GetFloat());
-			DisablePalette(114);
+			DisablePalette(126);
 			DisablePalette(palette+1);
 			break;
 		case 2:
@@ -693,6 +693,78 @@ Class DemakeShadersHandler : StaticEventHandler
 			DisablePalette(palette+1);
 			break;
 		case 114:
+			Shader.SetEnabled(p,"GBCR_palette",true);
+			Shader.SetUniform1f(p,"GBCR_palette","paldither",gl_demakeshaders_paldither.GetFloat());
+			DisablePalette(palette-1);
+			DisablePalette(palette+1);
+			break;
+		case 115:
+			Shader.SetEnabled(p,"GBCDA_palette",true);
+			Shader.SetUniform1f(p,"GBCDA_palette","paldither",gl_demakeshaders_paldither.GetFloat());
+			DisablePalette(palette-1);
+			DisablePalette(palette+1);
+			break;
+		case 116:
+			Shader.SetEnabled(p,"GBCU_palette",true);
+			Shader.SetUniform1f(p,"GBCU_palette","paldither",gl_demakeshaders_paldither.GetFloat());
+			DisablePalette(palette-1);
+			DisablePalette(palette+1);
+			break;
+		case 117:
+			Shader.SetEnabled(p,"GBCRB_palette",true);
+			Shader.SetUniform1f(p,"GBCRB_palette","paldither",gl_demakeshaders_paldither.GetFloat());
+			DisablePalette(palette-1);
+			DisablePalette(palette+1);
+			break;
+		case 118:
+			Shader.SetEnabled(p,"GBCLB_palette",true);
+			Shader.SetUniform1f(p,"GBCLB_palette","paldither",gl_demakeshaders_paldither.GetFloat());
+			DisablePalette(palette-1);
+			DisablePalette(palette+1);
+			break;
+		case 119:
+			Shader.SetEnabled(p,"GBCD_palette",true);
+			Shader.SetUniform1f(p,"GBCD_palette","paldither",gl_demakeshaders_paldither.GetFloat());
+			DisablePalette(palette-1);
+			DisablePalette(palette+1);
+			break;
+		case 120:
+			Shader.SetEnabled(p,"GBCUB_palette",true);
+			Shader.SetUniform1f(p,"GBCUB_palette","paldither",gl_demakeshaders_paldither.GetFloat());
+			DisablePalette(palette-1);
+			DisablePalette(palette+1);
+			break;
+		case 121:
+			Shader.SetEnabled(p,"GBCRA_palette",true);
+			Shader.SetUniform1f(p,"GBCRA_palette","paldither",gl_demakeshaders_paldither.GetFloat());
+			DisablePalette(palette-1);
+			DisablePalette(palette+1);
+			break;
+		case 122:
+			Shader.SetEnabled(p,"GBCLA_palette",true);
+			Shader.SetUniform1f(p,"GBCLA_palette","paldither",gl_demakeshaders_paldither.GetFloat());
+			DisablePalette(palette-1);
+			DisablePalette(palette+1);
+			break;
+		case 123:
+			Shader.SetEnabled(p,"GBCUA_palette",true);
+			Shader.SetUniform1f(p,"GBCUA_palette","paldither",gl_demakeshaders_paldither.GetFloat());
+			DisablePalette(palette-1);
+			DisablePalette(palette+1);
+			break;
+		case 124:
+			Shader.SetEnabled(p,"GBCL_palette",true);
+			Shader.SetUniform1f(p,"GBCL_palette","paldither",gl_demakeshaders_paldither.GetFloat());
+			DisablePalette(palette-1);
+			DisablePalette(palette+1);
+			break;
+		case 125:
+			Shader.SetEnabled(p,"GBCDB_palette",true);
+			Shader.SetUniform1f(p,"GBCDB_palette","paldither",gl_demakeshaders_paldither.GetFloat());
+			DisablePalette(palette-1);
+			DisablePalette(palette+1);
+			break;
+		case 126:
 			Shader.SetEnabled(p,"GameBoy_palette",true);
 			Shader.SetUniform1f(p,"GameBoy_palette","paldither",gl_demakeshaders_paldither.GetFloat());
 			DisablePalette(palette-1);
@@ -1049,6 +1121,42 @@ Class DemakeShadersHandler : StaticEventHandler
 			Shader.SetEnabled(p,"SGB4H_palette",false);
 			break;
 		case 114:
+			Shader.SetEnabled(p,"GBCR_palette",false);
+			break;
+		case 115:
+			Shader.SetEnabled(p,"GBCDA_palette",false);
+			break;
+		case 116:
+			Shader.SetEnabled(p,"GBCU_palette",false);
+			break;
+		case 117:
+			Shader.SetEnabled(p,"GBCRB_palette",false);
+			break;
+		case 118:
+			Shader.SetEnabled(p,"GBCLB_palette",false);
+			break;
+		case 119:
+			Shader.SetEnabled(p,"GBCD_palette",false);
+			break;
+		case 120:
+			Shader.SetEnabled(p,"GBCUB_palette",false);
+			break;
+		case 121:
+			Shader.SetEnabled(p,"GBCRA_palette",false);
+			break;
+		case 122:
+			Shader.SetEnabled(p,"GBCLA_palette",false);
+			break;
+		case 123:
+			Shader.SetEnabled(p,"GBCUA_palette",false);
+			break;
+		case 124:
+			Shader.SetEnabled(p,"GBCL_palette",false);
+			break;
+		case 125:
+			Shader.SetEnabled(p,"GBCDB_palette",false);
+			break;
+		case 126:
 			Shader.SetEnabled(p,"GameBoy_palette",false);
 			break;
 		Default:
@@ -1165,6 +1273,18 @@ Class DemakeShadersHandler : StaticEventHandler
 			Shader.SetEnabled(p,"SGB4F_palette",false);
 			Shader.SetEnabled(p,"SGB4G_palette",false);
 			Shader.SetEnabled(p,"SGB4H_palette",false);
+			Shader.SetEnabled(p,"GBCR_palette",false);
+			Shader.SetEnabled(p,"GBCDA_palette",false);
+			Shader.SetEnabled(p,"GBCU_palette",false);
+			Shader.SetEnabled(p,"GBCRB_palette",false);
+			Shader.SetEnabled(p,"GBCLB_palette",false);
+			Shader.SetEnabled(p,"GBCD_palette",false);
+			Shader.SetEnabled(p,"GBCUB_palette",false);
+			Shader.SetEnabled(p,"GBCRA_palette",false);
+			Shader.SetEnabled(p,"GBCLA_palette",false);
+			Shader.SetEnabled(p,"GBCUA_palette",false);
+			Shader.SetEnabled(p,"GBCL_palette",false);
+			Shader.SetEnabled(p,"GBCDB_palette",false);
 			Shader.SetEnabled(p,"GameBoy_palette",false);
 		}
 	}

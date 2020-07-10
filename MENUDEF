@@ -123,7 +123,19 @@ OptionValue "DemakeShadersPalette"
 	111, "Super Game Boy (Palette 4-F)"											//SGB4F_palette
 	112, "Super Game Boy (Palette 4-G)"											//SGB4G_palette
 	113, "Super Game Boy (Palette 4-H)"											//SGB4H_palette
-	114, "Game Boy"																//GameBoy_palette
+	114, "Game Boy Color (Right)"												//GBCR_palette
+	115, "Game Boy Color (Down + A)"											//GBCDA_palette
+	116, "Game Boy Color (Up)"													//GBCU_palette
+	117, "Game Boy Color (Right + B)"											//GBCRB_palette
+	118, "Game Boy Color (Left + B)"											//GBCLB_palette
+	119, "Game Boy Color (Down)"												//GBCD_palette
+	120, "Game Boy Color (Up + B)"												//GBCUB_palette
+	121, "Game Boy Color (Right + A)"											//GBCRA_palette
+	122, "Game Boy Color (Left + A)"											//GBCLA_palette
+	123, "Game Boy Color (Up + A)"												//GBCUA_palette
+	124, "Game Boy Color (Left)"												//GBCL_palette
+	125, "Game Boy Color (Down + B)"											//GBCDB_palette
+	126, "Game Boy"																//GameBoy_palette
 }
 
 OptionValue "DemakeShadersFrameRate"
