@@ -4,6 +4,19 @@ AddOptionMenu "OptionsMenu"
 	SubMenu "Demake Shaders Options", "DemakeShadersOptionsMenu"
 }
 
+OptionValue "DemakeShadersPixmode"
+{
+	0, "Off"
+	1, "Scene"
+	2, "Screen"
+}
+
+OptionValue "DemakeShadersLowdetail"
+{
+	0, "Normal Detail"
+	1, "Low Detail"
+}
+
 OptionValue "DemakeShadersPalette"
 {
 	0, "None"
@@ -74,68 +87,70 @@ OptionValue "DemakeShadersPalette"
 																				//R4G4B4_palette
 	64, "15-bit [R5G5B5] (SVGA|SNES|Nintendo Game Boy Color/Advance|Neo Geo AES/Neo Geo CD|Sega 32X|PlayStation one)"
 																				//R5G5B5_palette
-	65, "16-bit [R5G5B5I1] (Neo Geo|Sharp X68000)"								//R5G5B5I1_palette
-	66, "16-bit [R5G6B5] (XGA|Atari Falcon Overlay)"							//R5G6B5_palette
-	67, "18-bit [R6G6B6] (VGA|MCGA|8514/A|Atari Falcon)"						//R6G6B6_palette
-	68, "8-bit Greyscale"														//8bitGrayscale_palette
-	69, "4-bit Greyscale"														//4bitGrayscale_palette
-	70, "2-bit Greyscale"														//2bitGrayscale_palette
-	71, "2-bit Greyscale (P1 CRT)"												//2bitGreenscale_palette
-	72, "2-bit Greyscale (P3 CRT)"												//2bitAmberscale_palette
-	73, "2-bit Greyscale (P4 CRT)"												//2bitWhiteCRT_palette
-	74, "2-bit Greyscale (Plasma)"												//2bitPlasma_palette
-	75, "Monochrome"															//Monochrome_palette
-	76, "Monochrome (P1 CRT)"													//MonoGreen_palette
-	77, "Monochrome (P3 CRT)"													//MonoAmber_palette
-	78, "Monochrome (P4 CRT)"													//MonoWhiteCRT_palette
-	79, "Monochrome (Plasma)"													//MonoPlasma_palette
-	80, "Monochrome (LCD)"														//MonoLCD_palette
-	81, "Game Boy Pocket"														//GameBoyPocket_palette
-	82, "Super Game Boy (Palette 1-A)"											//SGB1A_palette
-	83, "Super Game Boy (Palette 1-B)"											//SGB1B_palette
-	84, "Super Game Boy (Palette 1-C)"											//SGB1C_palette
-	85, "Super Game Boy (Palette 1-D)"											//SGB1D_palette
-	86, "Super Game Boy (Palette 1-E)"											//SGB1E_palette
-	87, "Super Game Boy (Palette 1-F)"											//SGB1F_palette
-	88, "Super Game Boy (Palette 1-G)"											//SGB1G_palette
-	89, "Super Game Boy (Palette 1-H)"											//SGB1H_palette
-	90, "Super Game Boy (Palette 2-A)"											//SGB2A_palette
-	91, "Super Game Boy (Palette 2-B)"											//SGB2B_palette
-	92, "Super Game Boy (Palette 2-C)"											//SGB2C_palette
-	93, "Super Game Boy (Palette 2-D)"											//SGB2D_palette
-	94, "Super Game Boy (Palette 2-E)"											//SGB2E_palette
-	95, "Super Game Boy (Palette 2-F)"											//SGB2F_palette
-	96, "Super Game Boy (Palette 2-G)"											//SGB2G_palette
-	97, "Super Game Boy (Palette 2-H)"											//SGB2H_palette
-	98, "Super Game Boy (Palette 3-A)"											//SGB3A_palette
-	99, "Super Game Boy (Palette 3-B)"											//SGB3B_palette
-	100, "Super Game Boy (Palette 3-C)"											//SGB3C_palette
-	101, "Super Game Boy (Palette 3-D)"											//SGB3D_palette
-	102, "Super Game Boy (Palette 3-E)"											//SGB3E_palette
-	103, "Super Game Boy (Palette 3-F)"											//SGB3F_palette
-	104, "Super Game Boy (Palette 3-G)"											//SGB3G_palette
-	105, "Super Game Boy (Palette 3-H)"											//SGB3H_palette
-	106, "Super Game Boy (Palette 4-A)"											//SGB4A_palette
-	107, "Super Game Boy (Palette 4-B)"											//SGB4B_palette
-	108, "Super Game Boy (Palette 4-C)"											//SGB4C_palette
-	109, "Super Game Boy (Palette 4-D)"											//SGB4D_palette
-	110, "Super Game Boy (Palette 4-E)"											//SGB4E_palette
-	111, "Super Game Boy (Palette 4-F)"											//SGB4F_palette
-	112, "Super Game Boy (Palette 4-G)"											//SGB4G_palette
-	113, "Super Game Boy (Palette 4-H)"											//SGB4H_palette
-	114, "Game Boy Color (Right)"												//GBCR_palette
-	115, "Game Boy Color (Down + A)"											//GBCDA_palette
-	116, "Game Boy Color (Up)"													//GBCU_palette
-	117, "Game Boy Color (Right + B)"											//GBCRB_palette
-	118, "Game Boy Color (Left + B)"											//GBCLB_palette
-	119, "Game Boy Color (Down)"												//GBCD_palette
-	120, "Game Boy Color (Up + B)"												//GBCUB_palette
-	121, "Game Boy Color (Right + A)"											//GBCRA_palette
-	122, "Game Boy Color (Left + A)"											//GBCLA_palette
-	123, "Game Boy Color (Up + A)"												//GBCUA_palette
-	124, "Game Boy Color (Left)"												//GBCL_palette
-	125, "Game Boy Color (Down + B)"											//GBCDB_palette
-	126, "Game Boy"																//GameBoy_palette
+	65, "16-bit [CRY]: Normal (Atari Jaguar)"									//Jaguar_palette
+	66, "16-bit [CRY]: Neutral Greys"											//CRY_palette
+	67, "16-bit [R5G5B5I1] (Neo Geo|Sharp X68000)"								//R5G5B5I1_palette
+	68, "16-bit [R5G6B5] (XGA|Atari Falcon Overlay)"							//R5G6B5_palette
+	69, "18-bit [R6G6B6] (VGA|MCGA|8514/A|Atari Falcon)"						//R6G6B6_palette
+	70, "8-bit Greyscale"														//8bitGrayscale_palette
+	71, "4-bit Greyscale"														//4bitGrayscale_palette
+	72, "2-bit Greyscale"														//2bitGrayscale_palette
+	73, "2-bit Greyscale (P1 CRT)"												//2bitGreenscale_palette
+	74, "2-bit Greyscale (P3 CRT)"												//2bitAmberscale_palette
+	75, "2-bit Greyscale (P4 CRT)"												//2bitWhiteCRT_palette
+	76, "2-bit Greyscale (Virtual Boy|Plasma)"									//2bitPlasma_palette
+	77, "Monochrome"															//Monochrome_palette
+	78, "Monochrome (P1 CRT)"													//MonoGreen_palette
+	79, "Monochrome (P3 CRT)"													//MonoAmber_palette
+	80, "Monochrome (P4 CRT)"													//MonoWhiteCRT_palette
+	81, "Monochrome (Plasma)"													//MonoPlasma_palette
+	82, "Monochrome (LCD)"														//MonoLCD_palette
+	83, "Game Boy Pocket"														//GameBoyPocket_palette
+	84, "Super Game Boy (Palette 1-A)"											//SGB1A_palette
+	85, "Super Game Boy (Palette 1-B)"											//SGB1B_palette
+	86, "Super Game Boy (Palette 1-C)"											//SGB1C_palette
+	87, "Super Game Boy (Palette 1-D)"											//SGB1D_palette
+	88, "Super Game Boy (Palette 1-E)"											//SGB1E_palette
+	89, "Super Game Boy (Palette 1-F)"											//SGB1F_palette
+	90, "Super Game Boy (Palette 1-G)"											//SGB1G_palette
+	91, "Super Game Boy (Palette 1-H)"											//SGB1H_palette
+	92, "Super Game Boy (Palette 2-A)"											//SGB2A_palette
+	93, "Super Game Boy (Palette 2-B)"											//SGB2B_palette
+	94, "Super Game Boy (Palette 2-C)"											//SGB2C_palette
+	95, "Super Game Boy (Palette 2-D)"											//SGB2D_palette
+	96, "Super Game Boy (Palette 2-E)"											//SGB2E_palette
+	97, "Super Game Boy (Palette 2-F)"											//SGB2F_palette
+	98, "Super Game Boy (Palette 2-G)"											//SGB2G_palette
+	99, "Super Game Boy (Palette 2-H)"											//SGB2H_palette
+	100, "Super Game Boy (Palette 3-A)"											//SGB3A_palette
+	101, "Super Game Boy (Palette 3-B)"											//SGB3B_palette
+	102, "Super Game Boy (Palette 3-C)"											//SGB3C_palette
+	103, "Super Game Boy (Palette 3-D)"											//SGB3D_palette
+	104, "Super Game Boy (Palette 3-E)"											//SGB3E_palette
+	105, "Super Game Boy (Palette 3-F)"											//SGB3F_palette
+	106, "Super Game Boy (Palette 3-G)"											//SGB3G_palette
+	107, "Super Game Boy (Palette 3-H)"											//SGB3H_palette
+	108, "Super Game Boy (Palette 4-A)"											//SGB4A_palette
+	109, "Super Game Boy (Palette 4-B)"											//SGB4B_palette
+	110, "Super Game Boy (Palette 4-C)"											//SGB4C_palette
+	111, "Super Game Boy (Palette 4-D)"											//SGB4D_palette
+	112, "Super Game Boy (Palette 4-E)"											//SGB4E_palette
+	113, "Super Game Boy (Palette 4-F)"											//SGB4F_palette
+	114, "Super Game Boy (Palette 4-G)"											//SGB4G_palette
+	115, "Super Game Boy (Palette 4-H)"											//SGB4H_palette
+	116, "Game Boy Color (Right)"												//GBCR_palette
+	117, "Game Boy Color (Down + A)"											//GBCDA_palette
+	118, "Game Boy Color (Up)"													//GBCU_palette
+	119, "Game Boy Color (Right + B)"											//GBCRB_palette
+	120, "Game Boy Color (Left + B)"											//GBCLB_palette
+	121, "Game Boy Color (Down)"												//GBCD_palette
+	122, "Game Boy Color (Up + B)"												//GBCUB_palette
+	123, "Game Boy Color (Right + A)"											//GBCRA_palette
+	124, "Game Boy Color (Left + A)"											//GBCLA_palette
+	125, "Game Boy Color (Up + A)"												//GBCUA_palette
+	126, "Game Boy Color (Left)"												//GBCL_palette
+	127, "Game Boy Color (Down + B)"											//GBCDB_palette
+	128, "Game Boy"																//GameBoy_palette
 }
 
 OptionValue "DemakeShadersFrameRate"
@@ -168,11 +183,22 @@ OptionMenu "DemakeShadersOptionsMenu"
 {
 	Title "Demake Shaders Options"
 	StaticText " "
+	StaticText "Resolution", "Gold"
+	StaticText " "
+	Option "Pixelize Mode", "gl_demakeshaders_pixmode", "DemakeShadersPixmode"
+	Option "Pixel Doubling", "gl_demakeshaders_lowdetail", "DemakeShadersLowdetail"
+	TextField "Target Width", "gl_demakeshaders_targetwt"
+	TextField "Target Height", "gl_demakeshaders_targetht"
+	StaticText " "
+	StaticText "Dither", "Gold"
+	StaticText " "
+	Slider "Dithering", "gl_demakeshaders_paldither", 0, 1, 0.00390625, 3
+	SafeCommand "Reset Dither Value to Default", "event resetdemakeshadersdith 0"
+	StaticText " "
 	StaticText "Palette", "Gold"
 	StaticText " "
+	Option "Use Atlas (VRAM > 512MB)", "gl_demakeshaders_useCLUTatlas", "YesNo"
 	Option "Palette", "gl_demakeshaders_palette", "DemakeShadersPalette"
-	Slider "Dithering", "gl_demakeshaders_paldither", 0, 1, 0.00390625, 3
-	SafeCommand "Reset Dither Value to Default", "event resetdemakeshadersvars 0"
 	StaticText " "
 	StaticText "Refresh Rate Limit", "Gold"
 	StaticText " "

@@ -1,3 +1,7 @@
-user bool gl_demakeshaders_useCLUTatlas = true;
-user int gl_demakeshaders_palette = 0;
+user int gl_demakeshaders_pixmode = 0;
+user int gl_demakeshaders_lowdetail = 0;
+user int gl_demakeshaders_targetwt = 320;
+user int gl_demakeshaders_targetht = 200;
 user float gl_demakeshaders_paldither = 0.125;
+user bool gl_demakeshaders_useCLUTatlas = false;
+user int gl_demakeshaders_palette = 0;

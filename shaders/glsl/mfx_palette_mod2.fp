@@ -2,8 +2,8 @@
    RetroFX palette reduction from MariENB
    (C)2012-2019 Marisa Kirisame
    
-   Modified on 2020-06-14 by Rusco Istar
-   to optimize LUT texture video memory footprint
+   Modified on 2020-07-10 by Rusco Istar
+   to optimize LUT texture video memory access speed
 */
 
 	// Global compatibility defines
@@ -59,7 +59,7 @@ void main()
 	vec4 res = texture(InputTexture,TexCoord);
 	GET_LC; //See line 26|29
 	ivec2 lcoord = ivec2(lc.b+lc.r*64.0,lc.g); //modified from ivec2(lc.r,lc.g+lc.b*64)
-	//lcoord.x += 64*palnum; //palnum deprecated in single CLUT mode
+	lcoord.y += 64*palnum; //modified from lcoord.x += 64*palnum;
 	res.rgb = texelFetch(PalLUTTexture,lcoord,0).rgb;
 	FragColor = res;
 }

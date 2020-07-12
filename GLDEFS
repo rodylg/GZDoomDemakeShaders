@@ -1,3 +1,47 @@
+// Pixelize & Dither
+HardwareShader postprocess scene
+{
+	Name "Pixelize_Scene"
+	Shader "shaders/glsl/pixelize.fp" 330
+	Uniform int lowdetail
+	Uniform int targetwt
+	Uniform int targetht
+}
+HardwareShader postprocess screen
+{
+	Name "Pixelize_Screen"
+	Shader "shaders/glsl/pixelize.fp" 330
+	Uniform int lowdetail
+	Uniform int targetwt
+	Uniform int targetht
+}
+HardwareShader postprocess scene
+{
+	Name "Dither_Scene"
+	Shader "shaders/glsl/dither.fp" 330
+	Uniform float paldither
+	Uniform int pixmode
+	Uniform int lowdetail
+	Uniform int targetwt
+	Uniform int targetht
+}
+// Palette Atlas
+	// Atlas 1
+HardwareShader postprocess screen
+{
+	Name "Atlas1_palette"
+	Shader "shaders/glsl/mfx_palette_mod2.fp" 330
+	Texture PalLUTTexture "textures/GZDDS/Atlas1.png"
+	Uniform int palnum
+}
+	// Atlas 2
+HardwareShader postprocess screen
+{
+	Name "Atlas2_palette"
+	Shader "shaders/glsl/mfx_palette_mod2.fp" 330
+	Texture PalLUTTexture "textures/GZDDS/Atlas2.png"
+	Uniform int palnum
+}
 // Video game console palettes
 	// Nintendo
 HardwareShader postprocess screen
@@ -5,21 +49,18 @@ HardwareShader postprocess screen
 	Name "NES_palette" //Nintendo Entertainment System (YIQ)
 	Shader "shaders/glsl/mfx_palette_mod.fp" 330
 	Texture PalLUTTexture "textures/GZDDS/NES.png"
-	Uniform float paldither
 }
 HardwareShader postprocess screen
 {
 	Name "NESNTSC_palette" //Nintendo Entertainment System (NTSC)
 	Shader "shaders/glsl/mfx_palette_mod.fp" 330
 	Texture PalLUTTexture "textures/GZDDS/NESNTSC.png"
-	Uniform float paldither
 }
 HardwareShader postprocess screen
 {
 	Name "NESFull_palette" //Nintendo Entertainment System (Full Palette)
 	Shader "shaders/glsl/mfx_palette_mod.fp" 330
 	Texture PalLUTTexture "textures/GZDDS/NESFullP.png"
-	Uniform float paldither
 }
 	// Sega
 HardwareShader postprocess screen
@@ -27,7 +68,6 @@ HardwareShader postprocess screen
 	Name "SegaMaster_palette" //Sega Master System
 	Shader "shaders/glsl/mfx_palette_mod.fp" 330
 	Texture PalLUTTexture "textures/GZDDS/SegaMstr.png"
-	Uniform float paldither
 }
 	// Atari
 HardwareShader postprocess screen
@@ -35,21 +75,32 @@ HardwareShader postprocess screen
 	Name "TIANTSC_palette" //Atari 2600 (TIA NTSC)
 	Shader "shaders/glsl/mfx_palette_mod.fp" 330
 	Texture PalLUTTexture "textures/GZDDS/TIANTSC.png"
-	Uniform float paldither
 }
 HardwareShader postprocess screen
 {
 	Name "TIAPAL_palette" //Atari 2600 (TIA PAL)
 	Shader "shaders/glsl/mfx_palette_mod.fp" 330
 	Texture PalLUTTexture "textures/GZDDS/TIAPAL.png"
-	Uniform float paldither
 }
 HardwareShader postprocess screen
 {
 	Name "GTIA_palette" //Atari 5200|XL|XE (GTIA)
 	Shader "shaders/glsl/mfx_palette_mod.fp" 330
 	Texture PalLUTTexture "textures/GZDDS/AtriGTIA.png"
-	Uniform float paldither
+}
+HardwareShader PostProcess screen
+{
+	Name "Jaguar_palette" //16-bit [CRY]: Normal (Atari Jaguar)
+	Shader "shaders/glsl/CRYspace.fp" 330
+	Texture LUT "textures/GZDDS/CRYLUT.png"
+	uniform int crymode
+}
+HardwareShader PostProcess screen
+{
+	Name "CRY_palette" //16-bit [CRY]: Neutral Greys
+	Shader "shaders/glsl/CRYspace.fp" 330
+	Texture LUT "textures/GZDDS/CRYLUT.png"
+	uniform int crymode
 }
 // 8-bit computer hardware graphics
 	//Apple
@@ -58,14 +109,12 @@ HardwareShader postprocess screen
 	Name "AppleIIhires_palette"  //Apple II series (Hi-res Mode)
 	Shader "shaders/glsl/mfx_palette_mod.fp" 330
 	Texture PalLUTTexture "textures/GZDDS/Apple2Hi.png"
-	Uniform float paldither
 }
 HardwareShader postprocess screen
 {
 	Name "AppleIIlowres_palette" //Apple II series (Low-res Mode)
 	Shader "shaders/glsl/mfx_palette_mod.fp" 330
 	Texture PalLUTTexture "textures/GZDDS/Apple2Lo.png"
-	Uniform float paldither
 }
 	//Atari
 HardwareShader postprocess screen
@@ -73,7 +122,6 @@ HardwareShader postprocess screen
 	Name "CTIA_palette" //Atari 400|800 (CTIA)
 	Shader "shaders/glsl/mfx_palette_mod.fp" 330
 	Texture PalLUTTexture "textures/GZDDS/AtriCTIA.png"
-	Uniform float paldither
 }
 	//Commodore
 HardwareShader postprocess screen
@@ -81,28 +129,24 @@ HardwareShader postprocess screen
 	Name "CommodoreVIC20Five_palette" //Commodore VIC-20 (5 luminance levels)
 	Shader "shaders/glsl/mfx_palette_mod.fp" 330
 	Texture PalLUTTexture "textures/GZDDS/VIC20fiv.png"
-	Uniform float paldither
 }
 HardwareShader postprocess screen
 {
 	Name "CommodoreVIC20Nine_palette" //Commodore VIC-20 (9 luminance levels)
 	Shader "shaders/glsl/mfx_palette_mod.fp" 330
 	Texture PalLUTTexture "textures/GZDDS/VIC20nin.png"
-	Uniform float paldither
 }
 HardwareShader postprocess screen
 {
 	Name "Commodore64_palette" //Commodore 64|128
 	Shader "shaders/glsl/mfx_palette_mod.fp" 330
 	Texture PalLUTTexture "textures/GZDDS/Commod64.png"
-	Uniform float paldither
 }
 HardwareShader postprocess screen
 {
 	Name "Commodore16Plus4_palette" //Commodore 16|Plus/4
 	Shader "shaders/glsl/mfx_palette_mod.fp" 330
 	Texture PalLUTTexture "textures/GZDDS/Commod16.png"
-	Uniform float paldither
 }
 	//Tandy
 HardwareShader postprocess screen
@@ -110,7 +154,6 @@ HardwareShader postprocess screen
 	Name "TandyColorC3_palette" //Tandy Color Computer 3
 	Shader "shaders/glsl/mfx_palette_mod.fp" 330
 	Texture PalLUTTexture "textures/GZDDS/TandyCC3.png"
-	Uniform float paldither
 }
 	//Sinclair
 HardwareShader postprocess screen
@@ -118,7 +161,6 @@ HardwareShader postprocess screen
 	Name "ZXSpectrum_palette" //Sinclair ZX Spectrum
 	Shader "shaders/glsl/mfx_palette_mod.fp" 330
 	Texture PalLUTTexture "textures/GZDDS/ZXSpectr.png"
-	Uniform float paldither
 }
 	//Mattel
 HardwareShader postprocess screen
@@ -126,7 +168,6 @@ HardwareShader postprocess screen
 	Name "MattelAquarius_palette" //Mattel Aquarius
 	Shader "shaders/glsl/mfx_palette_mod.fp" 330
 	Texture PalLUTTexture "textures/GZDDS/MattelAq.png"
-	Uniform float paldither
 }
 	//SAM
 HardwareShader postprocess screen
@@ -134,7 +175,6 @@ HardwareShader postprocess screen
 	Name "SAMCoupe_palette" //SAM Coupé
 	Shader "shaders/glsl/mfx_palette_mod.fp" 330
 	Texture PalLUTTexture "textures/GZDDS/SAMCoupe.png"
-	Uniform float paldither
 }
 	//MSX Systems
 HardwareShader postprocess screen
@@ -142,28 +182,24 @@ HardwareShader postprocess screen
 	Name "MSX_palette" //MSX
 	Shader "shaders/glsl/mfx_palette_mod.fp" 330
 	Texture PalLUTTexture "textures/GZDDS/MSX.png"
-	Uniform float paldither
 }
 HardwareShader postprocess screen
 {
 	Name "MSX2Mode6_palette" //MSX2 (Mode 6)
 	Shader "shaders/glsl/mfx_palette_mod.fp" 330
 	Texture PalLUTTexture "textures/GZDDS/MSX2Mod6.png"
-	Uniform float paldither
 }
 HardwareShader postprocess screen
 {
 	Name "MSX2Mode7_palette" //MSX2 (Mode 7)
 	Shader "shaders/glsl/mfx_palette_mod.fp" 330
 	Texture PalLUTTexture "textures/GZDDS/MSX2Mod7.png"
-	Uniform float paldither
 }
 HardwareShader postprocess screen
 {
 	Name "MSX2Mode8_palette" //MSX2 (Mode 8)
 	Shader "shaders/glsl/mfx_palette_mod.fp" 330
 	Texture PalLUTTexture "textures/GZDDS/MSX2Mod8.png"
-	Uniform float paldither
 }
 	//Thomson
 HardwareShader postprocess screen
@@ -171,7 +207,6 @@ HardwareShader postprocess screen
 	Name "ThomsonTO5_palette" //Thomson TO7/70|TO5
 	Shader "shaders/glsl/mfx_palette_mod.fp" 330
 	Texture PalLUTTexture "textures/GZDDS/Thomson5.png"
-	Uniform float paldither
 }
 	//Amstrad
 HardwareShader postprocess screen
@@ -179,14 +214,12 @@ HardwareShader postprocess screen
 	Name "AmstradCPCGreen_palette" //Amstrad CPC 464 (Green Scale)
 	Shader "shaders/glsl/mfx_palette_mod.fp" 330
 	Texture PalLUTTexture "textures/GZDDS/CPCGreen.png"
-	Uniform float paldither
 }
 HardwareShader postprocess screen
 {
 	Name "AmstradCPCColor_palette" //Amstrad CPC 664|6128
 	Shader "shaders/glsl/mfx_palette_mod.fp" 330
 	Texture PalLUTTexture "textures/GZDDS/CPCColor.png"
-	Uniform float paldither
 }
 	//CGA
 HardwareShader postprocess screen
@@ -194,63 +227,54 @@ HardwareShader postprocess screen
 	Name "CGASimGray_palette" //CGA (Simulated Grayscale)
 	Shader "shaders/glsl/mfx_palette_mod.fp" 330
 	Texture PalLUTTexture "textures/GZDDS/CGAGray.png"
-	Uniform float paldither
 }
 HardwareShader postprocess screen
 {
 	Name "CGA1High_palette" //CGA (Mode 4, palette #1, high intensity)
 	Shader "shaders/glsl/mfx_palette_mod.fp" 330
 	Texture PalLUTTexture "textures/GZDDS/CGA1M4Hi.png"
-	Uniform float paldither
 }
 HardwareShader postprocess screen
 {
 	Name "CGA1Low_palette" //CGA (Mode 4, palette #1, low intensity)
 	Shader "shaders/glsl/mfx_palette_mod.fp" 330
 	Texture PalLUTTexture "textures/GZDDS/CGA1M4Lo.png"
-	Uniform float paldither
 }
 HardwareShader postprocess screen
 {
 	Name "CGA2High_palette" //CGA (Mode 4, palette #2, high intensity)
 	Shader "shaders/glsl/mfx_palette_mod.fp" 330
 	Texture PalLUTTexture "textures/GZDDS/CGA2M4Hi.png"
-	Uniform float paldither
 }
 HardwareShader postprocess screen
 {
 	Name "CGA2Low_palette" //CGA (Mode 4, palette #2, low intensity)
 	Shader "shaders/glsl/mfx_palette_mod.fp" 330
 	Texture PalLUTTexture "textures/GZDDS/CGA2M4Lo.png"
-	Uniform float paldither
 }
 HardwareShader postprocess screen
 {
 	Name "CGAMode5High_palette" //CGA (Mode 5, high intensity)
 	Shader "shaders/glsl/mfx_palette_mod.fp" 330
 	Texture PalLUTTexture "textures/GZDDS/CGAMod5H.png"
-	Uniform float paldither
 }
 HardwareShader postprocess screen
 {
 	Name "CGAMode5Low_palette" //CGA (Mode 5, low intensity)
 	Shader "shaders/glsl/mfx_palette_mod.fp" 330
 	Texture PalLUTTexture "textures/GZDDS/CGAMod5L.png"
-	Uniform float paldither
 }
 HardwareShader postprocess screen
 {
 	Name "CGAplusPCjr_palette" //CGA+ (PCjr)
 	Shader "shaders/glsl/mfx_palette_mod.fp" 330
 	Texture PalLUTTexture "textures/GZDDS/CGAPCjr.png"
-	Uniform float paldither
 }
 HardwareShader postprocess screen
 {
 	Name "CGAplusTandy_palette" //CGA+ (Tandy)
 	Shader "shaders/glsl/mfx_palette_mod.fp" 330
 	Texture PalLUTTexture "textures/GZDDS/CGATandy.png"
-	Uniform float paldither
 }
 //Software Palettes
 	//Acorn
@@ -259,7 +283,6 @@ HardwareShader postprocess screen
 	Name "AcornRISCOS_palette" //Acorn RISC OS
 	Shader "shaders/glsl/mfx_palette_mod.fp" 330
 	Texture PalLUTTexture "textures/GZDDS/RISC16.png"
-	Uniform float paldither
 }
 	//Microsoft
 HardwareShader postprocess screen
@@ -267,21 +290,18 @@ HardwareShader postprocess screen
 	Name "Windows16_palette" //16-Color Windows Palette
 	Shader "shaders/glsl/mfx_palette_mod.fp" 330
 	Texture PalLUTTexture "textures/GZDDS/Win16.png"
-	Uniform float paldither
 }
 HardwareShader postprocess screen
 {
 	Name "Windows20_palette" //20-Color Windows Palette
 	Shader "shaders/glsl/mfx_palette_mod.fp" 330
 	Texture PalLUTTexture "textures/GZDDS/Win20.png"
-	Uniform float paldither
 }
 HardwareShader postprocess screen
 {
 	Name "Windows256_palette" //256-Color Windows Palette
 	Shader "shaders/glsl/mfx_palette_mod.fp" 330
 	Texture PalLUTTexture "textures/GZDDS/Win256.png"
-	Uniform float paldither
 }
 	//Apple
 HardwareShader postprocess screen
@@ -289,14 +309,12 @@ HardwareShader postprocess screen
 	Name "Macintosh16_palette" //16-Color Macintosh Palette
 	Shader "shaders/glsl/mfx_palette_mod.fp" 330
 	Texture PalLUTTexture "textures/GZDDS/Mac16.png"
-	Uniform float paldither
 }
 HardwareShader postprocess screen
 {
 	Name "Macintosh256_palette" //256-Color Macintosh Palette
 	Shader "shaders/glsl/mfx_palette_mod.fp" 330
 	Texture PalLUTTexture "textures/GZDDS/Mac256.png"
-	Uniform float paldither
 }
 	//UNIX
 HardwareShader postprocess screen
@@ -304,7 +322,6 @@ HardwareShader postprocess screen
 	Name "UNIX_palette" //256-Color UNIX Palette
 	Shader "shaders/glsl/mfx_palette_mod.fp" 330
 	Texture PalLUTTexture "textures/GZDDS/UNIX256.png"
-	Uniform float paldither
 }
 	//W3C
 HardwareShader postprocess screen
@@ -312,7 +329,6 @@ HardwareShader postprocess screen
 	Name "Web_palette" //Web-safe Colors
 	Shader "shaders/glsl/mfx_palette_mod.fp" 330
 	Texture PalLUTTexture "textures/GZDDS/WebColor.png"
-	Uniform float paldither
 }
 	//Color level based palettes
 HardwareShader postprocess screen
@@ -320,28 +336,24 @@ HardwareShader postprocess screen
 	Name "676levelsRGB_palette" //6-7-6 levels RGB
 	Shader "shaders/glsl/mfx_palette_mod.fp" 330
 	Texture PalLUTTexture "textures/GZDDS/676Lvls.png"
-	Uniform float paldither
 }
 HardwareShader postprocess screen
 {
 	Name "676levelsRGBplusGrays_palette" //6-7-6 levels RGB + Grayscale
 	Shader "shaders/glsl/mfx_palette_mod.fp" 330
 	Texture PalLUTTexture "textures/GZDDS/676LvPG.png"
-	Uniform float paldither
 }
 HardwareShader postprocess screen
 {
 	Name "685levelsRGB_palette" //6-8-5 levels RGB
 	Shader "shaders/glsl/mfx_palette_mod.fp" 330
 	Texture PalLUTTexture "textures/GZDDS/685Lvls.png"
-	Uniform float paldither
 }
 HardwareShader postprocess screen
 {
 	Name "685levelsRGBplusGrays_palette" //6-8-5 levels RGB + Grayscale
 	Shader "shaders/glsl/mfx_palette_mod.fp" 330
 	Texture PalLUTTexture "textures/GZDDS/685LvPG.png"
-	Uniform float paldither
 }
 	//Adobe
 HardwareShader postprocess screen
@@ -349,21 +361,18 @@ HardwareShader postprocess screen
 	Name "Adaptive_palette" //Adaptive
 	Shader "shaders/glsl/mfx_palette_mod.fp" 330
 	Texture PalLUTTexture "textures/GZDDS/Adapt.png"
-	Uniform float paldither
 }
 HardwareShader postprocess screen
 {
 	Name "Selective_palette" //Selective
 	Shader "shaders/glsl/mfx_palette_mod.fp" 330
 	Texture PalLUTTexture "textures/GZDDS/Select.png"
-	Uniform float paldither
 }
 HardwareShader postprocess screen
 {
 	Name "Perceptual_palette" //Perceptual
 	Shader "shaders/glsl/mfx_palette_mod.fp" 330
 	Texture PalLUTTexture "textures/GZDDS/Percept.png"
-	Uniform float paldither
 }
 // 16-bit computer hardware graphics
 	//Commodore
@@ -372,14 +381,12 @@ HardwareShader postprocess screen
 	Name "AmigaCS5_palette" //Commodore Amiga OCS|ECS (5-bit)
 	Shader "shaders/glsl/mfx_palette_mod.fp" 330
 	Texture PalLUTTexture "textures/GZDDS/AmigaCS5.png"
-	Uniform float paldither
 }
 HardwareShader postprocess screen
 {
 	Name "AmigaCSEHB_palette" //Commodore Amiga OCS|ECS (6-bit EHB)
 	Shader "shaders/glsl/mfx_palette_mod.fp" 330
 	Texture PalLUTTexture "textures/GZDDS/AmigaCS6.png"
-	Uniform float paldither
 }
 	//Apple
 HardwareShader postprocess screen
@@ -387,14 +394,12 @@ HardwareShader postprocess screen
 	Name "Apple2gs640_palette" //Apple IIgs (Super High-Res mode 640)
 	Shader "shaders/glsl/mfx_palette_mod.fp" 330
 	Texture PalLUTTexture "textures/GZDDS/A2gs128.png"
-	Uniform float paldither
 }
 HardwareShader postprocess screen
 {
 	Name "Apple2gs320_palette" //Apple IIgs (Super High-Res mode 320)
 	Shader "shaders/glsl/mfx_palette_mod.fp" 330
 	Texture PalLUTTexture "textures/GZDDS/A2gs256.png"
-	Uniform float paldither
 }
 	//IBM
 HardwareShader postprocess screen
@@ -402,14 +407,12 @@ HardwareShader postprocess screen
 	Name "EGA_palette" //EGA
 	Shader "shaders/glsl/mfx_palette_mod.fp" 330
 	Texture PalLUTTexture "textures/GZDDS/EGA.png"
-	Uniform float paldither
 }
 HardwareShader postprocess screen
 {
 	Name "VGA_palette" //VGA (mode 13h default palette)
 	Shader "shaders/glsl/mfx_palette_mod.fp" 330
 	Texture PalLUTTexture "textures/GZDDS/VGA.png"
-	Uniform float paldither
 }
 // Generic Color Spaces
 	// 3-bit RGB
@@ -418,7 +421,6 @@ HardwareShader postprocess screen
 	Name "R1G1B1_palette" //R1G1B1 (Atari 2600 SECAM|Teletext 1|BBC Micro|Sinclair QL|Thomson TO7)
 	Shader "shaders/glsl/mfx_palette_mod.fp" 330
 	Texture PalLUTTexture "textures/GZDDS/R1G1B1.png"
-	Uniform float paldither
 }
 	// 4-bit RGBI
 HardwareShader postprocess screen
@@ -426,7 +428,6 @@ HardwareShader postprocess screen
 	Name "4bitRGBI_palette" //4-bit RGBI (Plantronics Colorplus|Sharp MZ-800)
 	Shader "shaders/glsl/mfx_palette_mod.fp" 330
 	Texture PalLUTTexture "textures/GZDDS/4BitRGBI.png"
-	Uniform float paldither
 }
 	// 3-level RGB
 HardwareShader postprocess screen
@@ -434,7 +435,6 @@ HardwareShader postprocess screen
 	Name "3levelRGB_palette" //3-level RGB (Toshiba Pasopia 7)
 	Shader "shaders/glsl/mfx_palette_mod.fp" 330
 	Texture PalLUTTexture "textures/GZDDS/3lvlRGB.png"
-	Uniform float paldither
 }
 	// 8-bit RGB
 HardwareShader postprocess screen
@@ -442,21 +442,18 @@ HardwareShader postprocess screen
 	Name "R3G3B2_palette" //R3G3B2 (MSX2+|IBM PGC Pal4|Digilent Inc.|Uzebox|SGI Indy)
 	Shader "shaders/glsl/mfx_palette_mod.fp" 330
 	Texture PalLUTTexture "textures/GZDDS/R3G3B2.png"
-	Uniform float paldither
 }
 HardwareShader postprocess screen
 {
 	Name "R3G2B3_palette" //R3G2B3 (IBM PGC Pal3)
 	Shader "shaders/glsl/mfx_palette_mod.fp" 330
 	Texture PalLUTTexture "textures/GZDDS/R3G2B3.png"
-	Uniform float paldither
 }
 HardwareShader postprocess screen
 {
 	Name "R2G3B3_palette" //R2G3B3 (IBM PGC Pal2)
 	Shader "shaders/glsl/mfx_palette_mod.fp" 330
 	Texture PalLUTTexture "textures/GZDDS/R2G3B3.png"
-	Uniform float paldither
 }
 	// 9-bit RGB
 HardwareShader postprocess screen
@@ -464,7 +461,6 @@ HardwareShader postprocess screen
 	Name "R3G3B3_palette" //R3G3B3 (Atari ST|Sega Genesis/Nomad|NEC PC/TurboGrafx-16)
 	Shader "shaders/glsl/mfx_palette_mod.fp" 330
 	Texture PalLUTTexture "textures/GZDDS/R3G3B3.png"
-	Uniform float paldither
 }
 	// 12-bit RGB
 HardwareShader postprocess screen
@@ -472,7 +468,6 @@ HardwareShader postprocess screen
 	Name "R4G4B4_palette" //R4G4B4 (NeXTstation|Fujitsu FM-77AV|Commodore Amiga OCS/ECS|Atari STe|Sega Game Gear|Neo Geo Pocket Color|Atari Lynx|WonderSwan Color)
 	Shader "shaders/glsl/mfx_palette_mod.fp" 330
 	Texture PalLUTTexture "textures/GZDDS/R4G4B4.png"
-	Uniform float paldither
 }
 	// 15-bit RGB
 HardwareShader postprocess screen
@@ -480,7 +475,6 @@ HardwareShader postprocess screen
 	Name "R5G5B5_palette" //R5G5B5 (SVGA|SNES|Nintendo Game Boy Color/Advance|Neo Geo AES/Neo Geo CD|Sega 32X|PlayStation one)
 	Shader "shaders/glsl/mfx_palette_mod.fp" 330
 	Texture PalLUTTexture "textures/GZDDS/R5G5B5.png"
-	Uniform float paldither
 }
 	// 16-bit RGB
 HardwareShader postprocess screen
@@ -488,14 +482,12 @@ HardwareShader postprocess screen
 	Name "R5G5B5I1_palette" //R5G5B5I1 (Neo Geo|Sharp X68000)
 	Shader "shaders/glsl/mfx_palette_mod.fp" 330
 	Texture PalLUTTexture "textures/GZDDS/R5G5B5I1.png"
-	Uniform float paldither
 }
 HardwareShader postprocess screen
 {
 	Name "R5G6B5_palette" //R5G6B5 (XGA|Atari Falcon Overlay)
 	Shader "shaders/glsl/mfx_palette_mod.fp" 330
 	Texture PalLUTTexture "textures/GZDDS/R5G6B5.png"
-	Uniform float paldither
 }
 	// 18-bit RGB
 HardwareShader postprocess screen
@@ -503,7 +495,6 @@ HardwareShader postprocess screen
 	Name "R6G6B6_palette" //R6G6B6 (VGA|MCGA|8514/A|Atari Falcon)
 	Shader "shaders/glsl/mfx_palette_mod.fp" 330
 	Texture PalLUTTexture "textures/GZDDS/R6G6B6.png"
-	Uniform float paldither
 }
 // Phosphors
 	// Grayscale
@@ -512,21 +503,18 @@ HardwareShader postprocess screen
 	Name "8bitGrayscale_palette"
 	Shader "shaders/glsl/mfx_palette_mod.fp" 330
 	Texture PalLUTTexture "textures/GZDDS/Gray8bit.png"
-	Uniform float paldither
 }
 HardwareShader postprocess screen
 {
 	Name "4bitGrayscale_palette"
 	Shader "shaders/glsl/mfx_palette_mod.fp" 330
 	Texture PalLUTTexture "textures/GZDDS/Gray4bit.png"
-	Uniform float paldither
 }
 HardwareShader postprocess screen
 {
 	Name "2bitGrayscale_palette"
 	Shader "shaders/glsl/mfx_palette_mod.fp" 330
 	Texture PalLUTTexture "textures/GZDDS/Gray2bit.png"
-	Uniform float paldither
 }
 	// Monochrome
 HardwareShader postprocess screen
@@ -534,7 +522,6 @@ HardwareShader postprocess screen
 	Name "Monochrome_palette"
 	Shader "shaders/glsl/mfx_palette_mod.fp" 330
 	Texture PalLUTTexture "textures/GZDDS/MonoCrom.png"
-	Uniform float paldither
 }
 	// Green CRT
 HardwareShader postprocess screen
@@ -542,14 +529,12 @@ HardwareShader postprocess screen
 	Name "2bitGreenscale_palette"
 	Shader "shaders/glsl/mfx_palette_mod.fp" 330
 	Texture PalLUTTexture "textures/GZDDS/Grn2bit.png"
-	Uniform float paldither
 }
 HardwareShader postprocess screen
 {
 	Name "MonoGreen_palette"
 	Shader "shaders/glsl/mfx_palette_mod.fp" 330
 	Texture PalLUTTexture "textures/GZDDS/MonoGrn.png"
-	Uniform float paldither
 }
 	// Amber CRT
 HardwareShader postprocess screen
@@ -557,14 +542,12 @@ HardwareShader postprocess screen
 	Name "2bitAmberscale_palette"
 	Shader "shaders/glsl/mfx_palette_mod.fp" 330
 	Texture PalLUTTexture "textures/GZDDS/Ambr2bit.png"
-	Uniform float paldither
 }
 HardwareShader postprocess screen
 {
 	Name "MonoAmber_palette"
 	Shader "shaders/glsl/mfx_palette_mod.fp" 330
 	Texture PalLUTTexture "textures/GZDDS/MonoAmbr.png"
-	Uniform float paldither
 }
 	// "White" CRT
 HardwareShader postprocess screen
@@ -572,14 +555,12 @@ HardwareShader postprocess screen
 	Name "2bitWhiteCRT_palette"
 	Shader "shaders/glsl/mfx_palette_mod.fp" 330
 	Texture PalLUTTexture "textures/GZDDS/CRT2bit.png"
-	Uniform float paldither
 }
 HardwareShader postprocess screen
 {
 	Name "MonoWhiteCRT_palette"
 	Shader "shaders/glsl/mfx_palette_mod.fp" 330
 	Texture PalLUTTexture "textures/GZDDS/MonoCRT.png"
-	Uniform float paldither
 }
 	// "Plasma" CRT
 HardwareShader postprocess screen
@@ -587,14 +568,12 @@ HardwareShader postprocess screen
 	Name "2bitPlasma_palette"
 	Shader "shaders/glsl/mfx_palette_mod.fp" 330
 	Texture PalLUTTexture "textures/GZDDS/Plas2bit.png"
-	Uniform float paldither
 }
 HardwareShader postprocess screen
 {
 	Name "MonoPlasma_palette"
 	Shader "shaders/glsl/mfx_palette_mod.fp" 330
 	Texture PalLUTTexture "textures/GZDDS/MonoPlas.png"
-	Uniform float paldither
 }
 	// LCD
 HardwareShader postprocess screen
@@ -602,7 +581,6 @@ HardwareShader postprocess screen
 	Name "MonoLCD_palette"
 	Shader "shaders/glsl/mfx_palette_mod.fp" 330
 	Texture PalLUTTexture "textures/GZDDS/MonoLCD.png"
-	Uniform float paldither
 }
 // Nintendo Game Boy
 	//Pocket
@@ -611,7 +589,6 @@ HardwareShader postprocess screen
 	Name "GameBoyPocket_palette"
 	Shader "shaders/glsl/mfx_palette_mod.fp" 330
 	Texture PalLUTTexture "textures/GZDDS/GameBoyP.png"
-	Uniform float paldither
 }
 	//Super Game Boy
 	HardwareShader postprocess screen
@@ -619,224 +596,192 @@ HardwareShader postprocess screen
 	Name "SGB1A_palette"
 	Shader "shaders/glsl/mfx_palette_mod.fp" 330
 	Texture PalLUTTexture "textures/GZDDS/SGB-1A.png"
-	Uniform float paldither
 }
 	HardwareShader postprocess screen
 {
 	Name "SGB1B_palette"
 	Shader "shaders/glsl/mfx_palette_mod.fp" 330
 	Texture PalLUTTexture "textures/GZDDS/SGB-1B.png"
-	Uniform float paldither
 }
 	HardwareShader postprocess screen
 {
 	Name "SGB1C_palette"
 	Shader "shaders/glsl/mfx_palette_mod.fp" 330
 	Texture PalLUTTexture "textures/GZDDS/SGB-1C.png"
-	Uniform float paldither
 }
 	HardwareShader postprocess screen
 {
 	Name "SGB1D_palette"
 	Shader "shaders/glsl/mfx_palette_mod.fp" 330
 	Texture PalLUTTexture "textures/GZDDS/SGB-1D.png"
-	Uniform float paldither
 }
 	HardwareShader postprocess screen
 {
 	Name "SGB1E_palette"
 	Shader "shaders/glsl/mfx_palette_mod.fp" 330
 	Texture PalLUTTexture "textures/GZDDS/SGB-1E.png"
-	Uniform float paldither
 }
 	HardwareShader postprocess screen
 {
 	Name "SGB1F_palette"
 	Shader "shaders/glsl/mfx_palette_mod.fp" 330
 	Texture PalLUTTexture "textures/GZDDS/SGB-1F.png"
-	Uniform float paldither
 }
 	HardwareShader postprocess screen
 {
 	Name "SGB1G_palette"
 	Shader "shaders/glsl/mfx_palette_mod.fp" 330
 	Texture PalLUTTexture "textures/GZDDS/SGB-1G.png"
-	Uniform float paldither
 }
 	HardwareShader postprocess screen
 {
 	Name "SGB1H_palette"
 	Shader "shaders/glsl/mfx_palette_mod.fp" 330
 	Texture PalLUTTexture "textures/GZDDS/SGB-1H.png"
-	Uniform float paldither
 }
 	HardwareShader postprocess screen
 {
 	Name "SGB2A_palette"
 	Shader "shaders/glsl/mfx_palette_mod.fp" 330
 	Texture PalLUTTexture "textures/GZDDS/SGB-2A.png"
-	Uniform float paldither
 }
 	HardwareShader postprocess screen
 {
 	Name "SGB2B_palette"
 	Shader "shaders/glsl/mfx_palette_mod.fp" 330
 	Texture PalLUTTexture "textures/GZDDS/SGB-2B.png"
-	Uniform float paldither
 }
 	HardwareShader postprocess screen
 {
 	Name "SGB2C_palette"
 	Shader "shaders/glsl/mfx_palette_mod.fp" 330
 	Texture PalLUTTexture "textures/GZDDS/SGB-2C.png"
-	Uniform float paldither
 }
 	HardwareShader postprocess screen
 {
 	Name "SGB2D_palette"
 	Shader "shaders/glsl/mfx_palette_mod.fp" 330
 	Texture PalLUTTexture "textures/GZDDS/SGB-2D.png"
-	Uniform float paldither
 }
 	HardwareShader postprocess screen
 {
 	Name "SGB2E_palette"
 	Shader "shaders/glsl/mfx_palette_mod.fp" 330
 	Texture PalLUTTexture "textures/GZDDS/SGB-2E.png"
-	Uniform float paldither
 }
 	HardwareShader postprocess screen
 {
 	Name "SGB2F_palette"
 	Shader "shaders/glsl/mfx_palette_mod.fp" 330
 	Texture PalLUTTexture "textures/GZDDS/SGB-2F.png"
-	Uniform float paldither
 }
 	HardwareShader postprocess screen
 {
 	Name "SGB2G_palette"
 	Shader "shaders/glsl/mfx_palette_mod.fp" 330
 	Texture PalLUTTexture "textures/GZDDS/SGB-2G.png"
-	Uniform float paldither
 }
 	HardwareShader postprocess screen
 {
 	Name "SGB2H_palette"
 	Shader "shaders/glsl/mfx_palette_mod.fp" 330
 	Texture PalLUTTexture "textures/GZDDS/SGB-2H.png"
-	Uniform float paldither
 }
 	HardwareShader postprocess screen
 {
 	Name "SGB3A_palette"
 	Shader "shaders/glsl/mfx_palette_mod.fp" 330
 	Texture PalLUTTexture "textures/GZDDS/SGB-3A.png"
-	Uniform float paldither
 }
 	HardwareShader postprocess screen
 {
 	Name "SGB3B_palette"
 	Shader "shaders/glsl/mfx_palette_mod.fp" 330
 	Texture PalLUTTexture "textures/GZDDS/SGB-3B.png"
-	Uniform float paldither
 }
 	HardwareShader postprocess screen
 {
 	Name "SGB3C_palette"
 	Shader "shaders/glsl/mfx_palette_mod.fp" 330
 	Texture PalLUTTexture "textures/GZDDS/SGB-3C.png"
-	Uniform float paldither
 }
 	HardwareShader postprocess screen
 {
 	Name "SGB3D_palette"
 	Shader "shaders/glsl/mfx_palette_mod.fp" 330
 	Texture PalLUTTexture "textures/GZDDS/SGB-3D.png"
-	Uniform float paldither
 }
 	HardwareShader postprocess screen
 {
 	Name "SGB3E_palette"
 	Shader "shaders/glsl/mfx_palette_mod.fp" 330
 	Texture PalLUTTexture "textures/GZDDS/SGB-3E.png"
-	Uniform float paldither
 }
 	HardwareShader postprocess screen
 {
 	Name "SGB3F_palette"
 	Shader "shaders/glsl/mfx_palette_mod.fp" 330
 	Texture PalLUTTexture "textures/GZDDS/SGB-3F.png"
-	Uniform float paldither
 }
 	HardwareShader postprocess screen
 {
 	Name "SGB3G_palette"
 	Shader "shaders/glsl/mfx_palette_mod.fp" 330
 	Texture PalLUTTexture "textures/GZDDS/SGB-3G.png"
-	Uniform float paldither
 }
 	HardwareShader postprocess screen
 {
 	Name "SGB3H_palette"
 	Shader "shaders/glsl/mfx_palette_mod.fp" 330
 	Texture PalLUTTexture "textures/GZDDS/SGB-3H.png"
-	Uniform float paldither
 }
 	HardwareShader postprocess screen
 {
 	Name "SGB4A_palette"
 	Shader "shaders/glsl/mfx_palette_mod.fp" 330
 	Texture PalLUTTexture "textures/GZDDS/SGB-4A.png"
-	Uniform float paldither
 }
 	HardwareShader postprocess screen
 {
 	Name "SGB4B_palette"
 	Shader "shaders/glsl/mfx_palette_mod.fp" 330
 	Texture PalLUTTexture "textures/GZDDS/SGB-4B.png"
-	Uniform float paldither
 }
 	HardwareShader postprocess screen
 {
 	Name "SGB4C_palette"
 	Shader "shaders/glsl/mfx_palette_mod.fp" 330
 	Texture PalLUTTexture "textures/GZDDS/SGB-4C.png"
-	Uniform float paldither
 }
 	HardwareShader postprocess screen
 {
 	Name "SGB4D_palette"
 	Shader "shaders/glsl/mfx_palette_mod.fp" 330
 	Texture PalLUTTexture "textures/GZDDS/SGB-4D.png"
-	Uniform float paldither
 }
 	HardwareShader postprocess screen
 {
 	Name "SGB4E_palette"
 	Shader "shaders/glsl/mfx_palette_mod.fp" 330
 	Texture PalLUTTexture "textures/GZDDS/SGB-4E.png"
-	Uniform float paldither
 }
 	HardwareShader postprocess screen
 {
 	Name "SGB4F_palette"
 	Shader "shaders/glsl/mfx_palette_mod.fp" 330
 	Texture PalLUTTexture "textures/GZDDS/SGB-4F.png"
-	Uniform float paldither
 }
 	HardwareShader postprocess screen
 {
 	Name "SGB4G_palette"
 	Shader "shaders/glsl/mfx_palette_mod.fp" 330
 	Texture PalLUTTexture "textures/GZDDS/SGB-4G.png"
-	Uniform float paldither
 }
 	HardwareShader postprocess screen
 {
 	Name "SGB4H_palette"
 	Shader "shaders/glsl/mfx_palette_mod.fp" 330
 	Texture PalLUTTexture "textures/GZDDS/SGB-4H.png"
-	Uniform float paldither
 }
 	//Game Boy Color
 	HardwareShader postprocess screen
@@ -844,84 +789,72 @@ HardwareShader postprocess screen
 	Name "GBCR_palette"
 	Shader "shaders/glsl/mfx_palette_mod.fp" 330
 	Texture PalLUTTexture "textures/GZDDS/GBC_R.png"
-	Uniform float paldither
 }
 	HardwareShader postprocess screen
 {
 	Name "GBCDA_palette"
 	Shader "shaders/glsl/mfx_palette_mod.fp" 330
 	Texture PalLUTTexture "textures/GZDDS/GBC_DA.png"
-	Uniform float paldither
 }
 	HardwareShader postprocess screen
 {
 	Name "GBCU_palette"
 	Shader "shaders/glsl/mfx_palette_mod.fp" 330
 	Texture PalLUTTexture "textures/GZDDS/GBC_U.png"
-	Uniform float paldither
 }
 	HardwareShader postprocess screen
 {
 	Name "GBCRB_palette"
 	Shader "shaders/glsl/mfx_palette_mod.fp" 330
 	Texture PalLUTTexture "textures/GZDDS/GBC_RB.png"
-	Uniform float paldither
 }
 	HardwareShader postprocess screen
 {
 	Name "GBCLB_palette"
 	Shader "shaders/glsl/mfx_palette_mod.fp" 330
 	Texture PalLUTTexture "textures/GZDDS/GBC_LB.png"
-	Uniform float paldither
 }
 	HardwareShader postprocess screen
 {
 	Name "GBCD_palette"
 	Shader "shaders/glsl/mfx_palette_mod.fp" 330
 	Texture PalLUTTexture "textures/GZDDS/GBC_D.png"
-	Uniform float paldither
 }
 	HardwareShader postprocess screen
 {
 	Name "GBCUB_palette"
 	Shader "shaders/glsl/mfx_palette_mod.fp" 330
 	Texture PalLUTTexture "textures/GZDDS/GBC_UB.png"
-	Uniform float paldither
 }
 	HardwareShader postprocess screen
 {
 	Name "GBCRA_palette"
 	Shader "shaders/glsl/mfx_palette_mod.fp" 330
 	Texture PalLUTTexture "textures/GZDDS/GBC_RA.png"
-	Uniform float paldither
 }
 	HardwareShader postprocess screen
 {
 	Name "GBCLA_palette"
 	Shader "shaders/glsl/mfx_palette_mod.fp" 330
 	Texture PalLUTTexture "textures/GZDDS/GBC_LA.png"
-	Uniform float paldither
 }
 	HardwareShader postprocess screen
 {
 	Name "GBCUA_palette"
 	Shader "shaders/glsl/mfx_palette_mod.fp" 330
 	Texture PalLUTTexture "textures/GZDDS/GBC_UA.png"
-	Uniform float paldither
 }
 	HardwareShader postprocess screen
 {
 	Name "GBCL_palette"
 	Shader "shaders/glsl/mfx_palette_mod.fp" 330
 	Texture PalLUTTexture "textures/GZDDS/GBC_L.png"
-	Uniform float paldither
 }
 	HardwareShader postprocess screen
 {
 	Name "GBCDB_palette"
 	Shader "shaders/glsl/mfx_palette_mod.fp" 330
 	Texture PalLUTTexture "textures/GZDDS/GBC_DB.png"
-	Uniform float paldither
 }
 	//Original
 HardwareShader postprocess screen
@@ -929,5 +862,4 @@ HardwareShader postprocess screen
 	Name "GameBoy_palette"
 	Shader "shaders/glsl/mfx_palette_mod.fp" 330
 	Texture PalLUTTexture "textures/GZDDS/GameBoy.png"
-	Uniform float paldither
 }

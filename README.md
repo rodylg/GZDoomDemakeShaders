@@ -8,13 +8,20 @@ Doom has been ported to countless devices, most of which have enough processing 
 - [x] **Refresh Rate Limiter:** Control the max frame rate of the engine.
 - [x] **Palette Reduction w/ Ordered Dither:** Part of the [MariFX](https://github.com/OrdinaryMagician/marifx_m) Shaders for GZDoom, modified to accept more than 64 palettes and optimized to reduce it's video memory footprint.
 - [x] **Multiple retro-systems palettes and color modes:** Videogame home consoles and portable systems, Vintage graphic systems, Monochrome, Grayscale and various RGB levels/bit-depths.
-- [ ] **Resolution scaler w/ Non-squared Pixel Aspect Ratios**
-- [ ] **"Low-Detail" mode (double-width pixels)**
+- [x] **Resolution scaler w/ Non-squared Pixel Aspect Ratios**
+- [x] **"Low-Detail" mode (double-width pixels)**
 - [ ] **Customisable Scanlines**
 - [ ] **CRT and LCD simulation**
 - [ ] **NTSC TV-output Color grading**
 
 ## Version History
+**0.2.0-alpha (2020-07-11)**
+* The Pixelizer update. Its shader is WIP.
+* Implemented a modified Rachael's "low detail" shader.
+* Moved the dithering shader to it's own pass on the pipeline.
+* Added a CLUT atlas method. It can be faster on certain video cards but increases memory usage.
+* Added Sega Jaguar's CRY palette and Nintendo's Virtual Boy palette.
+
 **0.1.0-pre (2020-07-10)**
 * The Game Boy Color update. Added the GBC palettes.
 * Changed the namespace for the CLUT files to avoid collisions with other PWAD's textures.
@@ -61,6 +68,8 @@ Doom has been ported to countless devices, most of which have enough processing 
 * [Jeremy Selan](https://developer.nvidia.com/gpugems/gpugems2/part-iii-high-quality-rendering/chapter-24-using-lookup-tables-accelerate-color): GLSL LUT optimized shaders.
 * [khronos.org](https://www.khronos.org/opengl/wiki/GLSL_Optimizations#Get_MAD): GLSL Optimizations and general documentation.
 * [Marisa Kirisame](https://github.com/OrdinaryMagician/marifx_m): Palette Reduction w/ Dither GLSL shader.
+* [Pixel Eater](https://forum.zdoom.org/memberlist.php?mode=viewprofile&u=20921): Atari Jaguar Color Space GLSL shader (from Vanilla Essence).
+* [Rachael](https://forum.zdoom.org/memberlist.php?mode=viewprofile&u=429): Low detail shader.
 * [Sigvatr](https://www.doomworld.com/forum/topic/55710-ega-doom-version-20/): EGA Doom.
 * [Super Mario Wiki](https://www.mariowiki.com/Super_Game_Boy#Color_palettes): Super Game Boy color palettes info.
 * [VCCE](https://github.com/VCCE/VCC): Tandy CoCo3 palette.
