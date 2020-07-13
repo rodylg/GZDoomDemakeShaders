@@ -56,7 +56,7 @@ void main()
 	//#undef d //Deprecated by precalculating
 	vec2 coord = TexCoord;
 	vec2 targtres = vec2(targetwt/(1+lowdetail),targetht);
-	vec2 sfact = textureSize(InputTexture,0);
+	vec2 sfact = vec2(textureSize(InputTexture,0));
 	if ( pixmode != 0 )
 	{
 		if ( lowdetail == 0 )

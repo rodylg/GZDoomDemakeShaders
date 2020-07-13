@@ -2,7 +2,8 @@ version "3.3"
 
 Class DemakeShadersHandler : StaticEventHandler
 {
-	transient ui CVar	gl_demakeshaders_pixmode,
+	transient ui CVar	vid_aspect,
+						gl_demakeshaders_pixmode,
 						gl_demakeshaders_lowdetail,
 						gl_demakeshaders_targetwt,
 						gl_demakeshaders_targetht,
@@ -1054,6 +1055,15 @@ Class DemakeShadersHandler : StaticEventHandler
 				gl_demakeshaders_paldither.ResetToDefault();
 				break;
 			}
+		}
+		if ( e.Name ~== "demakeshaders_targetres" )
+		{
+			if ( !gl_demakeshaders_targetwt ) gl_demakeshaders_targetwt = CVar.FindCVar('gl_demakeshaders_targetwt');
+			if ( !gl_demakeshaders_targetht ) gl_demakeshaders_targetht = CVar.FindCVar('gl_demakeshaders_targetht');
+			if ( !vid_aspect ) vid_aspect = CVar.FindCVar('vid_aspect');
+			gl_demakeshaders_targetwt.SetInt( e.args[0] );
+			gl_demakeshaders_targetht.SetInt( e.args[1] );
+			vid_aspect.SetInt( e.args[2] );
 		}
 	}
 }

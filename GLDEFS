@@ -1,5 +1,5 @@
 // Pixelize & Dither
-HardwareShader postprocess scene
+HardwareShader postprocess beforebloom
 {
 	Name "Pixelize_Scene"
 	Shader "shaders/glsl/pixelize.fp" 330
@@ -15,7 +15,7 @@ HardwareShader postprocess screen
 	Uniform int targetwt
 	Uniform int targetht
 }
-HardwareShader postprocess scene
+HardwareShader postprocess beforebloom
 {
 	Name "Dither_Scene"
 	Shader "shaders/glsl/dither.fp" 330

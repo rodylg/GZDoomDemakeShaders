@@ -21,8 +21,12 @@
 		precision mediump float;
 	#endif
 	#define COMPAT_PRECISION mediump
+	#define GET_C C = vec3(A.r*249.0/255.0,A.g*249.0/255.0,A.b*249.0/255.0)
+	#define GET_B ivec3(A.r*63.0+0.5,A.g*63.0+0.5,A.b*63.0+0.5)
 #else
 	#define COMPAT_PRECISION
+	#define GET_C C = vec3( A.rgb * 249. / 255 )
+	#define GET_B ivec3( A.rgb * 63 + .5 )
 #endif
 
 void main()
@@ -31,13 +35,14 @@ void main()
 	vec4 A	= texture( InputTexture, TexCoord );
 	A.rgb	= clamp( A.rgb, vec3( 0. ), vec3( 1. ));
 	
-	if( crymode == 2 && A.r == A.g && A.b == A.r ) C = A.rgb * 249. / 255 ;
+	if( crymode == 2 && A.r == A.g && A.b == A.r )
+		GET_C; //see lines 24|28
 	else
 	{
 		float Aval	= max( max( A.r, A.g ), A.b );
 		A.rgb		/= Aval ;
 		
-		ivec3 B		= ivec3( A.rgb * 63 + .5 );
+		ivec3 B		= GET_B; //see lines 25|29
 		int index	= (( B.r << 6 ) + B.g << 6 ) + B.b ;
 		int tx		= index & 511 ;
 		int ty		= index >> 9 ;

@@ -2,23 +2,28 @@
 GLSL shaders for GZDoom 3.5.0+ that simulate various vintage systems.
 
 ## Project's Scope
-Doom has been ported to countless devices, most of which have enough processing ability to run the game natively. But that wasn't always the case, and many older computers and video game consoles by 1993 simply were just not powerful enough to run this almighty game. While this situation hasn't changed at all for those aging systems, it's now possible to use modern source code ports and hardware to simulate what the game might have looked like on systems with less than the minimum requirements (80386DX@33MHz CPU, 4MB DRAM, 20MB HDD & VGA Graphics). There is certainly some charm and interest around the retro-computing look; low resolutions and constrained color palettes are an aesthetic that keeps on giving nostalgic thrills. This mod is for those who want some chunky pixely goodness.
+Doom has been ported to countless devices, most of which have enough processing ability to run the game natively. But that wasn't always the case, and many older computers and video game consoles by 1993 simply were just not powerful enough to run this almighty game. While this situation hasn't changed at all for those ageing systems, it's now possible to use modern source code ports and hardware to simulate what the game might have looked like on systems with less than the minimum requirements (80386DX@33MHz CPU, 4MB DRAM, 20MB HDD & VGA Graphics). There is certainly some charm and interest around the retro-computing look; low resolutions and constrained colour palettes are an aesthetic that keeps on giving nostalgic thrills. This mod is for those who want some chunky pixely goodness.
 
 ## Roadmap of Features
 - [x] **Refresh Rate Limiter:** Control the max frame rate of the engine.
-- [x] **Palette Reduction w/ Ordered Dither:** Part of the [MariFX](https://github.com/OrdinaryMagician/marifx_m) Shaders for GZDoom, modified to accept more than 64 palettes and optimized to reduce it's video memory footprint.
-- [x] **Multiple retro-systems palettes and color modes:** Videogame home consoles and portable systems, Vintage graphic systems, Monochrome, Grayscale and various RGB levels/bit-depths.
+- [x] **Palette Reduction w/ Ordered Dither:** Part of the [MariFX](https://github.com/OrdinaryMagician/marifx_m) Shaders for GZDoom, modified to accept more than 64 palettes and optimized to reduce its video memory footprint.
+- [x] **Multiple retro-systems palettes and colour modes:** Videogame home consoles and portable systems, Vintage graphic systems, Monochrome, Grayscale and various RGB levels/bit-depths.
 - [x] **Resolution scaler w/ Non-squared Pixel Aspect Ratios**
 - [x] **"Low-Detail" mode (double-width pixels)**
-- [ ] **Customisable Scanlines**
+- [ ] **Customizable Scanlines**
 - [ ] **CRT and LCD simulation**
 - [ ] **NTSC TV-output Color grading**
 
 ## Version History
+**0.2.1-beta (2020-07-13)**
+* Pixelizer shader finalized.
+* Updated the menu items.
+* Bugfixes for Delta Touch.
+
 **0.2.0-alpha (2020-07-11)**
 * The Pixelizer update. Its shader is WIP.
 * Implemented a modified Rachael's "low detail" shader.
-* Moved the dithering shader to it's own pass on the pipeline.
+* Moved the dithering shader to its own pass on the pipeline.
 * Added a CLUT atlas method. It can be faster on certain video cards but increases memory usage.
 * Added Sega Jaguar's CRY palette and Nintendo's Virtual Boy palette.
 
