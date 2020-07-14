@@ -17,6 +17,12 @@ OptionValue "DemakeShadersLowdetail"
 	1, "Low Detail"
 }
 
+OptionValue "DemakeShadersDitherStyle"
+{
+	0, "Scene"
+	1, "Screen"
+}
+
 OptionValue "DemakeShadersPalette"
 {
 	0, "None"
@@ -216,6 +222,7 @@ OptionMenu "DemakeShadersOptionsMenu"
 	StaticText " "
 	StaticText "Dither", "Gold"
 	StaticText " "
+	Option "Apply to", "gl_demakeshaders_dither", "DemakeShadersDitherStyle"
 	Slider "Dithering", "gl_demakeshaders_paldither", 0, 1, 0.00390625, 3
 	SafeCommand "Reset Dither Value to Default", "event resetdemakeshadersdith 0"
 	StaticText " "

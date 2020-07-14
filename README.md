@@ -15,6 +15,11 @@ Doom has been ported to countless devices, most of which have enough processing 
 - [ ] **NTSC TV-output Color grading**
 
 ## Version History
+**0.2.2-beta (2020-07-14)**
+* Ordered dither now works as originally intended with "Low Detail" mode.
+* Added an extra mode to apply full screen pixel dithering.
+* Minor spelling issues corrected.
+
 **0.2.1-beta (2020-07-13)**
 * Pixelizer shader finalized.
 * Updated the menu items.
@@ -43,7 +48,7 @@ Doom has been ported to countless devices, most of which have enough processing 
 
 **0.0.5 (2020-06-27)**
 * Added Apple IIgs, EGA, VGA and 9/12/15/16/18 bits palettes.
-* Ammended Amiga OCS/ECS and MSX2 CLUTs.
+* Amended Amiga OCS/ECS and MSX2 CLUTs.
 * Attempted fix for Delta Touch.
 
 **0.0.4 (2020-06-26)**
@@ -67,7 +72,7 @@ Doom has been ported to countless devices, most of which have enough processing 
 
 ## Acknowledgements
 * [Adam Mathes](https://trenchant.org/daily/2013/8/19/): Identity CLUTs primer.
-* [Ahefner](https://ahefner.livejournal.com/11670.html): NES color palette and color emphasis bits info.
+* [Ahefner](https://ahefner.livejournal.com/11670.html): NES colour palette and colour emphasis bits info.
 * [Alex Charlton](http://alex-charlton.com/posts/Dithering_on_the_GPU/): "Dithering on the GPU" primer.
 * [Alison Watson](https://github.com/marrub--/zdoom-doc): ZScript documentation.
 * [Jeremy Selan](https://developer.nvidia.com/gpugems/gpugems2/part-iii-high-quality-rendering/chapter-24-using-lookup-tables-accelerate-color): GLSL LUT optimized shaders.
@@ -76,6 +81,6 @@ Doom has been ported to countless devices, most of which have enough processing 
 * [Pixel Eater](https://forum.zdoom.org/memberlist.php?mode=viewprofile&u=20921): Atari Jaguar Color Space GLSL shader (from Vanilla Essence).
 * [Rachael](https://forum.zdoom.org/memberlist.php?mode=viewprofile&u=429): Low detail shader.
 * [Sigvatr](https://www.doomworld.com/forum/topic/55710-ega-doom-version-20/): EGA Doom.
-* [Super Mario Wiki](https://www.mariowiki.com/Super_Game_Boy#Color_palettes): Super Game Boy color palettes info.
+* [Super Mario Wiki](https://www.mariowiki.com/Super_Game_Boy#Color_palettes): Super Game Boy colour palettes info.
 * [VCCE](https://github.com/VCCE/VCC): Tandy CoCo3 palette.
 * [Zdoom.org](https://zdoom.org/wiki/Main_Page): (G)ZDoom wiki.

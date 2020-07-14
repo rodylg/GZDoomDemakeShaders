@@ -8,10 +8,12 @@ Class DemakeShadersHandler : StaticEventHandler
 						gl_demakeshaders_targetwt,
 						gl_demakeshaders_targetht,
 						gl_demakeshaders_palette,
+						gl_demakeshaders_dither,
 						gl_demakeshaders_paldither,
 						gl_demakeshaders_useCLUTatlas;
 	transient ui uint8	pixmode,
-						lowdetail;
+						lowdetail,
+						dither;
 	transient ui uint	targetwt,
 						targetht,
 						palette;
@@ -25,6 +27,7 @@ Class DemakeShadersHandler : StaticEventHandler
 		if ( !gl_demakeshaders_lowdetail ) gl_demakeshaders_lowdetail = CVar.FindCVar('gl_demakeshaders_lowdetail');
 		if ( !gl_demakeshaders_targetwt ) gl_demakeshaders_targetwt = CVar.FindCVar('gl_demakeshaders_targetwt');
 		if ( !gl_demakeshaders_targetht ) gl_demakeshaders_targetht = CVar.FindCVar('gl_demakeshaders_targetht');
+		if ( !gl_demakeshaders_dither ) gl_demakeshaders_dither = CVar.FindCVar('gl_demakeshaders_dither');
 		if ( !gl_demakeshaders_paldither ) gl_demakeshaders_paldither = CVar.FindCVar('gl_demakeshaders_paldither');
 		if ( !gl_demakeshaders_useCLUTatlas ) gl_demakeshaders_useCLUTatlas = CVar.FindCVar('gl_demakeshaders_useCLUTatlas');
 		if ( !gl_demakeshaders_palette ) gl_demakeshaders_palette = CVar.FindCVar('gl_demakeshaders_palette');
@@ -32,6 +35,7 @@ Class DemakeShadersHandler : StaticEventHandler
 		lowdetail = gl_demakeshaders_lowdetail.GetInt();
 		targetwt = gl_demakeshaders_targetwt.GetInt();
 		targetht = gl_demakeshaders_targetht.GetInt();
+		dither = gl_demakeshaders_dither.GetInt();
 		paldither = gl_demakeshaders_paldither.GetFloat();
 		atlas = gl_demakeshaders_useCLUTatlas.GetBool();
 		palette = gl_demakeshaders_palette.GetInt();
@@ -64,16 +68,29 @@ Class DemakeShadersHandler : StaticEventHandler
 
 		if ( paldither != 0 )
 		{
-			Shader.SetEnabled(p,"Dither_Scene",true);
-			Shader.SetUniform1f(p,"Dither_Scene","paldither",paldither);
-			Shader.SetUniform1i(p,"Dither_Scene","pixmode",pixmode);
-			Shader.SetUniform1i(p,"Dither_Scene","lowdetail",lowdetail);
-			Shader.SetUniform1i(p,"Dither_Scene","targetwt",targetwt);
-			Shader.SetUniform1i(p,"Dither_Scene","targetht",targetht);
+			if ( dither == 0 )
+			{
+				Shader.SetEnabled(p,"Dither_Screen",false);
+				Shader.SetEnabled(p,"Dither_Scene",true);
+				Shader.SetUniform1f(p,"Dither_Scene","paldither",paldither);
+				Shader.SetUniform1i(p,"Dither_Scene","pixmode",pixmode);
+				Shader.SetUniform1i(p,"Dither_Scene","targetwt",targetwt);
+				Shader.SetUniform1i(p,"Dither_Scene","targetht",targetht);
+			}
+			else
+			{
+				Shader.SetEnabled(p,"Dither_Scene",false);
+				Shader.SetEnabled(p,"Dither_Screen",true);
+				Shader.SetUniform1f(p,"Dither_Screen","paldither",paldither);
+				Shader.SetUniform1i(p,"Dither_Screen","pixmode",pixmode);
+				Shader.SetUniform1i(p,"Dither_Screen","targetwt",targetwt);
+				Shader.SetUniform1i(p,"Dither_Screen","targetht",targetht);
+			}
 		}
 		else
 		{
 			Shader.SetEnabled(p,"Dither_Scene",false);
+			Shader.SetEnabled(p,"Dither_Screen",false);
 		}
 
 		if ( atlas == 1 )

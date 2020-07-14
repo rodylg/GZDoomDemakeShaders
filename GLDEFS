@@ -15,13 +15,21 @@ HardwareShader postprocess screen
 	Uniform int targetwt
 	Uniform int targetht
 }
-HardwareShader postprocess beforebloom
+HardwareShader postprocess scene
 {
 	Name "Dither_Scene"
 	Shader "shaders/glsl/dither.fp" 330
 	Uniform float paldither
 	Uniform int pixmode
-	Uniform int lowdetail
+	Uniform int targetwt
+	Uniform int targetht
+}
+HardwareShader postprocess screen
+{
+	Name "Dither_Screen"
+	Shader "shaders/glsl/dither.fp" 330
+	Uniform float paldither
+	Uniform int pixmode
 	Uniform int targetwt
 	Uniform int targetht
 }

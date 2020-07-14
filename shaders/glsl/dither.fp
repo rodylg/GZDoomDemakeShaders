@@ -55,14 +55,11 @@ void main()
 	);
 	//#undef d //Deprecated by precalculating
 	vec2 coord = TexCoord;
-	vec2 targtres = vec2(targetwt/(1+lowdetail),targetht);
+	vec2 targtres = vec2(targetwt,targetht);
 	vec2 sfact = vec2(textureSize(InputTexture,0));
 	if ( pixmode != 0 )
 	{
-		if ( lowdetail == 0 )
-			coord = vec2((floor(TexCoord.x*targtres.x)+0.5)/targtres.x,(floor(TexCoord.y*targtres.y)+0.5)/targtres.y);
-		else
-			coord = vec2((floor(TexCoord.x*targtres.x)+0.25)/targtres.x,(floor(TexCoord.y*targtres.y)+0.5)/targtres.y);
+		coord = vec2((floor(TexCoord.x*targtres.x)+0.5)/targtres.x,(floor(TexCoord.y*targtres.y)+0.5)/targtres.y);
 		sfact.xy = targtres.xy;
 	}
 	vec4 res = texture(InputTexture,coord);
