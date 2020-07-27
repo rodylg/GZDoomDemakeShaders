@@ -54,6 +54,7 @@ void main()
 		0.656250,0.406250,0.593750,0.343750,0.640625,0.390625,0.578125,0.328125
 	);
 	//#undef d //Deprecated by precalculating
+	float paldith = paldither * 0.00390625;
 	vec2 coord = TexCoord;
 	vec2 targtres = vec2(targetwt,targetht);
 	vec2 sfact = vec2(textureSize(InputTexture,0));
@@ -63,12 +64,12 @@ void main()
 		sfact.xy = targtres.xy;
 	}
 	vec4 res = texture(InputTexture,coord);
-	if ( res.r <= 0.0 ) res.r -= paldither;
-	if ( res.g <= 0.0 ) res.g -= paldither;
-	if ( res.b <= 0.0 ) res.b -= paldither;
-	if ( res.r >= 1.0 ) res.r += paldither;
-	if ( res.g >= 1.0 ) res.g += paldither;
-	if ( res.b >= 1.0 ) res.b += paldither;
-	res.rgb += paldither*dither8[int(coord.x*sfact.x)%8+int(coord.y*sfact.y)%8*8]-0.5*paldither;
+	if ( res.r <= 0.0 ) res.r -= paldith;
+	if ( res.g <= 0.0 ) res.g -= paldith;
+	if ( res.b <= 0.0 ) res.b -= paldith;
+	if ( res.r >= 1.0 ) res.r += paldith;
+	if ( res.g >= 1.0 ) res.g += paldith;
+	if ( res.b >= 1.0 ) res.b += paldith;
+	res.rgb += paldith*dither8[int(coord.x*sfact.x)%8+int(coord.y*sfact.y)%8*8]-0.5*paldith;
 	FragColor = res;
 }

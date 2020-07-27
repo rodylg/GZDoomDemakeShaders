@@ -10,14 +10,19 @@ Doom has been ported to countless devices, most of which have enough processing 
 - [x] **Multiple retro-systems palettes and colour modes:** Videogame home consoles and portable systems, Vintage graphic systems, Monochrome, Grayscale and various RGB levels/bit-depths.
 - [x] **Resolution scaler w/ Non-squared Pixel Aspect Ratios**
 - [x] **"Low-Detail" mode (double-width pixels)**
-- [ ] **Customizable Scanlines**
+- [x] **Customizable Scanlines**
 - [ ] **CRT and LCD simulation**
 - [ ] **NTSC TV-output Color grading**
 
 ## Version History
+**0.3.0-beta (2020-07-27)**
+* Scanlines shader implemented.
+* Bug in dithering shader behaviour corrected.
+* Ammended Sega Genesis' CLUT to crush blacks and improve visibility.
+
 **0.2.2-beta (2020-07-14)**
 * Ordered dither now works as originally intended with "Low Detail" mode.
-* Added an extra mode to apply full screen pixel dithering.
+* Added an extra mode to apply full-screen pixel dithering.
 * Minor spelling issues corrected.
 
 **0.2.1-beta (2020-07-13)**
@@ -80,6 +85,7 @@ Doom has been ported to countless devices, most of which have enough processing 
 * [Marisa Kirisame](https://github.com/OrdinaryMagician/marifx_m): Palette Reduction w/ Dither GLSL shader.
 * [Pixel Eater](https://forum.zdoom.org/memberlist.php?mode=viewprofile&u=20921): Atari Jaguar Color Space GLSL shader (from Vanilla Essence).
 * [Rachael](https://forum.zdoom.org/memberlist.php?mode=viewprofile&u=429): Low detail shader.
+* [RiskyJumps](https://github.com/libretro/glsl-shaders/blob/master/scanlines/shaders/scanlines-sine-abs.glsl): Scanlines shader from libretro.
 * [Sigvatr](https://www.doomworld.com/forum/topic/55710-ega-doom-version-20/): EGA Doom.
 * [Super Mario Wiki](https://www.mariowiki.com/Super_Game_Boy#Color_palettes): Super Game Boy colour palettes info.
 * [VCCE](https://github.com/VCCE/VCC): Tandy CoCo3 palette.

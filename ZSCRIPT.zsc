@@ -10,15 +10,23 @@ Class DemakeShadersHandler : StaticEventHandler
 						gl_demakeshaders_palette,
 						gl_demakeshaders_dither,
 						gl_demakeshaders_paldither,
-						gl_demakeshaders_useCLUTatlas;
+						gl_demakeshaders_useCLUTatlas,
+						gl_demakeshaders_scanlines,
+						gl_demakeshaders_scanlinesamp,
+						gl_demakeshaders_scanlinesblack,
+						gl_demakeshaders_scanlineswhite;
 	transient ui uint8	pixmode,
 						lowdetail,
 						dither;
 	transient ui uint	targetwt,
 						targetht,
 						palette;
-	transient ui float	paldither;
-	transient ui bool	atlas;
+	transient ui float	paldither,
+						amp,
+						linesblacks,
+						lineswhites;
+	transient ui bool	atlas,
+						scanlines;
 
 	override void RenderOverlay( RenderEvent e )
 	{
@@ -31,6 +39,10 @@ Class DemakeShadersHandler : StaticEventHandler
 		if ( !gl_demakeshaders_paldither ) gl_demakeshaders_paldither = CVar.FindCVar('gl_demakeshaders_paldither');
 		if ( !gl_demakeshaders_useCLUTatlas ) gl_demakeshaders_useCLUTatlas = CVar.FindCVar('gl_demakeshaders_useCLUTatlas');
 		if ( !gl_demakeshaders_palette ) gl_demakeshaders_palette = CVar.FindCVar('gl_demakeshaders_palette');
+		if ( !gl_demakeshaders_scanlines ) gl_demakeshaders_scanlines = CVar.FindCVar('gl_demakeshaders_scanlines');
+		if ( !gl_demakeshaders_scanlinesamp ) gl_demakeshaders_scanlinesamp = CVar.FindCVar('gl_demakeshaders_scanlinesamp');
+		if ( !gl_demakeshaders_scanlinesblack ) gl_demakeshaders_scanlinesblack = CVar.FindCVar('gl_demakeshaders_scanlinesblack');
+		if ( !gl_demakeshaders_scanlineswhite ) gl_demakeshaders_scanlineswhite = CVar.FindCVar('gl_demakeshaders_scanlineswhite');
 		pixmode = gl_demakeshaders_pixmode.GetInt();
 		lowdetail = gl_demakeshaders_lowdetail.GetInt();
 		targetwt = gl_demakeshaders_targetwt.GetInt();
@@ -39,6 +51,10 @@ Class DemakeShadersHandler : StaticEventHandler
 		paldither = gl_demakeshaders_paldither.GetFloat();
 		atlas = gl_demakeshaders_useCLUTatlas.GetBool();
 		palette = gl_demakeshaders_palette.GetInt();
+		scanlines = gl_demakeshaders_scanlines.GetBool();
+		amp = gl_demakeshaders_scanlinesamp.GetFloat();
+		linesblacks = gl_demakeshaders_scanlinesblack.GetFloat();
+		lineswhites = gl_demakeshaders_scanlineswhite.GetFloat();
 
 		if ( pixmode == 0 )
 		{
@@ -66,7 +82,7 @@ Class DemakeShadersHandler : StaticEventHandler
 			}
 		}
 
-		if ( paldither != 0 )
+		if ( paldither != -1 )
 		{
 			if ( dither == 0 )
 			{
@@ -534,6 +550,19 @@ Class DemakeShadersHandler : StaticEventHandler
 			default:
 				DisablePalette(0);
 			}
+		}
+
+		if ( scanlines == 1 )
+		{
+		Shader.SetEnabled(p,"Scanlines_sine_abs_screen",true);
+		Shader.SetUniform1f(p,"Scanlines_sine_abs_screen","amp",amp);
+		Shader.SetUniform1f(p,"Scanlines_sine_abs_screen","linesblack",linesblacks);
+		Shader.SetUniform1f(p,"Scanlines_sine_abs_screen","lineswhite",lineswhites);
+		Shader.SetUniform1f(p,"Scanlines_sine_abs_screen","targetht",targetht);
+		}
+		else
+		{
+		Shader.SetEnabled(p,"Scanlines_sine_abs_screen",false);
 		}
 	}
 
