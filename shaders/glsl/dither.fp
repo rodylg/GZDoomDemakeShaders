@@ -41,17 +41,13 @@ void main()
 		d(10),d(58),d( 6),d(54),d( 9),d(57),d( 5),d(53),
 		d(42),d(26),d(38),d(22),d(41),d(25),d(37),d(21)
 	); */
-		//Replacing the preprocessed ordered dithering index matrix
-	COMPAT_PRECISION float dither8[64] = float[]
+		//Replacing the preprocessed ordered dithering index matrix with a 4x4 precalculated one
+	COMPAT_PRECISION float dither4[16] = float[]
 	(
-		0.000000,0.750000,0.187500,0.937500,0.046875,0.796875,0.234375,0.984375,
-		0.500000,0.250000,0.687500,0.437500,0.546875,0.296875,0.734375,0.484375,
-		0.125000,0.875000,0.062500,0.812500,0.171875,0.921875,0.109375,0.859375,
-		0.625000,0.375000,0.562500,0.312500,0.671875,0.421875,0.609375,0.359375,
-		0.031250,0.781250,0.218750,0.968750,0.015625,0.765625,0.203125,0.953125,
-		0.531250,0.281250,0.718750,0.468750,0.515625,0.265625,0.703125,0.453125,
-		0.156250,0.906250,0.093750,0.843750,0.140625,0.890625,0.078125,0.828125,
-		0.656250,0.406250,0.593750,0.343750,0.640625,0.390625,0.578125,0.328125
+		0.0000, 0.5000, 0.1250, 0.6250,
+		0.7500, 0.2500, 0.8750, 0.3750,
+		0.1875, 0.6875, 0.0625, 0.5625,
+		0.9375, 0.4375, 0.8125, 0.3125
 	);
 	//#undef d //Deprecated by precalculating
 	float paldith = paldither * 0.00390625;
@@ -70,6 +66,6 @@ void main()
 	if ( res.r >= 1.0 ) res.r += paldith;
 	if ( res.g >= 1.0 ) res.g += paldith;
 	if ( res.b >= 1.0 ) res.b += paldith;
-	res.rgb += paldith*dither8[int(coord.x*sfact.x)%8+int(coord.y*sfact.y)%8*8]-0.5*paldith;
+	res.rgb += paldith*dither4[int(coord.x*sfact.x)%4+int(coord.y*sfact.y)%4*4]-0.5*paldith; //Modified from res.rgb += paldith*dither8[int(coord.x*sfact.x)%8+int(coord.y*sfact.y)%8*8]-0.5*paldith;
 	FragColor = res;
 }

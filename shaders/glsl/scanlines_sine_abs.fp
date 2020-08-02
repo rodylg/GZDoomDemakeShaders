@@ -21,24 +21,26 @@
  
 #ifdef GL_ES
 	#ifdef GL_FRAGMENT_PRECISION_HIGH
+		#define PI 3.14159265358979323846264
 		precision highp float;
 	#else
+		#define PI 3.1415927
 		precision mediump float;
 	#endif
 	#define COMPAT_PRECISION mediump
 #else
 	#define COMPAT_PRECISION
+	#define PI 3.14159265358979323846264
 #endif
 
 void main()
 {
 	vec3 color = COMPAT_TEXTURE(InputTexture,TexCoord).rgb;
-	float grid;
 
-	float lines;
+	float omega = 2.0 * PI * TexCoord.y;
+	float angle = (float(targetht) * omega) - (1.0 * PI * phase);
+	float lines = clamp(amp * sin(angle), 0.0, 1.0);
 
-	lines = sin(TexCoord.y * 2 * 3.14159265358979323846264 * targetht - 1.0 );
-	lines *= amp;
 	lines *= lineswhite - linesblack;
 	lines += linesblack;
 	color *= lines;

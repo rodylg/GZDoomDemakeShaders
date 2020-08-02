@@ -15,10 +15,18 @@ Doom has been ported to countless devices, most of which have enough processing 
 - [ ] **NTSC TV-output Color grading**
 
 ## Version History
+**0.3.1-beta (2020-08-02)**
+* Fixed compatibility of the scanlines shader for Delta Touch.
+* Added an extra control for fine-tuning the scanlines between odd and even fields.
+* Changed the Bayer Matrix in the dithering shader for a more retro-pleasing looking result.
+* The scale for measuring dithering strength has been re-normalized to describe "levels of dithering" instead.
+* Added a secret testing map with a grayscale gradient textured wall for the purpose of calibrating the strength of the dithering shader. Type "map DITHTEST" in the console to get to it.
+* Default values of dithering and scanlines were adjusted.
+
 **0.3.0-beta (2020-07-27)**
 * Scanlines shader implemented.
 * Bug in dithering shader behaviour corrected.
-* Ammended Sega Genesis' CLUT to crush blacks and improve visibility.
+* Amended Sega Genesis' CLUT to crush blacks and improve visibility.
 
 **0.2.2-beta (2020-07-14)**
 * Ordered dither now works as originally intended with "Low Detail" mode.

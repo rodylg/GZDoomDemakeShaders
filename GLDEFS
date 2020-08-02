@@ -878,6 +878,7 @@ HardwareShader postprocess screen
 	Name "Scanlines_sine_abs_screen"
 	Shader "shaders/glsl/scanlines_sine_abs.fp" 330
 	Uniform float amp
+	Uniform float phase
 	Uniform float linesblack
 	Uniform float lineswhite
 	Uniform int targetht

@@ -13,6 +13,7 @@ Class DemakeShadersHandler : StaticEventHandler
 						gl_demakeshaders_useCLUTatlas,
 						gl_demakeshaders_scanlines,
 						gl_demakeshaders_scanlinesamp,
+						gl_demakeshaders_scanlinesphase,
 						gl_demakeshaders_scanlinesblack,
 						gl_demakeshaders_scanlineswhite;
 	transient ui uint8	pixmode,
@@ -23,6 +24,7 @@ Class DemakeShadersHandler : StaticEventHandler
 						palette;
 	transient ui float	paldither,
 						amp,
+						phase,
 						linesblacks,
 						lineswhites;
 	transient ui bool	atlas,
@@ -41,6 +43,7 @@ Class DemakeShadersHandler : StaticEventHandler
 		if ( !gl_demakeshaders_palette ) gl_demakeshaders_palette = CVar.FindCVar('gl_demakeshaders_palette');
 		if ( !gl_demakeshaders_scanlines ) gl_demakeshaders_scanlines = CVar.FindCVar('gl_demakeshaders_scanlines');
 		if ( !gl_demakeshaders_scanlinesamp ) gl_demakeshaders_scanlinesamp = CVar.FindCVar('gl_demakeshaders_scanlinesamp');
+		if ( !gl_demakeshaders_scanlinesphase ) gl_demakeshaders_scanlinesphase = CVar.FindCVar('gl_demakeshaders_scanlinesphase');
 		if ( !gl_demakeshaders_scanlinesblack ) gl_demakeshaders_scanlinesblack = CVar.FindCVar('gl_demakeshaders_scanlinesblack');
 		if ( !gl_demakeshaders_scanlineswhite ) gl_demakeshaders_scanlineswhite = CVar.FindCVar('gl_demakeshaders_scanlineswhite');
 		pixmode = gl_demakeshaders_pixmode.GetInt();
@@ -53,6 +56,7 @@ Class DemakeShadersHandler : StaticEventHandler
 		palette = gl_demakeshaders_palette.GetInt();
 		scanlines = gl_demakeshaders_scanlines.GetBool();
 		amp = gl_demakeshaders_scanlinesamp.GetFloat();
+		phase = gl_demakeshaders_scanlinesphase.GetFloat();
 		linesblacks = gl_demakeshaders_scanlinesblack.GetFloat();
 		lineswhites = gl_demakeshaders_scanlineswhite.GetFloat();
 
@@ -556,6 +560,7 @@ Class DemakeShadersHandler : StaticEventHandler
 		{
 		Shader.SetEnabled(p,"Scanlines_sine_abs_screen",true);
 		Shader.SetUniform1f(p,"Scanlines_sine_abs_screen","amp",amp);
+		Shader.SetUniform1f(p,"Scanlines_sine_abs_screen","phase",phase);
 		Shader.SetUniform1f(p,"Scanlines_sine_abs_screen","linesblack",linesblacks);
 		Shader.SetUniform1f(p,"Scanlines_sine_abs_screen","lineswhite",lineswhites);
 		Shader.SetUniform1f(p,"Scanlines_sine_abs_screen","targetht",targetht);
