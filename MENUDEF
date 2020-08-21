@@ -47,7 +47,7 @@ OptionValue "DemakeShadersPalette"
 	19, "MSX"																	//MSX_palette
 	20, "MSX2 (Mode 6)"															//MSX2Mode6_palette
 	21, "MSX2 (Mode 7)"															//MSX2Mode7_palette
-	22, "MSX2 (Mode 8)"															//MSX2Mode8_palette
+	22, "MSX2+ [YJK+YAE]"														//MSX2Plus_palette
 	23, "Thomson TO7/70|TO5"													//ThomsonTO5_palette
 	24, "Amstrad CPC 464 (Green Scale)"											//AmstradCPCGreen_palette
 	25, "Amstrad CPC 664|6128"													//AmstradCPCColor_palette
@@ -85,7 +85,8 @@ OptionValue "DemakeShadersPalette"
 																				//R1G1B1_palette
 	57, "4-bit RGBI (Plantronics Colorplus|Sharp MZ-800)"						//4bitRGBI_palette
 	58, "3-level RGB (Toshiba Pasopia 7)"										//3levelRGB_palette
-	59, "8-bit [R3G3B2] (MSX2+|IBM PGC Pal4|Digilent Inc.|Uzebox|SGI Indy)"		//R3G3B2_palette
+	59, "8-bit [R3G3B2] (MSX2 (Mode 8)|IBM PGC Pal4|Digilent Inc.|Uzebox|SGI Indy)"
+																				//R3G3B2_palette
 	60, "8-bit [R3G2B3] (IBM PGC Pal3)"											//R3G2B3_palette
 	61, "8-bit [R2G3B3] (IBM PGC Pal2)"											//R2G3B3_palette
 	62, "9-bit [R3G3B3] (Sega Genesis/Mega Drive|NEC PC Engine/TurboGrafx-16|Nomad|Atari ST)"
@@ -159,6 +160,25 @@ OptionValue "DemakeShadersPalette"
 	128, "Game Boy"																//GameBoy_palette
 }
 
+OptionValue "DemakeShadersDisplayType"
+{
+	0, "Off"
+	1, "Scanlines"
+	2, "LCD Grid"
+}
+
+OptionValue "DemakeShadersScanlinesPow"
+{
+	1, "Linear"
+	2, "Quadratic"
+	3, "Cubic"
+	4, "Quartic"
+	5, "Quintic"
+	6, "Sextic"
+	7, "Septic"
+	8, "Octic"
+}
+
 OptionValue "DemakeShadersFrameRate"
 {
 	5, "5 fps" //3DO full screen slow
@@ -182,12 +202,19 @@ OptionValue "DemakeShadersFrameRate"
 	144, "144 hz"
 	200, "200 hz" //GZDoom default value
 	240, "240 hz"
+	360, "360 hz"
 	1000, "1000 hz" //Max waste of your CPU time...
 }
 
 OptionMenu "DemakeShadersOptionsMenu"
 {
 	Title "Demake Shaders Options"
+	StaticText " "
+	StaticText "Emergency Quick Access Key", "Gold"
+	StaticText "Use this section to turn off all menu obstructing effects", "Green"
+	StaticText " "
+	SafeCommand "Turn off all shaders", "event demakeshaderstoggle 0"
+	Control "Quick access key", "event demakeshaderstoggle 0"
 	StaticText " "
 	StaticText "Pixelize", "Gold"
 	StaticText " "
@@ -209,17 +236,6 @@ OptionMenu "DemakeShadersOptionsMenu"
 	Command "$VIDMNU_APPLYW", "menu_resolution_commit_changes 0"
 	Command "$VIDMNU_APPLYFS", "menu_resolution_commit_changes 1"
 	StaticText " "
-	StaticText "Appearance ", "Gold"
-	StaticText " "
-	Submenu "$DSPLYMNU_GLOPT", "OpenGLOptions"
-	Submenu "$GLMNU_TEXOPT", "GLTextureGLOptions"
-	Submenu "$GLMNU_DYNLIGHT", "GLLightOptions"
-	Slider "$DSPLYMNU_SCREENSIZE", "screenblocks", 3.0, 12.0, 1.0, 0
-	Option "$ALTHUDMNU_ENABLE", "hud_althud", "OnOff"
-	Option "$MOUSEMNU_ALWAYSMOUSELOOK", "freelook", "OnOff"
-	Option "$HUDMNU_CROSSHAIRON", "crosshairon", "OnOff"
-	Option "$HUDMNU_CROSSHAIR", "crosshair", "Crosshairs"
-	StaticText " "
 	StaticText "Dither", "Gold"
 	StaticText " "
 	Option "Apply to", "gl_demakeshaders_dither", "DemakeShadersDitherStyle"
@@ -231,19 +247,33 @@ OptionMenu "DemakeShadersOptionsMenu"
 	Option "Use Atlas (VRAM > 512MB)", "gl_demakeshaders_useCLUTatlas", "YesNo"
 	Option "Palette", "gl_demakeshaders_palette", "DemakeShadersPalette"
 	StaticText " "
-	StaticText "Scanlines", "Gold"
+	StaticText "Display Filter", "Gold"
 	StaticText " "
-	Option "Scanlines", "gl_demakeshaders_scanlines", "OnOff"
-	Slider "Amplitude", "gl_demakeshaders_scanlinesamp", 0, 2, 0.01, 2
-	Slider "Phase", "gl_demakeshaders_scanlinesphase", 0, 1, 0.005, 3
-	Slider "Lines Blacks", "gl_demakeshaders_scanlinesblack", 0, 1, 0.05, 2
-	Slider "Lines Whites", "gl_demakeshaders_scanlineswhite", 0, 2, 0.05, 2
+	Option "Display Type", "gl_demakeshaders_displaytype", "DemakeShadersDisplayType"
+	SubMenu "Scanlines Parameters", DemakeShadersScanlinesMenu
+	Submenu "LCD Grid Parameters", DemakeShadersLCDGridMenu
 	StaticText " "
 	StaticText "Refresh Rate Limit", "Gold"
 	StaticText " "
 	Option "Max Frame Rate", "vid_maxfps", "DemakeShadersFrameRate"
 	Option "35 fps cap", "cl_capfps", "OnOff"
 	Option "Vertical sync", "vid_vsync", "OnOff"
+	StaticText " "
+	StaticText "Appearance ", "Gold"
+	StaticText " "
+	Submenu "$DSPLYMNU_GLOPT", "OpenGLOptions"
+	Submenu "$GLMNU_TEXOPT", "GLTextureGLOptions"
+	Submenu "$GLMNU_DYNLIGHT", "GLLightOptions"
+	Slider "$DSPLYMNU_SCREENSIZE", "screenblocks", 3.0, 12.0, 1.0, 0
+	Option "$ALTHUDMNU_ENABLE", "hud_althud", "OnOff"
+	Option "$HUDMNU_CROSSHAIRON", "crosshairon", "OnOff"
+	Option "$HUDMNU_CROSSHAIR", "crosshair", "Crosshairs"
+	StaticText " "
+	StaticText "Aiming ", "Gold"
+	StaticText " "
+	Option "$MOUSEMNU_ALWAYSMOUSELOOK", "freelook", "OnOff"
+	AutoaimSlider "$PLYRMNU_AUTOAIM"
+	Option "$GMPLYMNU_SMARTAUTOAIM",			"sv_smartaim", "SmartAim"
 }
 
 OptionMenu "DemakeShadersResolutionMenu"
@@ -263,7 +293,7 @@ OptionMenu "DemakeShadersResolutionMenu"
 	Command "(Nintendo DS|ZX Spectrum|MSX|Master System) 256x192",				"event demakeshaders_targetres 256 192 3"
 	Command "(Apple II HiRes) 280x192",											"event demakeshaders_targetres 280 192 3"
 	Command "(MSX2) 256x212",													"event demakeshaders_targetres 256 212 3"
-	Command "(PC/TurboGrafx-16|Master System|SNES|NES) 256x224 [Overscan]",		"event demakeshaders_targetres 256 224 3"
+	Command "(PCe/TurboGrafx-16|Master System|SNES|NES) 256x224 [Overscan]",		"event demakeshaders_targetres 256 224 3"
 	Command "(Master System|SNES|NES) 256x240",									"event demakeshaders_targetres 256 240 3"
 	Command "(Atari 5200/400/800) 320x192",										"event demakeshaders_targetres 320 192 0"
 	Command "(CGA) 320x200",													"event demakeshaders_targetres 320 200 3"
@@ -286,4 +316,28 @@ OptionMenu "DemakeShadersResolutionMenu"
 	Command "(Amiga OCS NTSC Hires) 640x400",									"event demakeshaders_targetres 640 400 3"
 	Command "640x480",															"event demakeshaders_targetres 640 480 3"
 	Command "(PS Vita) 960x544",												"event demakeshaders_targetres 960 544 1"
+}
+
+OptionMenu "DemakeShadersScanlinesMenu"
+{
+	Title "Scanlines Parameters"
+	StaticText " "
+	Option "Power", "gl_demakeshaders_scanlinespow", "DemakeShadersScanlinesPow"
+	Slider "Amplitude", "gl_demakeshaders_scanlinesamp", 0, 2, 0.01, 2
+	Slider "Phase", "gl_demakeshaders_scanlinesphase", 0, 1, 0.005, 3
+	Slider "Lines Blacks", "gl_demakeshaders_scanlinesblack", 0, 1, 0.05, 2
+	Slider "Lines Whites", "gl_demakeshaders_scanlineswhite", 0, 2, 0.05, 2
+	SafeCommand "Reset Scanlines Parameters to Default", "event resetdemakeshadersscan 0"
+}
+
+OptionMenu "DemakeShadersLCDGridMenu"
+{
+	Title "LCD Grid Parameters"
+	StaticText " "
+	Slider "Intensity", "gl_demakeshaders_lcdgridintensity", 0, 1, 0.05, 2
+	Slider "Width", "gl_demakeshaders_lcdgridwidth", 0, 1, 0.05, 2
+	Slider "Bias", "gl_demakeshaders_lcdgridbias", 0, 1, 0.05, 2
+	Slider "Darken Grid", "gl_demakeshaders_lcdgriddarken", 0, 1, 0.01, 2
+	Slider "Darken Colours", "gl_demakeshaders_lcdgridcolour", 0, 2, 0.05, 2
+	SafeCommand "Reset LCD Grid Parameters to Default", "event resetdemakeshadersgrid 0"
 }

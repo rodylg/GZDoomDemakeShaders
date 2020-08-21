@@ -11,24 +11,36 @@ Class DemakeShadersHandler : StaticEventHandler
 						gl_demakeshaders_dither,
 						gl_demakeshaders_paldither,
 						gl_demakeshaders_useCLUTatlas,
-						gl_demakeshaders_scanlines,
+						gl_demakeshaders_displaytype,
+						gl_demakeshaders_scanlinespow,
 						gl_demakeshaders_scanlinesamp,
 						gl_demakeshaders_scanlinesphase,
 						gl_demakeshaders_scanlinesblack,
-						gl_demakeshaders_scanlineswhite;
+						gl_demakeshaders_scanlineswhite,
+						gl_demakeshaders_lcdgridintensity,
+						gl_demakeshaders_lcdgridwidth,
+						gl_demakeshaders_lcdgridbias,
+						gl_demakeshaders_lcdgriddarken,
+						gl_demakeshaders_lcdgridcolour;
 	transient ui uint8	pixmode,
 						lowdetail,
 						dither;
 	transient ui uint	targetwt,
 						targetht,
-						palette;
+						palette,
+						displaytype;
 	transient ui float	paldither,
+						power,
 						amp,
 						phase,
 						linesblacks,
-						lineswhites;
-	transient ui bool	atlas,
-						scanlines;
+						lineswhites,
+						gridintensity,
+						gridwidth,
+						gridbias,
+						griddarken,
+						gridcolour;
+	transient ui bool	atlas;
 
 	override void RenderOverlay( RenderEvent e )
 	{
@@ -41,11 +53,17 @@ Class DemakeShadersHandler : StaticEventHandler
 		if ( !gl_demakeshaders_paldither ) gl_demakeshaders_paldither = CVar.FindCVar('gl_demakeshaders_paldither');
 		if ( !gl_demakeshaders_useCLUTatlas ) gl_demakeshaders_useCLUTatlas = CVar.FindCVar('gl_demakeshaders_useCLUTatlas');
 		if ( !gl_demakeshaders_palette ) gl_demakeshaders_palette = CVar.FindCVar('gl_demakeshaders_palette');
-		if ( !gl_demakeshaders_scanlines ) gl_demakeshaders_scanlines = CVar.FindCVar('gl_demakeshaders_scanlines');
+		if ( !gl_demakeshaders_displaytype ) gl_demakeshaders_displaytype = CVar.FindCVar('gl_demakeshaders_displaytype');
+		if ( !gl_demakeshaders_scanlinespow ) gl_demakeshaders_scanlinespow = CVar.FindCVar('gl_demakeshaders_scanlinespow');
 		if ( !gl_demakeshaders_scanlinesamp ) gl_demakeshaders_scanlinesamp = CVar.FindCVar('gl_demakeshaders_scanlinesamp');
 		if ( !gl_demakeshaders_scanlinesphase ) gl_demakeshaders_scanlinesphase = CVar.FindCVar('gl_demakeshaders_scanlinesphase');
 		if ( !gl_demakeshaders_scanlinesblack ) gl_demakeshaders_scanlinesblack = CVar.FindCVar('gl_demakeshaders_scanlinesblack');
 		if ( !gl_demakeshaders_scanlineswhite ) gl_demakeshaders_scanlineswhite = CVar.FindCVar('gl_demakeshaders_scanlineswhite');
+		if ( !gl_demakeshaders_lcdgridintensity ) gl_demakeshaders_lcdgridintensity = CVar.FindCVar('gl_demakeshaders_lcdgridintensity');
+		if ( !gl_demakeshaders_lcdgridwidth ) gl_demakeshaders_lcdgridwidth = CVar.FindCVar('gl_demakeshaders_lcdgridwidth');
+		if ( !gl_demakeshaders_lcdgridbias ) gl_demakeshaders_lcdgridbias = CVar.FindCVar('gl_demakeshaders_lcdgridbias');
+		if ( !gl_demakeshaders_lcdgriddarken ) gl_demakeshaders_lcdgriddarken = CVar.FindCVar('gl_demakeshaders_lcdgriddarken');
+		if ( !gl_demakeshaders_lcdgridcolour ) gl_demakeshaders_lcdgridcolour = CVar.FindCVar('gl_demakeshaders_lcdgridcolour');
 		pixmode = gl_demakeshaders_pixmode.GetInt();
 		lowdetail = gl_demakeshaders_lowdetail.GetInt();
 		targetwt = gl_demakeshaders_targetwt.GetInt();
@@ -54,11 +72,17 @@ Class DemakeShadersHandler : StaticEventHandler
 		paldither = gl_demakeshaders_paldither.GetFloat();
 		atlas = gl_demakeshaders_useCLUTatlas.GetBool();
 		palette = gl_demakeshaders_palette.GetInt();
-		scanlines = gl_demakeshaders_scanlines.GetBool();
+		displaytype = gl_demakeshaders_displaytype.GetInt();
+		power = gl_demakeshaders_scanlinespow.GetFloat();
 		amp = gl_demakeshaders_scanlinesamp.GetFloat();
 		phase = gl_demakeshaders_scanlinesphase.GetFloat();
 		linesblacks = gl_demakeshaders_scanlinesblack.GetFloat();
 		lineswhites = gl_demakeshaders_scanlineswhite.GetFloat();
+		gridintensity = gl_demakeshaders_lcdgridintensity.GetFloat();
+		gridwidth = gl_demakeshaders_lcdgridwidth.GetFloat();
+		gridbias = gl_demakeshaders_lcdgridbias.GetFloat();
+		griddarken = gl_demakeshaders_lcdgriddarken.GetFloat();
+		gridcolour = gl_demakeshaders_lcdgridcolour.GetFloat();
 
 		if ( pixmode == 0 )
 		{
@@ -229,7 +253,7 @@ Class DemakeShadersHandler : StaticEventHandler
 				Shader.SetEnabled(p,"MSX2Mode7_palette",true);
 				break;
 			case 22:
-				Shader.SetEnabled(p,"MSX2Mode8_palette",true);
+				Shader.SetEnabled(p,"MSX2Plus_palette",true);
 				break;
 			case 23:
 				Shader.SetEnabled(p,"ThomsonTO5_palette",true);
@@ -556,18 +580,36 @@ Class DemakeShadersHandler : StaticEventHandler
 			}
 		}
 
-		if ( scanlines == 1 )
+		switch ( displaytype )
 		{
-		Shader.SetEnabled(p,"Scanlines_sine_abs_screen",true);
-		Shader.SetUniform1f(p,"Scanlines_sine_abs_screen","amp",amp);
-		Shader.SetUniform1f(p,"Scanlines_sine_abs_screen","phase",phase);
-		Shader.SetUniform1f(p,"Scanlines_sine_abs_screen","linesblack",linesblacks);
-		Shader.SetUniform1f(p,"Scanlines_sine_abs_screen","lineswhite",lineswhites);
-		Shader.SetUniform1f(p,"Scanlines_sine_abs_screen","targetht",targetht);
-		}
-		else
-		{
-		Shader.SetEnabled(p,"Scanlines_sine_abs_screen",false);
+		case 0:
+			Shader.SetEnabled(p,"Scanlines_sine_abs_screen",false);
+			Shader.SetEnabled(p,"Simpletex_lcd_4k_screen",false);
+			break;
+		case 1:
+			Shader.SetEnabled(p,"Simpletex_lcd_4k_screen",false);
+			Shader.SetEnabled(p,"Scanlines_sine_abs_screen",true);
+			Shader.SetUniform1f(p,"Scanlines_sine_abs_screen","power",power);
+			Shader.SetUniform1f(p,"Scanlines_sine_abs_screen","amp",amp);
+			Shader.SetUniform1f(p,"Scanlines_sine_abs_screen","phase",phase);
+			Shader.SetUniform1f(p,"Scanlines_sine_abs_screen","linesblack",linesblacks);
+			Shader.SetUniform1f(p,"Scanlines_sine_abs_screen","lineswhite",lineswhites);
+			Shader.SetUniform1f(p,"Scanlines_sine_abs_screen","targetht",targetht);
+			break;
+		case 2:
+			Shader.SetEnabled(p,"Scanlines_sine_abs_screen",false);
+			Shader.SetEnabled(p,"Simpletex_lcd_4k_screen",true);
+			Shader.SetUniform1f(p,"Simpletex_lcd_4k_screen","GRID_INTENSITY",gridintensity);
+			Shader.SetUniform1f(p,"Simpletex_lcd_4k_screen","GRID_WIDTH",gridwidth);
+			Shader.SetUniform1f(p,"Simpletex_lcd_4k_screen","GRID_BIAS",gridbias);
+			Shader.SetUniform1f(p,"Simpletex_lcd_4k_screen","DARKEN_GRID",griddarken);
+			Shader.SetUniform1f(p,"Simpletex_lcd_4k_screen","DARKEN_COLOUR",gridcolour);
+			Shader.SetUniform1f(p,"Simpletex_lcd_4k_screen","targetht",targetht);
+			Shader.SetUniform1f(p,"Simpletex_lcd_4k_screen","targetwt",targetwt);
+			break;
+		Default:
+			Shader.SetEnabled(p,"Scanlines_sine_abs_screen",false);
+			Shader.SetEnabled(p,"Simpletex_lcd_4k_screen",false);
 		}
 	}
 
@@ -641,7 +683,7 @@ Class DemakeShadersHandler : StaticEventHandler
 			Shader.SetEnabled(p,"MSX2Mode7_palette",false);
 			break;
 		case 22:
-			Shader.SetEnabled(p,"MSX2Mode8_palette",false);
+			Shader.SetEnabled(p,"MSX2Plus_palette",false);
 			break;
 		case 23:
 			Shader.SetEnabled(p,"ThomsonTO5_palette",false);
@@ -983,7 +1025,7 @@ Class DemakeShadersHandler : StaticEventHandler
 			Shader.SetEnabled(p,"MSX_palette",false);
 			Shader.SetEnabled(p,"MSX2Mode6_palette",false);
 			Shader.SetEnabled(p,"MSX2Mode7_palette",false);
-			Shader.SetEnabled(p,"MSX2Mode8_palette",false);
+			Shader.SetEnabled(p,"MSX2Plus_palette",false);
 			Shader.SetEnabled(p,"ThomsonTO5_palette",false);
 			Shader.SetEnabled(p,"AmstradCPCGreen_palette",false);
 			Shader.SetEnabled(p,"AmstradCPCColor_palette",false);
@@ -1107,6 +1149,42 @@ Class DemakeShadersHandler : StaticEventHandler
 				break;
 			}
 		}
+		if ( e.Name ~== "resetdemakeshadersscan" )
+		{
+			switch( e.args[0] )
+			{
+			case 0:
+				if ( !gl_demakeshaders_scanlinespow ) gl_demakeshaders_scanlinespow = CVar.FindCVar('gl_demakeshaders_scanlinespow');
+				gl_demakeshaders_scanlinespow.ResetToDefault();
+				if ( !gl_demakeshaders_scanlinesamp ) gl_demakeshaders_scanlinesamp = CVar.FindCVar('gl_demakeshaders_scanlinesamp');
+				gl_demakeshaders_scanlinesamp.ResetToDefault();
+				if ( !gl_demakeshaders_scanlinesphase ) gl_demakeshaders_scanlinesphase = CVar.FindCVar('gl_demakeshaders_scanlinesphase');
+				gl_demakeshaders_scanlinesphase.ResetToDefault();
+				if ( !gl_demakeshaders_scanlinesblack ) gl_demakeshaders_scanlinesblack = CVar.FindCVar('gl_demakeshaders_scanlinesblack');
+				gl_demakeshaders_scanlinesblack.ResetToDefault();
+				if ( !gl_demakeshaders_scanlineswhite ) gl_demakeshaders_scanlineswhite = CVar.FindCVar('gl_demakeshaders_scanlineswhite');
+				gl_demakeshaders_scanlineswhite.ResetToDefault();
+				break;
+			}
+		}
+		if ( e.Name ~== "resetdemakeshadersgrid" )
+		{
+			switch( e.args[0] )
+			{
+			case 0:
+				if ( !gl_demakeshaders_lcdgridintensity ) gl_demakeshaders_lcdgridintensity = CVar.FindCVar('gl_demakeshaders_lcdgridintensity');
+				gl_demakeshaders_lcdgridintensity.ResetToDefault();
+				if ( !gl_demakeshaders_lcdgridwidth ) gl_demakeshaders_lcdgridwidth = CVar.FindCVar('gl_demakeshaders_lcdgridwidth');
+				gl_demakeshaders_lcdgridwidth.ResetToDefault();
+				if ( !gl_demakeshaders_lcdgridbias ) gl_demakeshaders_lcdgridbias = CVar.FindCVar('gl_demakeshaders_lcdgridbias');
+				gl_demakeshaders_lcdgridbias.ResetToDefault();
+				if ( !gl_demakeshaders_lcdgriddarken ) gl_demakeshaders_lcdgriddarken = CVar.FindCVar('gl_demakeshaders_lcdgriddarken');
+				gl_demakeshaders_lcdgriddarken.ResetToDefault();
+				if ( !gl_demakeshaders_lcdgridcolour ) gl_demakeshaders_lcdgridcolour = CVar.FindCVar('gl_demakeshaders_lcdgridcolour');
+				gl_demakeshaders_lcdgridcolour.ResetToDefault();
+				break;
+			}
+		}
 		if ( e.Name ~== "demakeshaders_targetres" )
 		{
 			if ( !gl_demakeshaders_targetwt ) gl_demakeshaders_targetwt = CVar.FindCVar('gl_demakeshaders_targetwt');
@@ -1115,6 +1193,22 @@ Class DemakeShadersHandler : StaticEventHandler
 			gl_demakeshaders_targetwt.SetInt( e.args[0] );
 			gl_demakeshaders_targetht.SetInt( e.args[1] );
 			vid_aspect.SetInt( e.args[2] );
+		}
+		if ( e.Name ~== "demakeshaderstoggle" )
+		{
+			switch( e.args[0] )
+			{
+			case 0:
+				if ( !gl_demakeshaders_pixmode ) gl_demakeshaders_pixmode = CVar.FindCVar('gl_demakeshaders_pixmode');
+				gl_demakeshaders_pixmode.ResetToDefault();
+				if ( !gl_demakeshaders_dither ) gl_demakeshaders_dither = CVar.FindCVar('gl_demakeshaders_dither');
+				gl_demakeshaders_dither.ResetToDefault();
+				if ( !gl_demakeshaders_palette ) gl_demakeshaders_palette = CVar.FindCVar('gl_demakeshaders_palette');
+				gl_demakeshaders_palette.ResetToDefault();
+				if ( !gl_demakeshaders_displaytype ) gl_demakeshaders_displaytype = CVar.FindCVar('gl_demakeshaders_displaytype');
+				gl_demakeshaders_displaytype.ResetToDefault();
+				break;
+			}
 		}
 	}
 }

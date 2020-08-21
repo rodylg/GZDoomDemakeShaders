@@ -5,7 +5,7 @@
 	license: public domain
 	
 	Ported from scanlines-sine-abs.glsl
-	from RetroArch
+	from RetroArch to GZDoom
 	by Rusco Istar
 */
 
@@ -18,7 +18,7 @@
 	#define FragColor gl_FragColor
 	#define COMPAT_TEXTURE texture2D
 #endif
- 
+
 #ifdef GL_ES
 	#ifdef GL_FRAGMENT_PRECISION_HIGH
 		#define PI 3.14159265358979323846264
@@ -35,11 +35,11 @@
 
 void main()
 {
-	vec3 color = COMPAT_TEXTURE(InputTexture,TexCoord).rgb;
+	vec3 color = COMPAT_TEXTURE(InputTexture,TexCoord).rgb;	//Modified from vec3 color = COMPAT_TEXTURE(Source, vTexCoord).xyz;
 
-	float omega = 2.0 * PI * TexCoord.y;
-	float angle = (float(targetht) * omega) - (1.0 * PI * phase);
-	float lines = clamp(amp * sin(angle), 0.0, 1.0);
+	float omega = 2.0 * PI * TexCoord.y;	//Modified from float omega = 2.0 * pi * freq;              // Angular frequency
+	float angle = (float(targetht) * omega) - (PI * phase);	//modified from angle = TEX0.y * omega * TextureSize.y + phase;
+	float lines = clamp(pow(amp,power) * sin(angle), 0.0, 1.0);
 
 	lines *= lineswhite - linesblack;
 	lines += linesblack;

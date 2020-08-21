@@ -10,18 +10,25 @@ Doom has been ported to countless devices, most of which have enough processing 
 - [x] **Multiple retro-systems palettes and colour modes:** Videogame home consoles and portable systems, Vintage graphic systems, Monochrome, Grayscale and various RGB levels/bit-depths.
 - [x] **Resolution scaler w/ Non-squared Pixel Aspect Ratios**
 - [x] **"Low-Detail" mode (double-width pixels)**
-- [x] **Customizable Scanlines**
+- [x] **Customizable Scanlines and LCD Grid**
 - [ ] **CRT and LCD simulation**
 - [ ] **NTSC TV-output Color grading**
 
 ## Version History
+**0.4.0-beta (2020-08-21)**
+* LCD Grid shader implemented.
+* New control to modify the power of the scanlines amplitude. Linear gives the most round shape while higher degrees give them a more squared shape.
+* Amended all the CLUT files to crush blacks and improve visibility.
+* Organized the menu for less clutter. Scanlines and LCD Grid controls are now in their own submenus.
+* New emergency button to turn off all the menu obstructing shaders. It's especially useful as render resolution increases.
+
 **0.3.1-beta (2020-08-02)**
 * Fixed compatibility of the scanlines shader for Delta Touch.
 * Added an extra control for fine-tuning the scanlines between odd and even fields.
 * Changed the Bayer Matrix in the dithering shader for a more retro-pleasing looking result.
 * The scale for measuring dithering strength has been re-normalized to describe "levels of dithering" instead.
 * Added a secret testing map with a grayscale gradient textured wall for the purpose of calibrating the strength of the dithering shader. Type "map DITHTEST" in the console to get to it.
-* Default values of dithering and scanlines were adjusted.
+* The default values of dithering and scanlines were adjusted.
 
 **0.3.0-beta (2020-07-27)**
 * Scanlines shader implemented.
