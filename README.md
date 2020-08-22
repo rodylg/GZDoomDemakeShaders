@@ -95,6 +95,8 @@ Doom has been ported to countless devices, most of which have enough processing 
 * [Ahefner](https://ahefner.livejournal.com/11670.html): NES colour palette and colour emphasis bits info.
 * [Alex Charlton](http://alex-charlton.com/posts/Dithering_on_the_GPU/): "Dithering on the GPU" primer.
 * [Alison Watson](https://github.com/marrub--/zdoom-doc): ZScript documentation.
+* [Greg Hogan](https://github.com/ghogan42/common-shaders/blob/zfast_shaders/shaders/zfast_lcd_standard.glsl): 'Line weighting' equation from zfast_lcd_standard
+* [jdgleaver](https://forums.libretro.com/t/simple-textured-shader-for-non-backlit-lcd-systems-gbc-etc/15520): Simple textured shader for LCD systems.
 * [Jeremy Selan](https://developer.nvidia.com/gpugems/gpugems2/part-iii-high-quality-rendering/chapter-24-using-lookup-tables-accelerate-color): GLSL LUT optimized shaders.
 * [khronos.org](https://www.khronos.org/opengl/wiki/GLSL_Optimizations#Get_MAD): GLSL Optimizations and general documentation.
 * [Marisa Kirisame](https://github.com/OrdinaryMagician/marifx_m): Palette Reduction w/ Dither GLSL shader.
